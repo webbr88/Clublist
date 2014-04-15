@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414130423) do
+ActiveRecord::Schema.define(version: 20140415181357) do
+
+  create_table "nightclubs", force: true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "phone_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reservations", force: true do |t|
+    t.integer  "res_id"
+    t.integer  "nightclub_id"
+    t.integer  "table_id"
+    t.datetime "reservation_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

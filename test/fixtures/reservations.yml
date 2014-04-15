@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  res_id: 1
+  nightclub_id: 1
+  table_id: 1
+  reservation_date: 2014-04-15 13:13:57
+
+two:
+  res_id: 1
+  nightclub_id: 1
+  table_id: 1
+  reservation_date: 2014-04-15 13:13:57

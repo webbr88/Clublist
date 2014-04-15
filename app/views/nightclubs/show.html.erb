@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @nightclub.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @nightclub.address %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @nightclub.phone_number %>
+</p>
+
+<%= link_to 'Edit', edit_nightclub_path(@nightclub) %> |
+<%= link_to 'Back', nightclubs_path %>
