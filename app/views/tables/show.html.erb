@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nightclub:</strong>
+  <%= @table.nightclub_id %>
+</p>
+
+<p>
+  <strong>Min cost:</strong>
+  <%= @table.min_cost %>
+</p>
+
+<%= render :partial=>'new_reservation', :locals=> {:reservation => Reservation.new(:table_id=>@table.id, :user_id=>@user.id)} %>
+
+<%= link_to 'Edit', edit_table_path(@table) %> |
+<%= link_to 'Back', tables_path %>

@@ -15,5 +15,7 @@
   <%= @nightclub.phone_number %>
 </p>
 
+<%= render :partial=>'show_tables', :locals=> {:table => Table.find_all_by_nightclub_id(@nightclub.id)} %>
+
 <%= link_to 'Edit', edit_nightclub_path(@nightclub) %> |
 <%= link_to 'Back', nightclubs_path %>

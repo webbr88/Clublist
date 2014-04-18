@@ -1,6 +1,8 @@
 Clublist::Application.routes.draw do
   resources :reservations
 
+  resources :tables
+
   resources :nightclubs
 
   devise_for :users

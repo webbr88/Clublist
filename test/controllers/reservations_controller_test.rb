@@ -18,7 +18,7 @@ class ReservationsControllerTest < ActionController::TestCase
 
   test "should create reservation" do
     assert_difference('Reservation.count') do
-      post :create, reservation: { nightclub_id: @reservation.nightclub_id, res_id: @reservation.res_id, reservation_date: @reservation.reservation_date, table_id: @reservation.table_id }
+      post :create, reservation: { table_id: @reservation.table_id, user_id: @reservation.user_id }
     end
 
     assert_redirected_to reservation_path(assigns(:reservation))
@@ -35,7 +35,7 @@ class ReservationsControllerTest < ActionController::TestCase
   end
 
   test "should update reservation" do
-    patch :update, id: @reservation, reservation: { nightclub_id: @reservation.nightclub_id, res_id: @reservation.res_id, reservation_date: @reservation.reservation_date, table_id: @reservation.table_id }
+    patch :update, id: @reservation, reservation: { table_id: @reservation.table_id, user_id: @reservation.user_id }
     assert_redirected_to reservation_path(assigns(:reservation))
   end
 

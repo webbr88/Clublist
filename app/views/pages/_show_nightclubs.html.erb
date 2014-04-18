@@ -1,0 +1,21 @@
+
+<% for nightclub in nightclub %>
+
+<p>
+  <strong>Name:</strong>
+  <%= nightclub.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= nightclub.address %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= nightclub.phone_number %>
+</p>
+
+<%= link_to 'Make a reservation', nightclub %> 
+
+<% end %>

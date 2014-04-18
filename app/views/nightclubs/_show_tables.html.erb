@@ -1,0 +1,17 @@
+<% for table in table %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nightclub:</strong>
+  <%= table.nightclub_id %>
+</p>
+
+<p>
+  <strong>Min cost:</strong>
+  <%= table.min_cost %>
+</p>
+
+<%= link_to 'Make a reservation', table %> 
+
+<% end %>
