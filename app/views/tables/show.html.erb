@@ -10,7 +10,7 @@
   <%= @table.min_cost %>
 </p>
 
-<%= render :partial=>'new_reservation', :locals=> {:reservation => Reservation.new(:table_id=>@table.id, :user_id=>@user.id)} %>
+<%= render :partial=>'new_reservation', :locals=> {:reservation => Reservation.new(:table_id=> @table.id)} %>
 
 <%= link_to 'Edit', edit_table_path(@table) %> |
 <%= link_to 'Back', tables_path %>

@@ -1,17 +1,28 @@
 <div class="jumbotron center">
 <h1>Clublist</h1>
 <p>Welcome to Clublist -  Own Your Night</p>
-<% if user_signed_in? %>
-          <h4> Let's Book you a table </h4>
 
+
+<% if user_signed_in? %>
+
+          <h3> Let's Book you a table </h3>
           <%= render :partial=>'show_nightclubs', :locals=> {:nightclub => Nightclub.find(:all)} %>
+
+          <br>
+          <br>
+          <h3> Here are your reservations </h3>
+          	  <%= render :partial=>'show_reservations', :locals=> {:reservation => Reservation.find(:all)} %>
+       
      <% else %>
 
-h4>At Greenbook we're revolutionizing how you purchase text books.
-	Click here and save </h4>
+<h4>Clublist gets you connected to the top nightclubs in your city.</h4>
 </br>
+<h4> No texting club promoters or getting turned away at the door. Take control of your night!</h4>
+
 	<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary center" %> 
 	<%= link_to "Log in", new_user_session_path , class: "btn btn-default center" %>
      <% end %>
+
+
 
 </div>
