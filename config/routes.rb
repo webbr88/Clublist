@@ -4,9 +4,9 @@ Clublist::Application.routes.draw do
   resources :tables
 
   resources :nightclubs
-
-  devise_for :users
-  root "pages#home"
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
+root "pages#home"
   get "about" => "pages#about"
   get "contact" => "pages#contact"
 
