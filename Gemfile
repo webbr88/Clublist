@@ -12,6 +12,7 @@ gem 'devise', '~> 3.2.4'
 gem 'omniauth'
 gem 'omniauth-facebook' 
 gem 'paperclip', '~> 3.0'
+gem "koala"
 
 
 group :doc do

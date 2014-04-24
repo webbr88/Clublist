@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140422030418) do
+ActiveRecord::Schema.define(version: 20140424220816) do
+
+  create_table "facebook_oauth_settings", force: true do |t|
+    t.string   "access_token"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "nightclubs", force: true do |t|
     t.string   "name"
@@ -52,6 +59,7 @@ ActiveRecord::Schema.define(version: 20140422030418) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.string   "oauth_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

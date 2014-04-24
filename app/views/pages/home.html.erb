@@ -12,7 +12,17 @@
           <br>
           <h3> Here are your reservations </h3>
           	  <%= render :partial=>'show_reservations', :locals=> {:reservation => Reservation.find(:all)} %>
-       
+
+
+                  <% if current_user.oauth_token %>
+       <% @graph = Koala::Facebook::API.new(current_user.oauth_token) %>
+
+      <%= @a = @graph.get_object("me") %>
+     <%= @a["gender"] %>
+     <img src ="<%= @picture = @graph.get_picture("me") %>" >
+     
+   <% end %>
+
      <% else %>
 
 <h4>Clublist gets you connected to the top nightclubs in your city.</h4>
