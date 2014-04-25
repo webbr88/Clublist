@@ -5,23 +5,34 @@
 
 <% if user_signed_in? %>
 
-          <h3> Let's Book you a table </h3>
+ <% if current_user.oauth_token %>
+       <% @graph = Koala::Facebook::API.new(current_user.oauth_token) %>
+
+      <%= @a = @graph.get_object("me") %>
+   
+     <img src ="<%= @picture = @graph.get_picture("me") %>" >
+     
+  
+    <img src ="<%= @picture = @graph.get_picture("me") %>" >
+    <br>
+
+          <h3> <%= @a["name"] %> Let's Book you a table </h3>
           <%= render :partial=>'show_nightclubs', :locals=> {:nightclub => Nightclub.find(:all)} %>
 
           <br>
           <br>
           <h3> Here are your reservations </h3>
           	  <%= render :partial=>'show_reservations', :locals=> {:reservation => Reservation.find(:all)} %>
+  <% else %>
 
+    <h3> <%= current_user.email %> Let's Book you a table </h3>
+          <%= render :partial=>'show_nightclubs', :locals=> {:nightclub => Nightclub.find(:all)} %>
 
-                  <% if current_user.oauth_token %>
-       <% @graph = Koala::Facebook::API.new(current_user.oauth_token) %>
-
-      <%= @a = @graph.get_object("me") %>
-     <%= @a["gender"] %>
-     <img src ="<%= @picture = @graph.get_picture("me") %>" >
-     
-   <% end %>
+          <br>
+          <br>
+          <h3> Here are your reservations </h3>
+              <%= render :partial=>'show_reservations', :locals=> {:reservation => Reservation.find(:all)} %>
+  <% end %>
 
      <% else %>
 
