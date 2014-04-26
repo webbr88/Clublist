@@ -7,8 +7,9 @@ Clublist::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
 root "pages#home"
-  get "about" => "pages#about"
-  get "contact" => "pages#contact"
+get "about" => "pages#about"
+get "contact" => "pages#contact"
+resources :charges
 
   
   # The priority is based upon order of creation: first created -> highest priority.

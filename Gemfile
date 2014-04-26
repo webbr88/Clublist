@@ -13,6 +13,7 @@ gem 'omniauth'
 gem 'omniauth-facebook' 
 gem 'paperclip', '~> 3.0'
 gem "koala"
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 
 group :doc do
