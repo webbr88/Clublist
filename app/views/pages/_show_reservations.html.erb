@@ -1,12 +1,10 @@
-<h1>Listing reservations</h1>
-
 <table>
   <thead>
     <tr>
       <th>User</th>
       <th>Table</th>
+      <th>Table</th>
       <th>Date</th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -14,14 +12,19 @@
   <tbody>
     <% reservation.each do |reservation| %>
     <% if reservation.user == current_user %>
+    <% if reservation.reservation_date < Date.today.to_s %>
+    <% r=reservation.table_id %>
+    <% n=Table.find(r).nightclub_id %>
       <tr>
-        <td><%= reservation.user.email if reservation.user %></td>
+        <td><%= current_user.name if reservation.user %></td>
         <td><%= reservation.table_id %></td>
+        <td><%= Nightclub.find(n).name %></td>
         <td><%= reservation.reservation_date %></td>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
         <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <%end%>
       <% end %>
     <% end %>
   </tbody>

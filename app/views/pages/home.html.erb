@@ -1,40 +1,47 @@
-<div class="jumbotron center">
-<h1>Clublist</h1>
-<p>Welcome to Clublist -  Own Your Night</p>
-
-
 <% if user_signed_in? %>
-
  <% if current_user.oauth_token %>
-       <% @graph = Koala::Facebook::API.new(current_user.oauth_token) %>
+      <% @graph = Koala::Facebook::API.new(current_user.oauth_token) %>
+      <% @a = @graph.get_object("me") %>
+      <% @friends = @graph.get_connections("me", "friends") %>
 
-      <%= @a = @graph.get_object("me") %>
-   
-     <img src ="<%= @picture = @graph.get_picture("me") %>" >
-     
-  
-    <img src ="<%= @picture = @graph.get_picture("me") %>" >
-    <br>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5">
+        <img src ="<%= @picture = @graph.get_picture( "me", type: :large) %>" >
+        <h5> Name: <%= @a["name"] %> </h5>
+        <% b = 0 %>
+        <% @friends.each do |f| %>
+          <% b = b+1 %>
+        <% end %>
+        <h5> Number of Facebook Friends: <%= b %> </h5>
+        <h5>City: <%= @a["location"]["name"] if @a["location"] %></h5>
+        <h5>Status: <%if b>=1000%> Party Animal <%else%> Yolo Monster <%end%>
+      </div>
+      <div class="col-md-7">
+        <h5> Here are your futre Reservations </h5>
+        <%= render :partial=>'show_reservations', :locals=> {:reservation => Reservation.find(:all),:table =>Table.find(:all), :nightclub => Nightclub.find(:all)} %>
+      </div>
+    </div>
+</div>
 
+
+<div class="jumbotron center">
           <h3> <%= @a["name"] %> Let's Book you a table </h3>
           <%= render :partial=>'show_nightclubs', :locals=> {:nightclub => Nightclub.find(:all)} %>
 
-          <br>
-          <br>
-          <h3> Here are your reservations </h3>
-          	  <%= render :partial=>'show_reservations', :locals=> {:reservation => Reservation.find(:all)} %>
   <% else %>
 
     <h3> <%= current_user.email %> Let's Book you a table </h3>
           <%= render :partial=>'show_nightclubs', :locals=> {:nightclub => Nightclub.find(:all)} %>
 
-          <br>
-          <br>
-          <h3> Here are your reservations </h3>
-              <%= render :partial=>'show_reservations', :locals=> {:reservation => Reservation.find(:all)} %>
+         
   <% end %>
 
+</div>
+
      <% else %>
+
+<div class="jumbotron center">
 
 <h4>Clublist gets you connected to the top nightclubs in your city.</h4>
 </br>

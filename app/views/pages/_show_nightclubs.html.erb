@@ -1,21 +1,16 @@
 
-<% for nightclub in nightclub %>
+<div id="nightclubs" class="transitions-enabled">
+    <% for nightclub in nightclub %>
+        <div class="box panel panel-default">
+        <%=link_to image_tag(nightclub.image.url (:medium)), nightclub %>
+        <div class= "panel-body">
+        <%= nightclub.name %>
+        <%= nightclub.address %>
+        <%= nightclub.phone_number %>
+       <%= link_to 'Make a reservation', nightclub %> 
+  
+  </div>
+  </div>
+     <% end %>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= nightclub.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= nightclub.address %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= nightclub.phone_number %>
-</p>
-
-<%= link_to 'Make a reservation', nightclub %> 
-
-<% end %>

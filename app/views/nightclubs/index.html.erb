@@ -1,31 +1,19 @@
-<h1>Listing nightclubs</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Phone number</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div id="nightclubs" class="transitions-enabled">
     <% @nightclubs.each do |nightclub| %>
-      <tr>
-        <td><%= nightclub.name %></td>
-        <td><%= nightclub.address %></td>
-        <td><%= nightclub.phone_number %></td>
-        <td><%= link_to 'Show', nightclub %></td>
-        <td><%= link_to 'Edit', edit_nightclub_path(nightclub) %></td>
-        <td><%= link_to 'Destroy', nightclub, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <div class="box panel panel-default">
+        <%= image_tag nightclub.image.url (:medium) %>
+        <div class= "panel-body">
+        <%= nightclub.name %>
+        <%= nightclub.address %>
+        <%= nightclub.phone_number %>
+        <%= link_to 'Show', nightclub %>
+        <%= link_to 'Edit', edit_nightclub_path(nightclub) %>
+        <%= link_to 'Destroy', nightclub, method: :delete, data: { confirm: 'Are you sure?' } %>
+  
+  </div>
+  </div>
+     <% end %>
+</div>
 
-<br>
 
-<%= link_to 'New Nightclub', new_nightclub_path %>

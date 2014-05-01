@@ -69,6 +69,6 @@ class NightclubsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def nightclub_params
-      params.require(:nightclub).permit(:name, :address, :phone_number)
+      params.require(:nightclub).permit(:name, :address, :phone_number, :image)
     end
 end

@@ -6,14 +6,17 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass'
 gem 'devise', '~> 3.2.4'
 gem 'omniauth'
 gem 'omniauth-facebook' 
-gem 'paperclip', '~> 3.0'
+gem 'paperclip', github: 'thoughtbot/paperclip' 
 gem "koala"
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'masonry-rails', '~> 0.2.0'
+gem 'aws-sdk', '~> 1.20.0'
 
 
 group :doc do
