@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   
 	devise :omniauthable
   	devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
    has_many :reservations
    has_many :tables, :through => :reservations
