@@ -1,4 +1,6 @@
 Clublist::Application.routes.draw do
+  resources :payments
+
   resources :reservations
 
   resources :tables
@@ -6,10 +8,10 @@ Clublist::Application.routes.draw do
   resources :nightclubs
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
-root "pages#home"
-get "about" => "pages#about"
-get "contact" => "pages#contact"
-resources :charges
+  root "pages#home"
+  get "about" => "pages#about"
+  get "contact" => "pages#contact"
+  resources :charges
 
   
   # The priority is based upon order of creation: first created -> highest priority.

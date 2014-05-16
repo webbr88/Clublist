@@ -6,6 +6,7 @@ $navbar-default-bg: #2c3e50;
 $navbar-default-link-color: white;
 $jumbotron-bg: #ecf0f1;
 $brand-primary: #3498db;
+$table-cell-padding: 10px;
 @import 'bootstrap';
 
 .center {
@@ -14,5 +15,10 @@ $brand-primary: #3498db;
 
 .navbar-brand {
      font-weight: bold;
+}
+
+.table {
+  font-weight: bold;
+
 }
 

@@ -7,8 +7,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
    has_many :reservations
+   has_many :payments
    has_many :tables, :through => :reservations
-
+   has_many :tables, :through => :payments
 
 def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first

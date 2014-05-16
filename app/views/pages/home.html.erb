@@ -6,7 +6,7 @@
 
 <div class="container-fluid">
     <div class="row">
-      <div class="col-md-5">
+      <div class="col-md-4">
         <div class="jumbotron">
         <img src ="<%= @picture = @graph.get_picture( "me", type: :large) %>" >
         <h5> Name: <%= @a["name"] %> </h5>
@@ -14,7 +14,6 @@
         <% @friends.each do |f| %>
           <% b = b+1 %>
         <% end %>
-        <h5> Number of Facebook Friends: <%= b %> </h5>
 
         <% if @a["location"] %>
           <h5>City: <%= @a["location"]["name"] %></h5>
@@ -24,9 +23,9 @@
         <h5>Status: <%if b>=1000%> Party Animal <%else%> Yolo Monster <%end%>
       </div>
     </div>
-      <div class="col-md-7">
+      <div class="col-md-8">
         <div class="jumbotron">
-        <h5> Here are your futre Reservations </h5>
+        <h5> Here are your future Reservations </h5>
         <%= render :partial=>'show_reservations', :locals=> {:reservation => Reservation.find(:all),:table =>Table.find(:all), :nightclub => Nightclub.find(:all)} %>
       </div>
       </div>

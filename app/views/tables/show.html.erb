@@ -10,20 +10,8 @@
   <%= @table.min_cost %>
 </p>
 
-<%= render :partial=>'new_reservation', :locals=> {:reservation => Reservation.new(:table_id=> @table.id)} %>
+<%= render :partial=>'new_payment', :locals=> {:payment => Payment.new(:table_id=> @table.id)} %>
 
-<%= form_tag root_path do %>
-  <article>
-    <label class= "amount">
-      <span>Amount: <%= @table.min_cost %></span>
-    </label>
-  </article>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Bottle Service"
-          data-amount= <%= @table.min_cost*100 %> ></script>
-<% end %>
 
 <%= link_to 'Edit', edit_table_path(@table) %> |
 <%= link_to 'Back', tables_path %>

@@ -1,26 +1,27 @@
-<table>
+
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Table</th>
+      <div class="table">
+      <th>Hotel</th>
       <th>Table</th>
       <th>Date</th>
       <th></th>
+    </div>
     </tr>
   </thead>
 
   <tbody>
     <% reservation.each do |reservation| %>
     <% if reservation.user == current_user %>
-    <% if reservation.reservation_date < Date.today.to_s %>
+    <% if reservation.reservation_date > Date.today.to_s %>
     <% r=reservation.table_id %>
     <% n=Table.find(r).nightclub_id %>
       <tr>
-        <td><%= current_user.name if reservation.user %></td>
-        <td><%= reservation.table_id %></td>
         <td><%= Nightclub.find(n).name %></td>
-        <td><%= reservation.reservation_date %></td>
-        <td><%= link_to 'Show', reservation %></td>
+        <td><%= reservation.table_id %></td>
+        <td><%= reservation.reservation_date.strftime("%a %d %b %Y")   %></td>
+        <td><%= link_to 'Show', reservation, class: "btn btn-primary" %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
         <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

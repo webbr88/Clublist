@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507041624) do
+ActiveRecord::Schema.define(version: 20140515230427) do
 
   create_table "facebook_oauth_settings", force: true do |t|
     t.string   "access_token"
@@ -32,12 +32,26 @@ ActiveRecord::Schema.define(version: 20140507041624) do
     t.datetime "image_updated_at"
   end
 
+  create_table "payments", force: true do |t|
+    t.string   "stripe_token"
+    t.float    "amount"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "table_id"
+    t.datetime "reservation_date"
+  end
+
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id"
+
   create_table "reservations", force: true do |t|
     t.integer  "user_id"
     t.integer  "table_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "reservation_date"
+    t.string   "stripe_token"
+    t.float    "amount"
   end
 
   create_table "tables", force: true do |t|
@@ -72,6 +86,7 @@ ActiveRecord::Schema.define(version: 20140507041624) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "stripe_customer_token"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
