@@ -1,6 +1,3 @@
-
-$body-bg: #7f8c8d;
-$font-family-sans-serif: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $navbar-height:  45px;
 $navbar-default-bg: #2c3e50;
 $navbar-default-link-color: white;
@@ -21,4 +18,45 @@ $table-cell-padding: 10px;
   font-weight: bold;
 
 }
+
+body {
+ margin: 0;
+ background-image: url('../images/tables.jpg');
+background-size:100% auto;
+ background-repeat:no-repeat;
+ display: compact;
+ font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+ }
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
 
