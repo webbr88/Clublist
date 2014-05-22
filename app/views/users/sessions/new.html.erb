@@ -14,4 +14,7 @@
   <div><%= f.submit "Sign in" %></div>
 <% end %>
 
+ <%= link_to '<i class="fa fa-facebook"></i>
+      Sign in with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook"  %>
+
 <%= render "users/shared/links" %>

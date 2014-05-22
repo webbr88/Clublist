@@ -7,23 +7,25 @@
 <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">
-        <div class="jumbotron">
-        <img src ="<%= @picture = @graph.get_picture( "me", type: :large) %>" >
-        <h5> Name: <%= @a["name"] %> </h5>
-        <% b = 0 %>
-        <% @friends.each do |f| %>
-          <% b = b+1 %>
-        <% end %>
+        <div class="jumbotron center">
+          <img src ="<%= @picture = @graph.get_picture( "me", type: :large) %>" >
+          <h5> Name: <%= @a["name"] %> </h5>
+          <% b = 0 %>
+          <% @friends.each do |f| %>
+           <% b = b+1 %>
+          <% end %>
 
-        <% if @a["location"] %>
-          <h5>City: <%= @a["location"]["name"] %></h5>
-        <%else%>
-          <h5> City: New York, NY </h5>
-        <%end%>
-        <h5>Status: <%if b>=1000%> Party Animal <%else%> Yolo Monster <%end%>
+          <% if @a["location"] %>
+            <h5>City: <%= @a["location"]["name"] %></h5>
+          <%else%>
+            <h5> City: New York, NY </h5>
+          <%end%>
+          <h5>Status: <%if b>=1000%> Party Animal <%else%> Yolo Monster <%end%>
+
+        </div>
       </div>
-    </div>
-      <div class="col-md-8">
+
+    <div class="col-md-8">
         <div class="jumbotron">
         <h5> Here are your future Reservations </h5>
         <%= render :partial=>'show_reservations', :locals=> {:reservation => Reservation.find(:all),:table =>Table.find(:all), :nightclub => Nightclub.find(:all)} %>
@@ -34,7 +36,7 @@
 
 
 <div class="jumbotron center">
-          <h3> <%= @a["name"] %> Let's Book you a table </h3>
+          <h3> <%= @a["first_name"]%> let's book you a table </h3>
           <%= render :partial=>'show_nightclubs', :locals=> {:nightclub => Nightclub.find(:all)} %>
 
   <% else %>
@@ -55,9 +57,10 @@
 </br>
 <h4> No texting club promoters or getting turned away at the door. Take control of your night!</h4>
 
-     <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+    
+      <%= link_to '<i class="fa fa-facebook"></i>
+      Sign in with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook btn-lg"  %>
+    
      <% end %>
-
-
 
 </div>
