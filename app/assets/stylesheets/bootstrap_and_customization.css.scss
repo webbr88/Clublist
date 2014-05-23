@@ -35,10 +35,9 @@ $navbar-default-border-bottom-color: green;
 body {
  margin: 0;
  background: url('/assets/Rave.jpg') no-repeat center center fixed;
- background-size:100% auto;
- background-repeat:no-repeat;
- display: block;
- font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+ background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
  }
 
  #logo {
