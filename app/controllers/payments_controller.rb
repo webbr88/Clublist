@@ -129,7 +129,7 @@ class PaymentsController < ApplicationController
 
   private
  def payment_params
-   params.require(:payment).permit(:payment, :stripe_token, :user_id, :table_id, :reservation_date,:amount)
+   params.require(:payment).permit(:payment, :stripe_token, :user_id, :table_id, :reservation_date,:amount, :males, :females)
  end
 
 

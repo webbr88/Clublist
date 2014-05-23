@@ -49,6 +49,10 @@
     <%= f.number_field :males %>
   </div>
 
+<div class="field">
+    <%= f.label :reservation_date %><br>
+    <%= f.date_field :reservation_date %>
+  </div>
 
     <div class="field">
       <label>Card Number</label>
@@ -67,31 +71,10 @@
       <input id="exp-year" type="text" placeholder="14" />
     </div>
   </div>
-
-<div class="field">
-     <%= f.hidden_field :reservation_date %>
-  </div>
-
-   <div class="field">
-     <%= f.hidden_field :males %>
-  </div> 
-
-   <div class="field">
-     <%= f.hidden_field :females %>
-  </div>
-
+  <%# payment.amount = @table.min_cost - payment.females %>
   <div class="field">
      <%= f.hidden_field :amount %>
   </div>
-
-    <div class="field">
-     <%= f.hidden_field :table_id %>
-  </div>
-
- <div class="field">
-     <%= f.hidden_field :user_id %>
-  </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515230427) do
+ActiveRecord::Schema.define(version: 20140523171603) do
 
   create_table "facebook_oauth_settings", force: true do |t|
     t.string   "access_token"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20140515230427) do
     t.datetime "updated_at"
     t.integer  "table_id"
     t.datetime "reservation_date"
+    t.integer  "females"
+    t.integer  "males"
   end
 
   add_index "payments", ["user_id"], name: "index_payments_on_user_id"
@@ -52,6 +54,8 @@ ActiveRecord::Schema.define(version: 20140515230427) do
     t.datetime "reservation_date"
     t.string   "stripe_token"
     t.float    "amount"
+    t.integer  "females"
+    t.integer  "males"
   end
 
   create_table "tables", force: true do |t|

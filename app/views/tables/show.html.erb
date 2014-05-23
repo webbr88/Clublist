@@ -1,3 +1,4 @@
+<div class="jumbotron">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -10,8 +11,9 @@
   <%= @table.min_cost %>
 </p>
 
-<%= render :partial=>'new_payment', :locals=> {:payment => Payment.new(:table_id=> @table.id)} %>
+<%= render :partial=>'new_reservation', :locals=> {:reservation => Reservation.new(:table_id=> @table.id, :amount=> @table.min_cost) } %>
 
 
 <%= link_to 'Edit', edit_table_path(@table) %> |
 <%= link_to 'Back', tables_path %>
+</div>

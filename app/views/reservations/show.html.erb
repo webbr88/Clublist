@@ -1,3 +1,4 @@
+<div class="jumbotron">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -10,5 +11,26 @@
   <%= @reservation.table_id %>
 </p>
 
+ <strong>Table:</strong>
+  <%= @reservation.reservation_date %>
+</p>
+
+<strong>Dudes:</strong>
+  <%= @reservation.males %>
+</p>
+
+<strong>Chicks:</strong>
+  <%= @reservation.females %>
+</p>
+
+
+<strong>Cost:</strong>
+  <% a = @reservation.amount - @reservation.females*100 %>
+  <%= a %>
+</p>
+
+<%= render :partial=>'new_payment', :locals=> {:payment => Payment.new(:table_id=> @reservation.table_id, :amount => a, :reservation_date => @reservation.reservation_date, :males => @reservation.males, :females => @reservation.females) } %>
+
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', reservations_path %>
+</div>

@@ -9,7 +9,9 @@ $btn-default-bg: white;
 $navbar-default-border-bottom-color: green;
 @import 'bootstrap';
 
-
+.jumbotron {
+  border: 1px solid #00A7DB;
+}
 
 .navbar-default {
   border-bottom: 1px solid #00A7DB;
@@ -32,10 +34,10 @@ $navbar-default-border-bottom-color: green;
 
 body {
  margin: 0;
- /* background: url('/assets/Rave.jpg') no-repeat center center fixed; */
+ background: url('/assets/Rave.jpg') no-repeat center center fixed;
  background-size:100% auto;
  background-repeat:no-repeat;
- display: compact;
+ display: block;
  font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
  }
 
