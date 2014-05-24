@@ -1,5 +1,7 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+ 
+ # after_create :send_confirmation_email
 
   # GET /reservations
   # GET /reservations.json
@@ -71,4 +73,8 @@ class ReservationsController < ApplicationController
     def reservation_params
       params.require(:reservation).permit(:user_id, :table_id, :reservation_date, :stripe_token, :amount, :males, :females)
     end
+
+   # def send_confirmation_email
+    #  UserMailer.deliver_welcome_email(self)
+   # end
 end

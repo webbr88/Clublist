@@ -1,24 +1,41 @@
-<div class="jumbotron">
-<p id="notice"><%= notice %></p>
-<%= image_tag @nightclub.image.url (:medium)  %>
-<p>
-  <strong>Name:</strong>
-  <%= @nightclub.name %>
-</p>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-7">
+			<div class="panel panel-default">
+				<div class="panel-heading"><%= @nightclub.name %></div> 
+ <div class="panel-body">
+			<p id="notice"><%= notice %></p>
+			<center> <%= image_tag @nightclub.image.url (:medium)  %> </center></br>
+		
+			<p>
+			  <strong>Address:</strong>
+			  <%= @nightclub.address %>
+			</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @nightclub.address %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @nightclub.phone_number %>
-</p>
+			<p>
+			  <strong>Phone number:</strong>
+			  <%= @nightclub.phone_number %>
+			</p>
 
 
-<%= render :partial=>'show_tables', :locals=> {:table => Table.find_all_by_nightclub_id(@nightclub.id)} %>
+			<%= render :partial=>'show_tables', :locals=> {:table => Table.find_all_by_nightclub_id(@nightclub.id)} %>
 
-<%= link_to 'Edit', edit_nightclub_path(@nightclub) %> |
-<%= link_to 'Back', nightclubs_path %>
+			<%= link_to 'Edit', edit_nightclub_path(@nightclub) %> |
+			<%= link_to 'Back', nightclubs_path %>
+		</div>
+			</div>
+		</div>
+
+		<div class="col-md-5">
+			 <div class="panel panel-default">
+        <div class="panel-heading">Description</div> 
+         <div class="panel-body">
+        New York City is a nightlife capital, with some of the bars in the country clustered around bustling neighborhoods like the East Village and Williamsburg. Whether you favor craft brews or serious cocktails; a beer-and-shot special or a transporting glass of wine, NYC has a game-changing bar to slake your thirst. To narrow down the options, we’ve compiled this list of the 50 best bars in New York City right now. From hot new barrooms to tried-and-true staples in every neighborhood, these are the kind of places that beg you to stick around for another round. Did we miss your favorite New York bar? Join the conversation in the comments.
+
+      </div>
+       </div>
+		</div>
+
+	</div>
+
 </div>
