@@ -1,35 +1,39 @@
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-       <!--th>#</th-->
-      <th>Location</th>
-      <th>Table Minimum </th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <%a = 1 %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-7">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+             <th>#</th>
+            <th>Location</th>
+            <th>Table Minimum </th>
+            <th>Description</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% tables.each do |table| %>
-      <tr>
-      	<!--td><%= a %></td-->
-        <td><%= table.location %></td>
-        <td>$<%= table.min_cost %></td>
-         
-         <td>
-          <span class="glyphicon glyphicon-glass"></span> 
-          <%= link_to 'Make a reservation', table %></td>
-      </tr>
+        <%a = 1 %>
 
-       <%a = a+ 1 %>
+        <tbody>
+          <% tables.each do |table| %>
+            <tr>
+            	<td><%= a %></td>
+              <td><%= table.location %></td>
+              <td>$<%= table.min_cost %></td>
+               
+               <td>
+                <span class="glyphicon glyphicon-glass"></span> 
+                <%= link_to 'Make a reservation', table %></td>
+            </tr>
 
-    <% end %>
-  </tbody>
-</table>
+             <%a = a+ 1 %>
 
-<br>
+          <% end %>
+        </tbody>
+      </table>
 
+      <br>
+    </div>
