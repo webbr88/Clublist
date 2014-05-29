@@ -1,15 +1,16 @@
 <div class="jumbotron">
 
 <div class="page-header">
-<h2> What is Social Axis? </h2>
+<strong><h2> What is Social Axis? </h2></strong>
 </div>
 
-<p>Social Axis connects you to the most exclusive nightclubs in your city, while rewarding you for being socially connected</p>
+<p>Social Axis connects you to the most exclusive nightclubs in your city, while rewarding you for being socially connected.</p>
+<p>We're currently in Beta testing and would love feedback or partners. <%= link_to "Contact Us", new_contact_path %> - it could be the start of a great friendship.</p>
 </br>
 
-<h3> How does it work? </h3>
+<h3> How does Social Axis work? </h3>
 
-<p>By giving you control. Social Axis lets you book the table you want, while telling the owners how awesome you are and giving you an exclusive hookup. </p>
+<p>By giving you control. Social Axis brings all of the best nightclubs in your city together, and lets you book the table you want. We also work with the nigthclubs to get you hookups as often as possible, making it easier for you to party on your terms. </p>
 </br>
 
 <h3> Huh? I can get a hookup? How? </h3>
@@ -24,6 +25,8 @@
 
 <h3> So I can get into the coolest clubs at a discount? </h3>
 
-<p> Not only get. You get in, in style. </p>
+<p> Not only get. You get in, in style. Sign up Now! </p>
+<center><%= link_to '<i class="fa fa-facebook"></i>
+      Sign up with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook"  %> </center>
 
 </div>
