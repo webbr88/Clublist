@@ -11,32 +11,38 @@
     </div>
   <% end %>
 
+<form role="form">
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+  <div class="form-group">
+    <%= f.label :reservation_date , "When are you looking to party:" %><br>
+    <%= f.date_field :reservation_date, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :table_id %><br>
-    <%= f.number_field :table_id %>
+ <div class="form-group">
+    <%= f.label :males , "How many guys will be in your party:" %><br>
+    <%= f.number_field :males, class: "form-control"  %>
   </div>
-  <div class="field">
-    <%= f.label :reservation_date %><br>
-    <%= f.date_field :reservation_date %>
-  </div>
- <div class="field">
-    <%= f.label :males %><br>
-    <%= f.number_field :males %>
-  </div>
-  <div class="field">
-    <%= f.label :females %><br>
-    <%= f.number_field :females %>
+  <div class="form-group">
+    <%= f.label :females , "How many girls will be in your party:" %><br>
+    <%= f.number_field :females,  class: "form-control" %>
   </div>
    <div class="field">
      <%= f.hidden_field :amount %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+   <div class="field">
+     <%= f.hidden_field :user_id %>
   </div>
+
+   <div class="field">
+     <%= f.hidden_field :table_id %>
+  </div>
+
+  <div class="field">
+     <%= f.hidden_field :nightclub_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary btn-block" %>
+  </div>
+</form>
 <% end %>

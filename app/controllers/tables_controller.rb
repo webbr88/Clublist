@@ -1,5 +1,5 @@
 class TablesController < ApplicationController
-  before_action :set_table, only: [:show, :edit, :update, :destroy]
+  before_action :set_table, only: [:show]
 
   # GET /tables
   # GET /tables.json
@@ -69,6 +69,6 @@ class TablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def table_params
-      params.require(:table).permit(:nightclub_id, :min_cost, :image)
+      params.require(:table).permit(:nightclub_id, :min_cost, :image, :description, :location)
     end
 end

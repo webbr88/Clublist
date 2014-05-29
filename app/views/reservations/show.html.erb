@@ -1,36 +1,117 @@
-<div class="jumbotron">
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+    <div class="row">
+     <div class="col-md-1"></div>
+      <div class="col-md-5">
 
-<p>
-  <strong>User:</strong>
-  <%= @reservation.user_id %>
-</p>
+<div class="panel panel-default">
+ <div class="panel-heading">
+<h3 class="panel-title">
+<% Nightclub.connection %>
+<%=Nightclub.find(@reservation.nightclub_id).name%>
+<% @graph = Koala::Facebook::API.new(current_user.oauth_token) %>
+<% @friends = @graph.get_connections("me", "friends") %>
+</h3>
+ </div>
 
-<p>
-  <strong>Table:</strong>
-  <%= @reservation.table_id %>
-</p>
+ <div class="panel-body">
 
- <strong>Table:</strong>
-  <%= @reservation.reservation_date %>
-</p>
+  <% if @friends.size > 800 and @friends.size <= 1200 %>
+    <% a = @reservation.females*50 + 150 %>
+  <% elsif @friends.size >1200 and @friends.size <=2000 %>
+  <% a = @reservation.females*50 + 250 %>
+  <% elsif @friends.size >2000 %>
+    <% a = @reservation.females*50 + 350 %>
+  <%else%>
+     <% a = @reservation.females*50 %>
+  <%end%>
 
-<strong>Dudes:</strong>
-  <%= @reservation.males %>
-</p>
+<%= render :partial=>'new_payment', :locals=> {:payment => Payment.new(:table_id=> @reservation.table_id, :amount => @reservation.amount, :reservation_date => @reservation.reservation_date, :males => @reservation.males, :females => @reservation.females, :nightclub_id => @reservation.nightclub_id, :hookup => a) } %>
 
-<strong>Chicks:</strong>
-  <%= @reservation.females %>
-</p>
-
-
-<strong>Cost:</strong>
-  <% a = @reservation.amount - @reservation.females*100 %>
-  <%= a %>
-</p>
-
-<%= render :partial=>'new_payment', :locals=> {:payment => Payment.new(:table_id=> @reservation.table_id, :amount => a, :reservation_date => @reservation.reservation_date, :males => @reservation.males, :females => @reservation.females) } %>
-
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+</div>
+<div class="panel-footer">
+<span class="glyphicon glyphicon-pencil"></span> 
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> 
+|
+<span class="glyphicon glyphicon-hand-left"></span>
 <%= link_to 'Back', reservations_path %>
 </div>
+
+</div>
+
+</div>
+     <div class="col-md-5"> 
+     	<div class="panel panel-default">
+ <div class="panel-heading">
+<h3 class="panel-title">
+Reservation Details
+</h3>
+ </div>
+ <div class="panel-body">
+ 	<p><strong>Nightclub:</strong>
+  <%=Nightclub.find(@reservation.nightclub_id).name%></p>
+  <p><strong>Reservation Date:</strong>
+  <%=@reservation.reservation_date.strftime("%a %d %b")%></p>
+  <p><strong>Table Min:</strong>
+  $<%=@reservation.amount%>0</p>
+  <p><strong>Social Axis Hookup:</strong>
+  $<%= a %>.00 </p>
+  <p><strong>Final Cost:</strong>
+  $<%=@reservation.amount - a%>0</p>
+ </div>
+
+
+</div>
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin: 0 auto" >
+ 
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+ 
+  <!-- Slider Content (Wrapper for slides )-->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="/assets/lounge.jpg" alt="...">
+      <div class="carousel-caption">
+      <%=Nightclub.find(@reservation.nightclub_id).name%>
+      </div>
+    </div>
+     <div class="item">
+      <img src="/assets/tables.jpg" alt="...">
+      <div class="carousel-caption">
+      <%=Nightclub.find(@reservation.nightclub_id).name%>
+      </div>
+    </div>
+
+       <div class="item">
+      <img src="/assets/club.jpg" alt="...">
+      <div class="carousel-caption">
+      <%=Nightclub.find(@reservation.nightclub_id).name%>
+      </div>
+    </div>
+
+
+
+
+  </div>
+ 
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+
+
+
+</div>
+
+
+     </div>
+</div>
+</div>
+    <div class="col-md-1"></div>

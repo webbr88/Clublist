@@ -31,51 +31,60 @@
 
 
    <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.hidden_field :user_id %>
   </div>
 
   <div class="field">
-    <%= f.label :table_id %><br>
-    <%= f.number_field :table_id %>
+    <%= f.hidden_field :table_id %>
   </div>
   <div class="field">
-    <%= f.label :females %><br>
-    <%= f.number_field :females %>
+    <%= f.hidden_field :females %>
   </div>
 
   <div class="field">
-    <%= f.label :males %><br>
-    <%= f.number_field :males %>
+    <%= f.hidden_field :males %>
   </div>
 
 <div class="field">
-    <%= f.label :reservation_date %><br>
-    <%= f.date_field :reservation_date %>
+    <%= f.hidden_field :reservation_date %>
   </div>
 
-    <div class="field">
-      <label>Card Number</label>
-      <input id="card-number" type="text" placeholder="4242 4242 4242 4242" />
-    </div>
-    <div class="field">
-      <label>CV Code</label>
-      <input id="cvc" type="text" placeholder="123" />
-    </div>
-    <div class="field">
-      <label>Expiry Month</label>
-      <input id="exp-month" type="text" placeholder="12" />
-    </div>
-    <div class="field">
-      <label>Expiry Year</label>
-      <input id="exp-year" type="text" placeholder="14" />
-    </div>
+<div class="field">
+    <%= f.hidden_field :nightclub_id %>
   </div>
-  <%# payment.amount = @table.min_cost - payment.females %>
+
+
+<div class="field">
+    <%= f.hidden_field :hookup %>
+  </div>
+
+  <form role="form">
+
+    <div class="form-group">
+      <label>Card Number</label>
+      <input id="card-number" class="form-control" type="text" placeholder="4242 4242 4242 4242" />
+    </div>
+    <div class="form-group">
+      <label>CV Code</label>
+      <input id="cvc" class="form-control" type="text" placeholder="123" />
+    </div>
+    <div class="form-group">
+      <label>Expiry Month</label>
+      <input id="exp-month" class="form-control" type="text" placeholder="12" />
+    </div>
+    <div class="form-group">
+      <label>Expiry Year</label>
+      <input id="exp-year" class="form-control" type="text" placeholder="14" />
+    </div>
+
   <div class="field">
      <%= f.hidden_field :amount %>
+
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary btn-block" %>
   </div>
+
+</form>
+</div>
 <% end %>

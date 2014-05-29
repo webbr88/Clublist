@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 class PaymentsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :edit, :update, :destroy]
   # GET /payments
   # GET /payments.json
   def index
@@ -87,7 +88,8 @@ class PaymentsController < ApplicationController
       
       respond_to do |format|
         if @payment.save
-          format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
+          PaymentMailer.complete_reservation(@payment, current_user).deliver
+          format.html { redirect_to @payment, notice: 'Your card was successfully charged and your Reservation is booked. Have fun!' }
           format.json { render json: @payment, status: :created, location: @payment }
         else
           format.html { render action: "new" }
@@ -122,14 +124,14 @@ class PaymentsController < ApplicationController
     @payment.destroy
 
     respond_to do |format|
-      format.html { redirect_to payments_url }
+      format.html { redirect_to root_url }
       format.json { head :no_content }
     end
   end
 
   private
  def payment_params
-   params.require(:payment).permit(:payment, :stripe_token, :user_id, :table_id, :reservation_date,:amount, :males, :females)
+   params.require(:payment).permit(:payment, :stripe_token, :user_id, :table_id, :reservation_date, :amount, :males, :females, :nightclub_id, :hookup)
  end
 
 

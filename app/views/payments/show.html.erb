@@ -1,37 +1,50 @@
-<div class="jumbotron">
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Details on your reservation </h3>
+          </div>
+          <% Nightclub.connection %>
+         <div class="panel-body">
+          <p>
+            <strong>Name:</strong>
+            <%= current_user.name%>
+          </p>
 
-<p>
-  <strong>Stripe token:</strong>
-  <%= @payment.stripe_token %>
-</p>
+          <p>
+            <strong>Nightclub:</strong>
+            <%=Nightclub.find(@payment.nightclub_id).name%>
+          </p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @payment.amount %>
-</p>
+           <p>
+           <strong>Date:</strong>
+            <%= @payment.reservation_date.strftime("%a %d %b") %>
+          </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @payment.user_id %>
-</p>
+            <p>
+            <strong>Amount:</strong>
+            $<%= @payment.amount - @payment.hookup %>0
+          </p>
 
-  <strong>Table id:</strong>
-  <%= @payment.table_id %>
-</p>
+           <strong>Males:</strong>
+            <%= @payment.males %>
+          </p>
 
- <strong>Date:</strong>
-  <%= @payment.reservation_date %>
-</p>
+           <strong>Chicks:</strong>
+            <%= @payment.females %>
+          </p>
+         
+        </div>
 
- <strong>Males:</strong>
-  <%= @payment.males %>
-</p>
+        <div class="panel-footer">
+        <span class="glyphicon glyphicon-hand-left"></span>
+        <%= link_to 'Home', root_path %>
+        </div>
 
- <strong>Chicks:</strong>
-  <%= @payment.females %>
-</p>
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
-<%= link_to 'Back', payments_path %>
 
+        </div>
+      </div>
+  </div>
 </div>

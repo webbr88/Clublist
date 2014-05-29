@@ -97,6 +97,9 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mail_form (1.5.0)
+      actionmailer (>= 3.2, < 5)
+      activemodel (>= 3.2, < 5)
     masonry-rails (0.2.1)
       rails
     mime-types (1.25.1)
@@ -159,6 +162,9 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    simple_form (3.0.2)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -197,6 +203,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   koala
+  mail_form
   masonry-rails (~> 0.2.0)
   omniauth
   omniauth-facebook
@@ -206,6 +213,7 @@ DEPENDENCIES
   rails_12factor
   sass-rails (~> 4.0.2)
   sdoc
+  simple_form
   sqlite3
   stripe!
   turbolinks

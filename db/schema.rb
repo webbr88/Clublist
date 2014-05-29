@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523171603) do
+ActiveRecord::Schema.define(version: 20140529003208) do
 
   create_table "facebook_oauth_settings", force: true do |t|
     t.string   "access_token"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140523171603) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.text     "description"
   end
 
   create_table "payments", force: true do |t|
@@ -42,6 +43,8 @@ ActiveRecord::Schema.define(version: 20140523171603) do
     t.datetime "reservation_date"
     t.integer  "females"
     t.integer  "males"
+    t.integer  "nightclub_id"
+    t.integer  "hookup"
   end
 
   add_index "payments", ["user_id"], name: "index_payments_on_user_id"
@@ -56,6 +59,7 @@ ActiveRecord::Schema.define(version: 20140523171603) do
     t.float    "amount"
     t.integer  "females"
     t.integer  "males"
+    t.integer  "nightclub_id"
   end
 
   create_table "tables", force: true do |t|
@@ -67,6 +71,8 @@ ActiveRecord::Schema.define(version: 20140523171603) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.text     "description"
+    t.text     "location"
   end
 
   create_table "users", force: true do |t|

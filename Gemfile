@@ -18,6 +18,8 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'masonry-rails', '~> 0.2.0'
 gem 'aws-sdk', '~> 1.20.0'
 gem 'rails_12factor', group: :production
+gem 'mail_form'
+gem 'simple_form'
 
 
 

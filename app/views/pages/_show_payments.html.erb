@@ -1,0 +1,64 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+
+   <h3 class="panel-title">
+            Upcoming Reservations:</h3>
+
+
+  </div> 
+
+
+<% a = Payment.find_all_by_user_id(current_user.id) %>
+
+
+<% if a.size == 0 %>
+
+<div class="panel-body">
+No reserivations! We should change that.
+</div>
+
+<%else%>
+
+<div class="panel-body">
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <div class="table">
+      <th>Hotel</th>
+      <th>Date</th>
+      <th>Modify Reservations</th>
+    </div>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% payment.each do |payment| %>
+    <% if payment.user_id == current_user.id %>
+    <% if payment.reservation_date > Date.today.to_s %>
+    <% r=payment.table_id %>
+    <% n=Table.find(r).nightclub_id %>
+      <tr>
+        <td><%= Nightclub.find(n).name %></td>
+        <td><%= payment.reservation_date.strftime("%a %d %b")   %></td>
+        <td><span class="glyphicon glyphicon-pencil"></span> 
+          <%= link_to 'Edit', edit_payment_path(payment) %> | 
+        <span class="glyphicon glyphicon-ban-circle"></span> 
+          <%= link_to 'Cancel', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+      <%end%>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+</div>
+<%end%>
+</div>
+
+
+

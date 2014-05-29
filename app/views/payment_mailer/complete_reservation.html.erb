@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3><%= @user.name %> thanks for using Social Axis! Here are your reservation details: </h3>
+
+      <div class="panel panel-default">
+ <div class="panel-heading">
+<h3 class="panel-title">
+Reservation Details
+</h3>
+ </div>
+ <div class="panel-body">
+  <p><strong>Nightclub:</strong>
+  <%=Nightclub.find(@payment.nightclub_id).name%></p>
+  <p><strong>Reservation Date:</strong>
+  <%=@payment.reservation_date.strftime("%a %d %b")%></p>
+  <p><strong>Table Min:</strong>
+  $<%=@payment.amount%></p>
+  <p><strong>Social Axis Hookup:</strong>
+  $<%= @payment.hookup %>.00</p>
+  <p><strong>Final Cost:</strong>
+  $<%=@payment.amount - @payment.hookup %>0</p>
+ </div>
+
+ <div class="panel-footer">
+<span class="glyphicon glyphicon-pencil"></span> 
+<%= link_to 'To edit the reservation, just use the following link:', edit_payment_path(@payment) %> 
+</div>
+</div>
+
+    <p>Thanks for joining and using Social Axis - Own your night!</p>
+  </body>
+</html>

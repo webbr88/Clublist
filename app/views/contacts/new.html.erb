@@ -1,0 +1,41 @@
+<div class="jumbotron">
+<div class="page-header">
+<h2> Contact Social Axis </h2>
+</div>
+
+<p>Social Axis connects you to the most exclusive nightclubs in your city, while rewarding you for being socially connected. Want to learn more? Shoot us a note. </p>
+
+
+
+
+
+
+ <%= simple_form_for @contact, :body => {:class => 'form-horizontal' } do |f| %>
+
+ <form role="form">
+      <div class="form-group">
+        <%= f.label :name, "Your Name:" %>
+        <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, "Your Email:" %>
+        <%= f.text_field :email, placeholder: "you@example.com", class: "form-control" %>
+      </div>
+       <div class="form-group">
+        <%= f.label :message, "Your Question:" %>
+        <%= f.text_area :message, placeholder: "Your Question", class: "form-control" %>
+      </div>
+
+
+       <%= f.button :submit, 'Send message', :class=> "btn btn-primary btn-block" %>
+
+
+</form>
+
+
+</div>
+
+
+<%end%>
+
+

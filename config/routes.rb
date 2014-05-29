@@ -10,9 +10,11 @@ Clublist::Application.routes.draw do
   
   root "pages#home"
   get "about" => "pages#about"
-  get "contact" => "pages#contact"
+  #get "contact" => "pages#contact"
   resources :charges
 
+match '/contacts',     to: 'contacts#new',             via: 'get'
+resources "contacts", only: [:new, :create]
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -8,10 +8,13 @@
     <div class="row">
       <div class="col-md-4">
       <div class="panel panel-default">
-        <div class="panel-heading">Your Profile</div> 
+        <div class="panel-heading">
+
+          <h3 class="panel-title">
+            Welcome to Social Axis!</h3></div> 
          <div class="panel-body">
         </br>
-          <img src ="<%= @picture = @graph.get_picture( "me", type: :large) %>" >
+         <center> <img src ="<%= @picture = @graph.get_picture( "me", type: :large) %>" > </center>
       
 
 
@@ -31,14 +34,14 @@
         </div>
 
     
-        <%= render :partial=>'show_reservations', :locals=> {:reservation => Reservation.find(:all),:table =>Table.find(:all), :nightclub => Nightclub.find(:all)} %>
+        <%= render :partial=>'show_payments', :locals=> {:reservation => Reservation.find(:all),:table =>Table.find(:all), :nightclub => Nightclub.find(:all), :payment => Payment.find(:all)} %>
     
       </div>
 
     <div class="col-md-8">
        <div class="panel panel-default">
          <div class="panel-heading"> 
-         <h4> <%= @a["first_name"]%> let's book you a table </h4>
+         <h4> <%= @a["first_name"]%> let's book you a table: </h4>
         </div>
          <%= render :partial=>'show_nightclubs', :locals=> {:nightclub => Nightclub.find(:all)} %>
       </div>
@@ -59,7 +62,7 @@
 
      <% else %>
 
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width: 700px; margin: 0 auto" >
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style=" width: 800px; margin: 0 auto" >
  
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -73,20 +76,29 @@
     <div class="item active">
       <img src="/assets/lounge.jpg" alt="...">
       <div class="carousel-caption">
-      Social Axis connects you to table service at the hottest lounges and nightclubs in your city 
+     <h4><p>Social Axis connects you to the most exclusive nightclubs in your city, while rewarding you for being socially connected</p></h4>
+      <%= link_to '<i class="fa fa-facebook"></i>
+      Sign in with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook btn-lg"  %>
+        </br>
       </div>
     </div>
      <div class="item">
       <img src="/assets/tables.jpg" alt="...">
       <div class="carousel-caption">
-      Get exclusive hookups at the hottest nightclubs based on your social network
+      <h4><p>Social Axis gives you ultimate control. Book the table you want and receive exclusive hookups based ony your social network. </p></h4>
+       <%= link_to '<i class="fa fa-facebook"></i>
+      Sign in with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook btn-lg"  %>
+        </br>
       </div>
     </div>
 
        <div class="item">
       <img src="/assets/club.jpg" alt="...">
       <div class="carousel-caption">
-      No cover no waiting
+      <h4><p>Stop wondering if you'll get in. Join Social Axis now, and change how you go out</p></h4>
+       <%= link_to '<i class="fa fa-facebook"></i>
+      Sign in with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook btn-lg"  %>
+    </br>
       </div>
     </div>
 
@@ -102,12 +114,19 @@
   <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
+
+
+
 </div>
+
+<div>
 </br>
-    <center>
-      <%= link_to '<i class="fa fa-facebook"></i>
-      Sign in with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook btn-lg"  %>
-    </center>
+</br>
+    
+  </br>
+</br>
+
+</div>
     
      <% end %>
 

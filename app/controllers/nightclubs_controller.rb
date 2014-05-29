@@ -1,5 +1,5 @@
 class NightclubsController < ApplicationController
-  before_action :set_nightclub, only: [:show, :edit, :update, :destroy]
+  before_action :set_nightclub, only: [:show ]
 
   # GET /nightclubs
   # GET /nightclubs.json
@@ -69,6 +69,6 @@ class NightclubsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def nightclub_params
-      params.require(:nightclub).permit(:name, :address, :phone_number, :image)
+      params.require(:nightclub).permit(:name, :address, :phone_number, :image, :description)
     end
 end

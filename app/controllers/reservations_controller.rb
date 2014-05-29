@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :edit, :update, :destroy]
  
  # after_create :send_confirmation_email
 
@@ -30,11 +31,11 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
+        format.html { redirect_to @reservation, notice: 'Reservation is not complete until payment is processed.' }
         format.json { render action: 'show', status: :created, location: @reservation }
       else
         format.html { render action: 'new' }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
+        format.json { render json: @reservation, status: :unprocessable_entity }
       end
     end
   end
@@ -58,7 +59,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation.destroy
     respond_to do |format|
-      format.html { redirect_to reservations_url }
+      format.html { redirect_to root_url }
       format.json { head :no_content }
     end
   end
@@ -71,7 +72,7 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:user_id, :table_id, :reservation_date, :stripe_token, :amount, :males, :females)
+      params.require(:reservation).permit(:user_id, :table_id, :reservation_date, :stripe_token, :amount, :males, :females, :nightclub_id)
     end
 
    # def send_confirmation_email

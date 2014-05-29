@@ -13,10 +13,35 @@ $navbar-default-border-bottom-color: green;
   border: 1px solid #00A7DB;
 }
 
+.panel {
+
+
+}
+
+.page-header {
+  border-bottom: 1px solid black;
+
+
+}
+
+
+.table {
+font-size: small;
+
+}
 .navbar-default {
   border-bottom: 1px solid #00A7DB;
 }
 
+.divLast 
+{
+   top: 10px;
+   margin:0px;  
+   padding: 0px 1px 1px 1px;    
+   border-width: 1px;
+   border-bottom: 1px #00A7DB solid;
+   width: 100%;
+}
 
 .center {
      text-align: center;
@@ -31,7 +56,6 @@ $navbar-default-border-bottom-color: green;
   font-weight: bold;
 
 }
-
 
 
 body {
@@ -54,24 +78,22 @@ body {
 /* footer */
 
 footer {
- 
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #999; 
+  margin-left: 50px;
+  margin-right: 50px;
+  border-top: 1px solid #00A7DB;
+  color: #00A7DB;
+
+
 }
 
 footer a {
-  color: #555;
+  color: #00A7DB;
 }
 
 footer a:hover {
-  color: #222;
-}
+  color: #00A7DB;
+  }
 
-footer small {
-  float: left;
-}
 
 footer ul {
   float: right;
@@ -80,7 +102,7 @@ footer ul {
 
 footer ul li {
   float: left;
-  margin-left: 10px;
+  margin-left: 100px;
 }
 
 wrap {
