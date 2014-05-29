@@ -1,54 +1,46 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-7">
+		<div class="col-md-8">
 			<div class="panel panel-default">
 				<div class="panel-heading">
+					<h3 class="panel-title">
+					<%= @nightclub.name %>:
+					</h3>
+				</div> 
+ 				<div class="panel-body">
+					<%= render :partial=>'carousel' %></br>
+						<p><strong>Address:</strong>
+			 		 		<%= @nightclub.address %>
+						</p>
 
-				<h3 class="panel-title">
-	
-					<%= @nightclub.name %>: </h3></div> 
- <div class="panel-body">
-			<%= render :partial=>'carousel' %></br>
-		
-			<p>
-			  <strong>Address:</strong>
-			  <%= @nightclub.address %>
-			</p>
+						<p>
+						  <strong>Phone number:</strong>
+						  <%= @nightclub.phone_number %>
+						</p>
+						<%= render :partial=>'show_tables', :locals=> {:tables => Table.find_all_by_nightclub_id(@nightclub.id)} %>
 
-			<p>
-			  <strong>Phone number:</strong>
-			  <%= @nightclub.phone_number %>
-			</p>
-
-
-			<%= render :partial=>'show_tables', :locals=> {:tables => Table.find_all_by_nightclub_id(@nightclub.id)} %>
-
-		</div>
+				</div>
 
 
-<div class="panel-footer">
-<span class="glyphicon glyphicon-pencil"></span> 
-<%= link_to 'Edit', edit_nightclub_path(@nightclub) %> 
-|
-<span class="glyphicon glyphicon-hand-left"></span>
-<%= link_to 'Back', nightclub_path %>
-</div>
-
+				<div class="panel-footer">
+					<span class="glyphicon glyphicon-pencil"></span> 
+					<%= link_to 'Edit', edit_nightclub_path(@nightclub) %> |
+					<span class="glyphicon glyphicon-hand-left"></span>
+					<%= link_to 'Back', nightclub_path %>
+				</div>
 			</div>
 		</div>
 
-		<div class="col-md-5">
-			 <div class="panel panel-default">
-        <div class="panel-heading">
-        <h3 class="panel-title">
-        	Description</h3></div> 
-         <div class="panel-body">
-        <%= @nightclub.description %>
-
-      </div>
-       </div>
+		<div class="col-md-4">
+			<div class="panel panel-default">
+        		<div class="panel-heading">
+        			<h3 class="panel-title">Description</h3>
+        		</div> 
+         		<div class="panel-body">
+        			<%= @nightclub.description %>
+				</div>
+       		</div>
 		</div>
 
 	</div>
-
 </div>
