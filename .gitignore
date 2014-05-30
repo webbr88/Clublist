@@ -15,5 +15,5 @@
 /log/*.log
 /tmp
 .DS_Store
-/config/facebook.yml
+config/facebook.yml
 /config/local_env.yml
