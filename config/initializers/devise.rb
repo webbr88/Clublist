@@ -258,6 +258,6 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
 require "omniauth-facebook"
-config.omniauth :facebook, "239109442945158", "94e0332dc0f1a287e8646eb8cac90e18"
- {:scope => 'email, offline_access, basic_info, user_likes', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+config.omniauth :facebook, FACEBOOK_CONFIG['app_id'], FACEBOOK_CONFIG['secret']
+ {:scope => 'email, offline_access, basic_info, user_likes, user_location, user_photos', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
 end
