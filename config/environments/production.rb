@@ -81,7 +81,7 @@ Clublist::Application.configure do
   # required for heroku
   #Set to your actual host name
 
-config.action_mailer.default_url_options = {:host => "club-list.herokuapp.com" }
+config.action_mailer.default_url_options = {:host => "socialaxis.herokuapp.com" }
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
 :address => "smtp.gmail.com",
