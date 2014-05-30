@@ -1,6 +1,30 @@
-<h1>Editing payment</h1>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @payment %> |
-<%= link_to 'Back', payments_path %>
+<div class="container-fluid">
+    <div class="row">
+    	<div class="col-md-2"></div>
+      <div class="col-md-8">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				   	<h2 class="panel-title">Edit this upcoming reservation:</h2>
+				  </div> 
+
+
+
+					<div class="panel-body">
+						<%= render 'form' %>
+					</div>
+
+					   <div class="panel-footer">
+
+								
+  
+        <span class="glyphicon glyphicon-hand-left"></span>
+        <%= link_to 'Home', root_path %>
+       
+
+							</div>
+				</div>
+			</div>
+		</div>
+</div>

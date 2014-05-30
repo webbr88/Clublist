@@ -1,3 +1,4 @@
+
 <%= form_for(@payment) do |f| %>
   <% if @payment.errors.any? %>
     <div id="error_explanation">
@@ -25,47 +26,38 @@
     </div>
   <%- end %>
   <div id="new_card">
-    <div class="field">
-      <%= f.hidden_field :stripe_token %>
-    </div>
+
+    <form role="form">
+ 
+      <div class="form-group">
+        <%= f.label :reservation_date, "Need to move your Reservation Date:" %><br>
+        <%= f.date_field :reservation_date, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :males, "Bringing more dudes:" %><br>
+        <%= f.number_field :males, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :females, "Bringing more females:" %><br>
+        <%= f.number_field :females, class: "form-control" %>
+      </div>
 
 
-   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
 
-  <div class="field">
-    <%= f.label :table_id %><br>
-    <%= f.number_field :table_id %>
-  </div>
-<div class="field">
-    <%= f.label :reservation_date %><br>
-    <%= f.date_field :reservation_date %>
-  </div>
+    </form>
+</br>
+</br>
 
-    <div class="field">
-      <label>Card Number</label>
-      <input id="card-number" type="text" placeholder="4242 4242 4242 4242" />
-    </div>
-    <div class="field">
-      <label>CV Code</label>
-      <input id="cvc" type="text" placeholder="123" />
-    </div>
-    <div class="field">
-      <label>Expiry Month</label>
-      <input id="exp-month" type="text" placeholder="12" />
-    </div>
-    <div class="field">
-      <label>Expiry Year</label>
-      <input id="exp-year" type="text" placeholder="14" />
-    </div>
-  </div>
-  <div class="field">
-    <%= f.label :amount %><br />
-    <%= f.text_field :amount %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
-  </div>
+    <center>
+    <%= f.submit "Update Reservation", class: "btn btn-primary btn-lg" %>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  
+
+  <%= link_to 'Cancel Reservation', @payment, class: "btn btn-danger btn-lg" , method: :delete, data: { confirm: "Are you sure? You'll receive a full redund if 24 hours in advance" } %>
+    </center>
+  </br>
+</br>
+</div>
 <% end %>
