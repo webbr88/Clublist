@@ -41,9 +41,7 @@ No reservations! We should change that.
         <td><%= Nightclub.find(n).name %></td>
         <td><%= payment.reservation_date.strftime("%a %d %b")   %></td>
         <td><span class="glyphicon glyphicon-pencil"></span> 
-          <%= link_to 'Edit', edit_payment_path(payment) %> | 
-        <span class="glyphicon glyphicon-ban-circle"></span> 
-          <%= link_to 'Cancel', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%= link_to 'Edit', edit_payment_path(payment) %> 
 
       </tr>
       <%end%>
