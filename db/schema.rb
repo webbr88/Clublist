@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529003208) do
+ActiveRecord::Schema.define(version: 20140530200603) do
 
   create_table "facebook_oauth_settings", force: true do |t|
     t.string   "access_token"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140529003208) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.text     "description"
+    t.integer  "user_id"
   end
 
   create_table "payments", force: true do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20140529003208) do
     t.datetime "image_updated_at"
     t.text     "description"
     t.text     "location"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|

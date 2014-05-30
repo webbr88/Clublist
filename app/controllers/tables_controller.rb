@@ -1,5 +1,6 @@
 class TablesController < ApplicationController
-  before_action :set_table, only: [:show]
+  before_action :set_table, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   # GET /tables
   # GET /tables.json
@@ -18,8 +19,8 @@ class TablesController < ApplicationController
   end
 
   # GET /tables/1/edit
-  def edit
-  end
+  #def edit
+  #end
 
   # POST /tables
   # POST /tables.json
