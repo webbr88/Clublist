@@ -25,6 +25,10 @@
      <% a = @reservation.females*50 %>
   <%end%>
 
+  <% if a > 800 %>
+    <% a = 800 %>
+  <%end%>
+
 <%= render :partial=>'new_payment', :locals=> {:payment => Payment.new(:table_id=> @reservation.table_id, :amount => @reservation.amount, :reservation_date => @reservation.reservation_date, :males => @reservation.males, :females => @reservation.females, :nightclub_id => @reservation.nightclub_id, :hookup => a) } %>
 
 </div>
