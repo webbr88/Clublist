@@ -4,7 +4,7 @@ class NightclubsController < ApplicationController
   # GET /nightclubs
   # GET /nightclubs.json
   def index
-    @nightclubs = Nightclub.all
+    @nightclubs = Nightclub.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 2)
   end
 
   # GET /nightclubs/1

@@ -1,0 +1,48 @@
+<%= form_for(reservation) do |f| %>
+  <% if reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+      <% reservation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<form role="form">
+
+  <div class="form-group">
+    <%= f.label :reservation_date , "When are you looking to party:" %><br>
+    <%= f.date_field :reservation_date, class: "form-control" %>
+  </div>
+ <div class="form-group">
+    <%= f.label :males , "How many guys will be in your party:" %><br>
+    <%= f.number_field :males, class: "form-control"  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :females , "How many girls will be in your party:" %><br>
+    <%= f.number_field :females,  class: "form-control" %>
+  </div>
+   <div class="field">
+     <%= f.hidden_field :amount %>
+  </div>
+
+   <div class="field">
+     <%= f.hidden_field :user_id %>
+  </div>
+
+   <div class="field">
+     <%= f.hidden_field :table_id %>
+  </div>
+
+  <div class="field">
+     <%= f.hidden_field :nightclub_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary btn-block" %>
+  </div>
+</form>
+<% end %>
