@@ -1,31 +1,9 @@
-<h1>Listing payments</h1>
+<div class="jumbotron center">
+  <h2> Go  <%= link_to "home", root_path %> <%=current_user.name%> you're drunk! </h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Stripe token</th>
-      <th>Amount</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @payments.each do |payment| %>
-      <tr>
-        <td><%= payment.stripe_token %></td>
-        <td><%= payment.amount %></td>
-        <td><%= payment.user_id %></td>
-        <td><%= link_to 'Show', payment %></td>
-        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Payment', new_payment_path %>
+</div>
+</br>
+</br>
+</br>

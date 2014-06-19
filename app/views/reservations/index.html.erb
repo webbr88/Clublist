@@ -1,31 +1,9 @@
-<h1>Listing reservations</h1>
+<div class="jumbotron center">
+  <h2> Go  <%= link_to "home", root_path %> <%=current_user.name%> you're drunk! </h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Table</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @reservations.each do |reservation| %>
-   <% if reservation.user == current_user %>
-      <tr>
-        <td><%= reservation.user.email if reservation.user %></td>
-        <td><%= reservation.table_id %></td>
-        <td><%= link_to 'Show', reservation %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Reservation', new_reservation_path %>
+</div>
+</br>
+</br>
+</br>

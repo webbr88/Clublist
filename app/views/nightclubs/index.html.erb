@@ -1,19 +1,9 @@
+<div class="jumbotron center">
+  <h2> Go  <%= link_to "home", root_path %> <%=current_user.name%> you're drunk! </h2>
 
-<div id="nightclubs" class="transitions-enabled">
-    <% @nightclubs.each do |nightclub| %>
-        <div class="box panel panel-default">
-        <%= image_tag nightclub.image.url (:medium) %>
-        <div class= "panel-body">
-        <%= nightclub.name %>
-        <%= nightclub.address %>
-        <%= nightclub.phone_number %>
-        <%= link_to 'Show', nightclub %>
-        <%= link_to 'Edit', edit_nightclub_path(nightclub) %>
-        <%= link_to 'Destroy', nightclub, method: :delete, data: { confirm: 'Are you sure?' } %>
-  
-  </div>
-  </div>
-     <% end %>
+
+
 </div>
-
-
+</br>
+</br>
+</br>
