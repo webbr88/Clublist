@@ -17,3 +17,6 @@
 .DS_Store
 config/facebook.yml
 /config/local_env.yml
+
+# Ignore Node files
+node_modules
