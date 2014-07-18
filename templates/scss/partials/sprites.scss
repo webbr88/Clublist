@@ -1,0 +1,242 @@
+.menu,
+.button.facebook:before,
+.forward:after,
+.forward.button:after,
+.back:before,
+.reservation:before,
+.back.button:before,
+.submit.button:before,
+.carousel .screen:after,
+.icon,
+.pagination .first,
+.pagination .prev,
+.pagination .next,
+.pagination .last,
+.prev,
+.next,
+.success:before,
+.warning:before,
+.error:before {
+  background-image: url('../images/sprites.png');
+	background-repeat: no-repeat;
+
+  // Retina sprites
+  @media (min--moz-device-pixel-ratio: 1.5),
+         (-o-min-device-pixel-ratio: 3/2),
+         (-webkit-min-device-pixel-ratio: 1.5),
+         (min-device-pixel-ratio: 1.5),
+         (min-resolution: 144dpi),
+         (min-resolution: 1.5dppx) {
+
+    background-image: url('../images/sprites@2x.png');
+    background-size: 500px 263px;
+  }
+}
+
+.menu {
+  background-position: -260px 1px;
+}
+
+// Links
+.prev {
+  background-position: -5px -5px;
+}
+
+.next {
+  background-position: -41px -5px;
+}
+
+.forward:after {
+  background-position: -226px -13px;
+}
+
+.back:before {
+  background-position: -205px -13px;
+}
+
+.reservation:before {
+  background-position: -325px -181px;
+}
+
+// Pagination Links
+.pagination .first {
+  background-position: -224px -236px;
+}
+
+.pagination .prev {
+  background-position: -225px -196px;
+}
+
+.pagination .next {
+  background-position: -224px -174px;
+}
+
+.pagination .last {
+  background-position: -224px -216px;
+}
+
+// Buttons
+.button.forward:after {
+  background-position: -35px -113px;
+}
+
+.button.back:before {
+  background-position: -5px -113px;
+}
+
+.button.facebook:before {
+  background-position: -94px -233px;
+}
+
+.button.submit:before {
+  background-position: -5px -233px;
+}
+
+// Carousel
+.carousel .screen:after {
+  background-position: -267px -42px;
+}
+
+
+// Icons
+.icon.twitter {
+  background-position: -150px -233px;
+
+  &.blue {
+    background-position: -442px -215px;
+  }
+}
+
+.icon.facebook {
+  background-position: -94px -233px;
+
+  &.blue {
+    background-position: -384px -215px;
+  }
+}
+
+.icon.instagram {
+  background-position: -122px -233px;
+
+  &.blue {
+    background-position: -413px -215px;
+  }
+}
+
+.icon.swipe {
+  background-position: -264px -79px;
+
+  &.blue {
+    background-position: -264px -181px;
+  }
+}
+
+.icon.lock {
+  background-position: -294px -79px;
+
+  &.blue {
+    background-position: -294px -181px;
+  }
+}
+
+.icon.cocktail {
+  background-position: -325px -79px;
+
+  &.blue {
+    background-position: -325px -181px;
+  }
+}
+
+.icon.social {
+  background-position: -358px -79px;
+
+  &.blue {
+    background-position: -358px -181px;
+  }
+}
+
+.icon.tickets {
+  background-position: -391px -79px;
+
+  &.blue {
+    background-position: -391px -181px;
+  }
+}
+
+.icon.calendar {
+  background-position: -425px -79px;
+
+  &.blue {
+    background-position: -425px -181px;
+  }
+}
+
+.icon.marker {
+  background-position: -456px -79px;
+
+  &.blue {
+    background-position: -456px -181px;
+  }
+}
+
+.icon.phone {
+  background-position: -265px -113px;
+
+  &.blue {
+    background-position: -265px -215px;
+  }
+}
+
+.icon.girl {
+  background-position: -293px -113px;
+
+  &.blue {
+    background-position: -293px -215px;
+  }
+}
+
+.icon.boy {
+  background-position: -324px -113px;
+
+  &.blue {
+    background-position: -324px -215px;
+  }
+}
+
+.icon.party {
+  background-position: -356px -113px;
+
+  &.blue {
+    background-position: -356px -215px;
+  }
+}
+
+// Message Icons
+.success:before {
+  background-position: -5px -233px;
+}
+
+.warning:before {
+  background-position: -35px -233px;
+}
+
+.error:before {
+  background-position: -65px -233px;
+}
+
+
+// Other retina graphics not in the sprite sheet
+@media (min--moz-device-pixel-ratio: 1.5),
+       (-o-min-device-pixel-ratio: 3/2),
+       (-webkit-min-device-pixel-ratio: 1.5),
+       (min-device-pixel-ratio: 1.5),
+       (min-resolution: 144dpi),
+       (min-resolution: 1.5dppx) {
+
+        .overlay,
+        .front header:after,
+        .cta:before {
+          background: url("../images/backgrounds/bg-overlay-big@2x.png") fixed;
+          background-size: 6px;
+        }
+       }

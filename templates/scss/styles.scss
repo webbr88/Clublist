@@ -1,0 +1,173 @@
+/*!
+ * Comments
+ */
+
+@import "third-party/normalize";
+
+$primaryHighlight: #26B4E1;
+$secondaryHighlight: #255488;
+$facebookHighlight: #3B5998;
+$facebookHover: #344E82;
+$hoverHighlight: #8C8E91;
+
+body {
+  background: black;
+  color: white;
+}
+
+@import "partials/mixins";
+@import "partials/keyframes";
+@import "partials/links";
+@import "partials/fonts";
+@import "partials/grid";
+@import "partials/main";
+@import "partials/buttons";
+@import "partials/sprites";
+@import "partials/carousels";
+@import "partials/messages";
+@import "partials/icons";
+
+
+nav[role="navigation"] {
+  li {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+  }
+}
+
+.l450 {
+  @media only screen and (min-width: 446px) {
+    display: none;
+  }
+}
+
+.l490 {
+  @media only screen and (min-width: 486px) {
+    display: none;
+  }
+}
+
+.boxed {
+  border: $primaryHighlight solid 2px;
+
+  &:hover {
+    background: $primaryHighlight;
+    color: white;
+  }
+
+  @media only screen and (min-width: 620px) {
+    padding: .725em;
+  }
+}
+
+// Grid overlay used to cover background images
+.overlay {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("../images/backgrounds/bg-overlay-big.png");
+}
+
+// Alignment
+.align-center {
+  text-align: center;
+}
+
+// Button hint
+.hint {
+  margin-top: .825em;
+}
+
+// Contains a button and a hint
+.button-and-hint {
+  text-align: center;
+}
+
+// Pagination
+.pagination {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #262626;
+  border-top-color: rgba(255, 255, 255, .15);
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1em 0 0 0;
+
+  .next,
+  .prev,
+  .first,
+  .last {
+    @include imageReplace();
+  }
+
+  a {
+    display: block;
+    width: 24px;
+    height: 24px;
+    color: white;
+    font-weight: 300;
+
+    &:hover {
+      background-color: $hoverHighlight;
+      color: white;
+    }
+
+    &.current {
+      background-color: $primaryHighlight;
+      color: white;
+    }
+  }
+
+  li,
+  li.next,
+  li.prev,
+  li.first,
+  li.last {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #262626;
+    border-color: rgba(255, 255, 255, .15);
+  }
+}
+
+
+main {
+
+  p,
+  table,
+  ul,
+  ol,
+  dl,
+  code,
+  div,
+  blockquote,
+  img {
+    margin-bottom: 1.6em;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border: white solid 2px;
+  }
+}
+
+
+.about .sidebar img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+
+  @media only screen and (min-width: 640px) {
+    width: 100%;
+  }
+}

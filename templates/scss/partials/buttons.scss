@@ -1,0 +1,82 @@
+/**
+ * Buttons
+ */
+
+.button {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  padding: 0.7777778em 1.111111em;
+  border: $primaryHighlight solid 2px;
+  color: white;
+  font-family: $Lato;
+  font-size: 16px;
+  font-weight: 500;
+
+  &:hover {
+    background: $primaryHighlight;
+    color: white;
+  }
+
+  // Button with Facebook Icon
+  &.facebook {
+    background: $facebookHighlight;
+    border: $facebookHighlight solid 2px;
+
+    &:before {
+      content: "";
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle;
+      margin-top: -1px;
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+    }
+
+    &:hover {
+      background: $facebookHover;
+      border-color: $facebookHover;
+    }
+  }
+
+  // Submit button
+  &.submit {
+    &:before {
+      content: "";
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle;
+      margin-top: -1px;
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+    }
+  }
+
+  // Back button
+  &.back {
+    &:before {
+      width: 25px;
+      height: 25px;
+    }
+
+    &:hover:before {
+      @include prefixed(transform, translateX(0));
+    }
+  }
+
+  // Forward button
+  &.forward {
+    &:after {
+      width: 25px;
+      height: 25px;
+    }
+
+    &:hover:after {
+      @include prefixed(transform, translateX(0));
+    }
+  }
+}

@@ -1,0 +1,25 @@
+/**
+ * Messages such as success, warning, error and so on.
+ */
+
+.success,
+.warning,
+.error {
+  display: block;
+  padding: 1.5em;
+  background: #F0F0F0;
+  font-weight: 300;
+  color: black;
+  text-align: left;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    margin-top: -1px;
+    margin-right: 10px;
+  }
+}

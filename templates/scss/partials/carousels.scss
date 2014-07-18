@@ -1,0 +1,131 @@
+// Show the desktop carousel and style it
+.carousel {
+  position: relative;
+  display: block;
+  margin-bottom: 4.5em;
+
+  button {
+    display: none; // Hide buttons for mobile (we'll rely on swiping)
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    @include imageReplace();
+    background-color: transparent;
+  }
+
+  .prev {
+    left: 0;
+  }
+
+  .next {
+    right: 0;
+  }
+
+  .screen {
+    position: relative;
+    padding: 0;
+    font-size: 0; // Remove 4px gap
+    overflow: hidden;
+    white-space: nowrap;
+
+    &:after {
+      content: "";
+      position: absolute;
+      right: 2px;
+      bottom: 2px;
+      width: 32px;
+      height: 32px;
+      background-color: black;
+      background-color: rgba(0, 0, 0, .4);
+    }
+  }
+
+  ul {
+    position: relative;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle;
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+    }
+
+    img {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      @include prefixed(box-sizing, border-box);
+      border: white solid 2px;
+    }
+  }
+}
+
+@media only screen and (min-width: 321px) {
+  .carousel .screen {
+    margin: 0 10px;
+  }
+}
+
+@media only screen and (min-width: 360px) {
+  .carousel .screen {
+    margin: 0 20px;
+  }
+}
+
+@media only screen and (min-width: 380px) {
+  .carousel .screen {
+    margin: 0 40px;
+  }
+}
+
+@media only screen and (min-width: 420px) {
+  .carousel {
+
+    // Remove the swipe indicator
+    .screen:after {
+      content: none;
+    }
+
+    // Show the nav buttons
+    button {
+      display: block;
+    }
+
+    // 2 rows of images
+    ul li {
+      width: 45%;
+      margin: 0 2.5%;
+    }
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .carousel {
+    margin-bottom: 6.875em;
+
+    // 3 rows of images
+    ul li {
+      width: 30%;
+      margin: 0 1.66666667%;
+    }
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .carousel {
+
+    // 4 rows of images
+    ul li {
+      width: 22%;
+      margin: 0 1.5%;
+    }
+  }
+}

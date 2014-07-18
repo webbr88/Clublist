@@ -1,0 +1,367 @@
+/**
+ * Contains major structure styles which should not need to be changed unless
+ * the website is going under major structural changes
+ */
+
+$maxWidth: 1120px;
+
+// Clearfix
+.group:before,
+.group:after {
+  content: " ";
+  display: table;
+}
+
+.group:after {
+  clear: both;
+}
+
+.group {
+  *zoom: 1;
+}
+
+.container {
+  max-width: $maxWidth;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+// Reset
+p {
+  margin: 0;
+}
+
+/**
+ * Used to force the feature section to a specific height and to make the
+ * content vertically aligned
+ */
+.front header {
+  background: #142D3C;
+
+  &:before {
+    height: 390px;
+  }
+
+  // Contains grid overlay
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("../images/backgrounds/bg-overlay-big.png") fixed;
+  }
+}
+
+header {
+  position: relative;
+  padding-top: 60px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #262626;
+  border-bottom-color: rgba(255, 255, 255, .15);
+  font-size: 0; // Remove 4px gap between inline-block elements
+  text-align: center;
+
+  .feature {
+    position: relative;
+    z-index: 10;
+    margin: 0 20px;
+    max-width: 420px;
+    text-align: center;
+    font-size: 16px; // Reset font-size as it was previously set to 0
+
+    .title {
+      margin-bottom: 1.8em;
+    }
+  }
+
+  // Vertically align the feature content in the middle of the header
+  &:before,
+  .feature {
+    content: "";
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+  }
+
+  // Contains logo, menu icon and nav links
+  nav {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 9px 10px;
+    background: black;
+    background: rgba(0, 0, 0, .90);
+  }
+
+  .logo {
+    float: left;
+    padding: 10px 0;
+  }
+
+  // Menu icon
+  .menu {
+    position: relative;
+    right: -10px;
+    float: right;
+    width: 25px;
+    height: 20px;
+    padding: 10px;
+    @include imageReplace();
+  }
+
+  // Hide the text links for mobile devices
+  ul {
+    display: none;
+  }
+}
+
+.banner {
+  position: relative;
+  height: 200px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #262626;
+  border-bottom-color: rgba(255, 255, 255, .15);
+  background: #142D3C;
+}
+
+// Everything in the <main> of the front page is center aligned
+.front main {
+  text-align: center;
+
+  img {
+    border: none;
+  }
+}
+
+main {
+  padding-top: 5em;
+}
+
+section {
+  margin-bottom: 5em;
+}
+
+// Features section ("Take control of your night" on the front page for example)
+.features {
+  padding: 0 20px;
+
+  img {
+    margin-bottom: .875em;
+    max-height: 120px;
+  }
+
+  p {
+    margin-bottom: 1.25em;
+  }
+
+  h3 {
+    margin-bottom: .5em;
+  }
+
+  > div {
+    margin: 0 auto;
+    margin-bottom: 3.75em;
+    max-width: 250px;
+  }
+}
+
+.cta {
+  position: relative;
+  height: 360px;
+  margin-top: 3.75em;
+  padding-top: 40px;
+  background: #142D3C;
+  text-align: center;
+
+  .container {
+    position: relative;
+    z-index: 10;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("../images/backgrounds/bg-overlay-big.png") fixed;
+  }
+}
+
+footer {
+  padding-bottom: 60px;
+  text-align: center;
+
+  nav[role="navigation"] ul {
+    padding: 0;
+    margin-bottom: 3em;
+
+    li {
+      display: block;
+      line-height: 140%;
+    }
+
+    a {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      padding: .5em 1em;
+    }
+  }
+
+  .social-links {
+    margin: 1.5em 0;
+  }
+
+  .logo {
+    display: block;
+    margin-bottom: 4px;
+  }
+}
+
+
+@media only screen and (min-width: 420px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .banner {
+    height: 300px;
+  }
+
+  header {
+    padding-bottom: 20px;
+
+    nav[role="navigation"] {
+      position: absolute;
+      top: 0;
+      background: none;
+      font-size: 14px; // Reset font as it was previously set to 0
+
+      .logo {
+        padding: 1.5em 0;
+      }
+
+      ul {
+        position: relative;
+        display: block;
+        float: right;
+        padding: 0.625em 0;
+
+        a {
+          padding: 1em .725em;
+        }
+
+        .boxed {
+          margin-left: .725em;
+        }
+      }
+    }
+
+    .feature {
+      max-width: 100%;
+    }
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .title {
+    max-width: 640px;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  .features {
+    max-width: 960px;
+    margin: 0 auto;
+
+    > div {
+      display: inline-block;
+      *display: inline;
+      vertical-align: top;
+      width: 30%;
+      max-width: 220px;
+      margin-bottom: 0;
+    }
+
+    .middle {
+      margin: 0 20px;
+    }
+  }
+
+  footer {
+    nav[role="navigation"] ul li {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+    }
+
+    .social-links {
+      margin: 1.5em 0 0 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 820px) {
+  .features .middle {
+    margin: 0 40px;
+  }
+}
+
+@media only screen and (min-width: 920px) {
+  .front header:before {
+    height: 670px;
+  }
+
+  .title {
+    max-width: 920px;
+  }
+
+  h1 {
+    font-size: 3.75em;
+  }
+
+  h2 {
+    font-size: 2.625em;
+  }
+
+  .features > div {
+    max-width: 240px;
+  }
+
+  .features .middle {
+    margin: 0 60px;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  main .container {
+    max-width: 1040px;
+  }
+
+  .front main .container {
+    max-width: 1120px;
+  }
+
+  .features .middle {
+    margin: 0 80px;
+  }
+}
