@@ -18,6 +18,10 @@ nav[role="navigation"] {
   text-transform: uppercase;
 }
 
+small {
+  font-weight: 300;
+}
+
 h1,
 h2,
 h3,
@@ -47,27 +51,14 @@ h1 {
   text-transform: uppercase;
 }
 
-@media only screen and (min-width: 640px) {
-  main {
-    h1 {
-    font-size: 2.6em;
-    }
-
-    h2 {
-      font-size: 2.1em;
-    }
-  }
-}
-
 main {
-  font-size: 1.25em;
+  font-size: 1.125em;
 
   h1 {
     line-height: 100%;
   }
 
   h2 {
-
     margin-top: 2em;
   }
 
@@ -87,13 +78,12 @@ main {
   h4,
   h5,
   h6 {
-    margin-bottom: .3em;
+    margin-bottom: .5em;
   }
 
 }
 
 .front {
-  font-size: 0.8em;
 
   h2,
   h3,
@@ -106,7 +96,7 @@ main {
 
 .button + .hint {
   font-family: $Roboto;
-  font-size: .7777778em;
+  font-size: 14px;
   font-weight: 100;
 }
 
@@ -115,14 +105,44 @@ main {
 
   h3 {
     color: $primaryHighlight;
+    font-size: 1.1em;
   }
 
   p {
-    font-size: .875em;
+    font-size: .8em;
   }
 }
 
 .back,
 .forward {
-  font-weight: 500;
+  font-weight: 300;
+}
+
+.highlight {
+  color: $primaryHighlight;
+}
+
+
+@media only screen and (min-width: 640px) {
+  main {
+    h1 {
+    font-size: 2.6em;
+    }
+
+    h2 {
+      font-size: 2.1em;
+    }
+  }
+
+  main .features h2 {
+    font-size: 1.75em;
+  }
+}
+
+@media only screen and (min-width: 720px) {
+  main .features {
+    h2 {
+      font-size: 2.1em;
+    }
+  }
 }

@@ -1,5 +1,6 @@
 /*!
- * Comments
+ * Main style sheet. Anything not imported is a generic element that should
+ * be able to be placed anywhere and work fully.
  */
 
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
@@ -479,14 +480,13 @@ main a {
 
 .back,
 .forward {
-  font-size: .875em;
+  font-size: .8em;
   font-weight: 300;
   color: white;
 }
 
 .forward:after {
   position: relative;
-  top: -1px;
   content: "";
   display: inline-block;
   *display: inline;
@@ -582,6 +582,10 @@ nav[role="navigation"] {
   text-transform: uppercase;
 }
 
+small {
+  font-weight: 300;
+}
+
 h1,
 h2,
 h3,
@@ -611,18 +615,8 @@ h1 {
   text-transform: uppercase;
 }
 
-@media only screen and (min-width: 640px) {
-  main h1 {
-    font-size: 2.6em;
-  }
-
-  main h2 {
-    font-size: 2.1em;
-  }
-}
-
 main {
-  font-size: 1.25em;
+  font-size: 1.125em;
 }
 
 main h1 {
@@ -649,11 +643,7 @@ main h3,
 main h4,
 main h5,
 main h6 {
-  margin-bottom: .3em;
-}
-
-.front {
-  font-size: 0.8em;
+  margin-bottom: .5em;
 }
 
 .front h2,
@@ -666,7 +656,7 @@ main h6 {
 
 .button + .hint {
   font-family: "Roboto", sans-serif;
-  font-size: .7777778em;
+  font-size: 14px;
   font-weight: 100;
 }
 
@@ -676,15 +666,40 @@ main h6 {
 
 .features h3 {
   color: #26b4e1;
+  font-size: 1.1em;
 }
 
 .features p {
-  font-size: .875em;
+  font-size: .8em;
 }
 
 .back,
 .forward {
-  font-weight: 500;
+  font-weight: 300;
+}
+
+.highlight {
+  color: #26b4e1;
+}
+
+@media only screen and (min-width: 640px) {
+  main h1 {
+    font-size: 2.6em;
+  }
+
+  main h2 {
+    font-size: 2.1em;
+  }
+
+  main .features h2 {
+    font-size: 1.75em;
+  }
+}
+
+@media only screen and (min-width: 720px) {
+  main .features h2 {
+    font-size: 2.1em;
+  }
 }
 
 .side {
@@ -696,7 +711,7 @@ main h6 {
   margin-bottom: 3.75em;
 }
 
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 720px) {
   .group.one-three > div {
     float: left;
   }
@@ -849,7 +864,36 @@ main h6 {
   *zoom: 1;
 }
 
+.interior .wrapper {
+  padding-top: 2.222222em;
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(80%, black));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, transparent 0%, black 80%);
+  /* Chrome10+,Safari5.1+ */
+  /* Opera 11.10+ */
+  /* IE10+ */
+  background: linear-gradient(to bottom, transparent 0%, black 80%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000',GradientType=0 );
+  /* IE6-9 */
+  background-attachment: fixed;
+}
+
+.wrapper {
+  position: relative;
+  margin: 0;
+  padding-top: 5em;
+  padding-bottom: 3.75em;
+}
+
+.wrapper .overlay {
+  margin: 0;
+}
+
 .container {
+  position: relative;
+  z-index: 20;
   max-width: 1120px;
   margin: 0 auto;
   padding-left: 10px;
@@ -866,11 +910,8 @@ p {
  */
 
 .front header {
+  position: relative;
   background: #142D3C;
-}
-
-.front header:before {
-  height: 390px;
 }
 
 .front header:after {
@@ -885,14 +926,45 @@ p {
 }
 
 header {
-  position: relative;
   padding-top: 60px;
+  font-size: 0;
+  text-align: center;
+}
+
+header nav[role="navigation"] {
+  position: fixed;
+  top: 0;
+  background: black;
+  background: rgba(0, 0, 0, 0.9);
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #262626;
   border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+header .group {
+  margin-bottom: 0;
+}
+
+header .container {
+  padding: 10px;
+}
+
+header .feature-wrapper {
   font-size: 0;
-  text-align: center;
+}
+
+header .feature-wrapper:before,
+header .feature {
+  content: "";
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: middle;
+}
+
+header .feature-wrapper:before {
+  height: 390px;
 }
 
 header .feature {
@@ -908,24 +980,11 @@ header .feature .title {
   margin-bottom: 1.8em;
 }
 
-header:before,
-header .feature {
-  content: "";
-  display: inline-block;
-  *display: inline;
-  zoom: 1;
-  vertical-align: middle;
-}
-
-header nav {
-  position: fixed;
-  z-index: 20;
+header nav[role="navigation"] {
+  z-index: 30;
   top: 0;
   left: 0;
   right: 0;
-  padding: 9px 10px;
-  background: black;
-  background: rgba(0, 0, 0, 0.9);
 }
 
 header .logo {
@@ -965,12 +1024,22 @@ header ul {
   text-align: center;
 }
 
-.front main img {
+.front img {
   border: none;
 }
 
-main {
-  padding-top: 5em;
+.interior main {
+  background-image: url("../images/backgrounds/temp.jpg");
+  background-position: 50% 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media only screen and (min-width: 1280px), screen and (max-height: 580px) {
+  .interior main {
+    background-size: cover;
+  }
 }
 
 section {
@@ -1003,7 +1072,6 @@ section {
 .cta {
   position: relative;
   height: 360px;
-  margin-top: 3.75em;
   padding-top: 40px;
   background: #142D3C;
   text-align: center;
@@ -1056,10 +1124,68 @@ footer .logo {
   margin-bottom: 4px;
 }
 
-@media only screen and (min-width: 420px) {
-  .container {
-    padding-left: 20px;
-    padding-right: 20px;
+.card {
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1.111111em;
+  padding-bottom: 2.75em;
+  background: white;
+  color: black;
+  font-weight: 300;
+  font-size: .8888889em;
+}
+
+.card h1 {
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6 {
+  color: black;
+  text-transform: none;
+}
+
+.card .button[type="submit"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.infobar {
+  display: none;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 1.6666667em 1.111111em;
+  background: black;
+  background: rgba(0, 0, 0, 0.6);
+  border-style: solid;
+  border-width: 1px;
+  border-color: #262626;
+  border-color: rgba(255, 255, 255, 0.15);
+  font-size: 16px;
+}
+
+.infobar h1 {
+  text-transform: none;
+  font-size: 2.25em;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+@media only screen and (min-width: 720px) {
+  .infobar {
+    display: block;
   }
 }
 
@@ -1068,14 +1194,20 @@ footer .logo {
     height: 300px;
   }
 
+  .front header nav[role="navigation"] {
+    padding-top: 0;
+    background: none;
+    border-bottom: none;
+  }
+
   header {
-    padding-bottom: 20px;
+    padding-top: 0;
   }
 
   header nav[role="navigation"] {
-    position: absolute;
+    position: relative;
+    background: black;
     top: 0;
-    background: none;
     font-size: 14px;
   }
 
@@ -1096,6 +1228,7 @@ footer .logo {
 
   header nav[role="navigation"] ul .boxed {
     margin-left: .725em;
+    padding: .725em;
   }
 
   header .feature {
@@ -1117,6 +1250,7 @@ footer .logo {
   .features {
     max-width: 960px;
     margin: 0 auto;
+    padding: 0;
   }
 
   .features > div {
@@ -1124,12 +1258,12 @@ footer .logo {
     *display: inline;
     vertical-align: top;
     width: 30%;
-    max-width: 220px;
+    max-width: 160px;
     margin-bottom: 0;
   }
 
   .features .middle {
-    margin: 0 20px;
+    margin: 0 40px;
   }
 
   footer nav[role="navigation"] ul li {
@@ -1143,14 +1277,30 @@ footer .logo {
   }
 }
 
+@media only screen and (min-width: 670px) {
+  .features > div {
+    max-width: 180px;
+  }
+}
+
+@media only screen and (min-width: 720px) {
+  .club-description {
+    display: none;
+  }
+}
+
 @media only screen and (min-width: 820px) {
+  .features > div {
+    max-width: 200px;
+  }
+
   .features .middle {
-    margin: 0 40px;
+    margin: 0 60px;
   }
 }
 
 @media only screen and (min-width: 920px) {
-  .front header:before {
+  header .feature-wrapper:before {
     height: 670px;
   }
 
@@ -1167,11 +1317,11 @@ footer .logo {
   }
 
   .features > div {
-    max-width: 240px;
+    max-width: 260px;
   }
 
   .features .middle {
-    margin: 0 60px;
+    margin: 0 40px;
   }
 }
 
@@ -1180,12 +1330,21 @@ footer .logo {
     max-width: 1040px;
   }
 
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .front main .container {
     max-width: 1120px;
   }
 
+  .features > div {
+    max-width: 260px;
+  }
+
   .features .middle {
-    margin: 0 80px;
+    margin: 0 60px;
   }
 }
 
@@ -1203,6 +1362,7 @@ footer .logo {
   font-family: "Lato", sans-serif;
   font-size: 16px;
   font-weight: 500;
+  background-color: transparent;
 }
 
 .button:hover {
@@ -1266,6 +1426,14 @@ footer .logo {
   transform: translateX(0);
 }
 
+.card .button {
+  color: #26b4e1;
+}
+
+.card .button:hover {
+  color: white;
+}
+
 .menu,
 .button.facebook:before,
 .forward:after,
@@ -1274,6 +1442,7 @@ footer .logo {
 .reservation:before,
 .back.button:before,
 .submit.button:before,
+.slider:after,
 .carousel .screen:after,
 .icon,
 .pagination .first,
@@ -1298,6 +1467,7 @@ footer .logo {
   .reservation:before,
   .back.button:before,
   .submit.button:before,
+  .slider:after,
   .carousel .screen:after,
   .icon,
   .pagination .first,
@@ -1315,7 +1485,7 @@ footer .logo {
 }
 
 .menu {
-  background-position: -260px 1px;
+  background-position: -255px 1px;
 }
 
 .prev {
@@ -1370,8 +1540,9 @@ footer .logo {
   background-position: -5px -233px;
 }
 
+.slider:after,
 .carousel .screen:after {
-  background-position: -267px -42px;
+  background-position: -260px -75px;
 }
 
 .icon.twitter {
@@ -1505,6 +1676,11 @@ footer .logo {
     background: url("../images/backgrounds/bg-overlay-big@2x.png") fixed;
     background-size: 6px;
   }
+
+  .overlay.small {
+    background: url("../images/backgrounds/bg-overlay-small@2x.png") fixed;
+    background-size: 4px;
+  }
 }
 
 .carousel {
@@ -1552,7 +1728,7 @@ footer .logo {
   width: 32px;
   height: 32px;
   background-color: black;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .carousel ul {
@@ -1634,6 +1810,91 @@ footer .logo {
   }
 }
 
+.slider {
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  margin: 0 0 1.111111em 0;
+  border: black solid 2px;
+}
+
+.slider:after {
+  content: "";
+  position: absolute;
+  z-index: 1000;
+  right: 0;
+  bottom: 0;
+  width: 32px;
+  height: 32px;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slider img {
+  position: relative;
+  border: none;
+}
+
+.slider .next,
+.slider .prev {
+  display: none;
+}
+
+.slider .next {
+  right: 20px;
+}
+
+.slider .prev {
+  left: 20px;
+}
+
+.slider ul {
+  position: relative;
+  white-space: nowrap;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0;
+}
+
+.slider li {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  width: 100%;
+  height: 100%;
+}
+
+@media only screen and (min-width: 640px) {
+  .slider {
+    margin: 0 0 1.875em 0;
+  }
+
+  .slider:after {
+    content: none;
+  }
+
+  .slider .next,
+  .slider .prev {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    border: 0;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+    *text-indent: -999px;
+    background-color: transparent;
+  }
+}
+
 /**
  * Messages such as success, warning, error and so on.
  */
@@ -1645,6 +1906,7 @@ footer .logo {
   padding: 1.5em;
   background: #F0F0F0;
   font-weight: 300;
+  font-size: 16px;
   color: black;
   text-align: left;
 }
@@ -1660,6 +1922,92 @@ footer .logo {
   height: 25px;
   margin-top: -1px;
   margin-right: 10px;
+}
+
+form {
+  font-size: 16px;
+}
+
+form fieldset {
+  border: none;
+  padding: 0 0 1em 0;
+}
+
+form .inputset {
+  margin-bottom: .625em;
+}
+
+form label {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: .625em;
+  font-weight: 500;
+  font-size: 1em;
+}
+
+form .expiry span {
+  font-weight: bold;
+}
+
+form input,
+form .icon,
+form span {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: middle;
+}
+
+form .icon {
+  margin: 0 6px 0 14px;
+}
+
+form span {
+  font-size: .875em;
+}
+
+form input {
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 140px;
+  padding: .4em;
+  border: solid 1px #D6D6D6;
+}
+
+form input[type="submit"] {
+  width: auto;
+}
+
+form input.month,
+form input.year {
+  width: 3em;
+  min-width: 30px;
+  text-align: center;
+}
+
+@media only screen and (min-width: 480px) {
+  form .group > fieldset {
+    float: left;
+  }
+
+  form .group > fieldset:first-child {
+    margin-right: 20px;
+  }
+
+  form .half {
+    width: 45%;
+  }
+
+  form .third {
+    width: 30%;
+  }
+
+  form .quarter {
+    width: 22.5%;
+  }
 }
 
 .icon {
@@ -1724,6 +2072,11 @@ nav[role="navigation"] li {
   bottom: 0;
   left: 0;
   background-image: url("../images/backgrounds/bg-overlay-big.png");
+  background-attachment: fixed;
+}
+
+.overlay.small {
+  background-image: url("../images/backgrounds/bg-overlay-small.png");
 }
 
 .align-center {
@@ -1746,6 +2099,7 @@ nav[role="navigation"] li {
   max-width: 400px;
   margin: 0 auto;
   padding: 1em 0 0 0;
+  line-height: 150%;
 }
 
 .pagination .next,
@@ -1792,6 +2146,104 @@ nav[role="navigation"] li {
   border-color: rgba(255, 255, 255, 0.15);
 }
 
+table {
+  width: 100%;
+  border-bottom: dotted 1px #D6D6D6;
+  font-size: .8888889em;
+}
+
+table thead {
+  font-weight: 500;
+  border-bottom: solid 2px #D6D6D6;
+}
+
+table tr:nth-child(even) {
+  background-color: #E5F2FF;
+}
+
+table td {
+  padding: .725em;
+}
+
+table .number {
+  display: none;
+  text-align: center;
+}
+
+table .reserve {
+  text-align: right;
+  font-weight: 500;
+}
+
+table .reserve span {
+  display: none;
+}
+
+table a,
+table .icon {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: middle;
+}
+
+@media only screen and (min-width: 580px) {
+  table .reserve span {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+  }
+
+  table .reserve .icon {
+    margin-right: 10px;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  table .number {
+    display: table-cell;
+    width: 40px;
+  }
+
+  table .location {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 720px) {
+  table .reserve span {
+    display: none;
+  }
+
+  table .reserve .icon {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (min-width: 790px) {
+  table .reserve span {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+  }
+
+  table .reserve .icon {
+    margin-right: 10px;
+  }
+
+  table .location {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 920px) {
+  table .location {
+    width: 40%;
+  }
+}
+
 main p,
 main table,
 main ul,
@@ -1808,6 +2260,53 @@ main img {
   max-width: 100%;
   height: auto;
   border: white solid 2px;
+}
+
+.contact-details {
+  margin-bottom: 2.14em;
+  padding: 0;
+  list-style: none;
+  font-weight: 500;
+}
+
+.contact-details li {
+  margin-bottom: .5em;
+}
+
+.contact-details li:last-child {
+  margin-bottom: 0;
+}
+
+.contact-details .icon {
+  margin-right: 4px;
+}
+
+@media only screen and (min-width: 640px) {
+  .contact-details .contact-details {
+    padding-bottom: 1.6666667em;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #262626;
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+.concealed {
+  overflow: scroll;
+  max-height: 7.4em;
+  margin-top: -10px;
+  padding: 10px 0 0 0;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #D6D6D6;
+  background: -webkit-linear-gradient(white 30%, rgba(255, 255, 255, 0)), -webkit-linear-gradient(rgba(255, 255, 255, 0), white 70%) 0 100%, -webkit-radial-gradient(50% 0, farthest-side, rgba(0, 0, 0, 0.2), transparent), -webkit-radial-gradient(50% 100%, farthest-side, rgba(0, 0, 0, 0.2), transparent) 0 100%;
+  background: linear-gradient(white 30%, rgba(255, 255, 255, 0)), linear-gradient(rgba(255, 255, 255, 0), white 70%) 0 100%, radial-gradient(50% 0, farthest-side, rgba(0, 0, 0, 0.2), transparent), radial-gradient(50% 100%, farthest-side, rgba(0, 0, 0, 0.2), transparent) 0 100%;
+  background: linear-gradient(white 30%, rgba(255, 255, 255, 0)), linear-gradient(rgba(255, 255, 255, 0), white 70%) 0 100%, radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, 0.2), transparent), radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, 0.2), transparent) 0 100%;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+  /* Opera doesn't support this in the shorthand */
+  background-attachment: local, local, scroll, scroll;
 }
 
 .about .sidebar img {

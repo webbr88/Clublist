@@ -12,6 +12,7 @@
   font-family: $Lato;
   font-size: 16px;
   font-weight: 500;
+  background-color: transparent;
 
   &:hover {
     background: $primaryHighlight;
@@ -78,5 +79,14 @@
     &:hover:after {
       @include prefixed(transform, translateX(0));
     }
+  }
+}
+
+// Styles for buttons when on card
+.card .button {
+  color: $primaryHighlight;
+
+  &:hover {
+    color: white;
   }
 }

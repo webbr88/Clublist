@@ -6,6 +6,7 @@
 .reservation:before,
 .back.button:before,
 .submit.button:before,
+.slider:after,
 .carousel .screen:after,
 .icon,
 .pagination .first,
@@ -34,7 +35,7 @@
 }
 
 .menu {
-  background-position: -260px 1px;
+  background-position: -255px 1px;
 }
 
 // Links
@@ -92,9 +93,10 @@
   background-position: -5px -233px;
 }
 
-// Carousel
+// Carousel/Slider
+.slider:after,
 .carousel .screen:after {
-  background-position: -267px -42px;
+  background-position: -260px -75px;
 }
 
 
@@ -238,5 +240,10 @@
         .cta:before {
           background: url("../images/backgrounds/bg-overlay-big@2x.png") fixed;
           background-size: 6px;
+        }
+
+        .overlay.small {
+          background: url("../images/backgrounds/bg-overlay-small@2x.png") fixed;
+          background-size: 4px;
         }
        }

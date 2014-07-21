@@ -72,7 +72,7 @@ module.exports = function(grunt) {
           },
 
           files: {
-            files: ['*.html'],
+            files: ['**/*.html'],
             options: {
               spawn: false
             }

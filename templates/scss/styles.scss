@@ -1,5 +1,6 @@
 /*!
- * Comments
+ * Main style sheet. Anything not imported is a generic element that should
+ * be able to be placed anywhere and work fully.
  */
 
 @import "third-party/normalize";
@@ -24,7 +25,9 @@ body {
 @import "partials/buttons";
 @import "partials/sprites";
 @import "partials/carousels";
+@import "partials/slider";
 @import "partials/messages";
+@import "partials/forms";
 @import "partials/icons";
 
 
@@ -70,6 +73,11 @@ nav[role="navigation"] {
   bottom: 0;
   left: 0;
   background-image: url("../images/backgrounds/bg-overlay-big.png");
+  background-attachment: fixed;
+
+  &.small {
+    background-image: url("../images/backgrounds/bg-overlay-small.png");
+  }
 }
 
 // Alignment
@@ -96,6 +104,7 @@ nav[role="navigation"] {
   max-width: 400px;
   margin: 0 auto;
   padding: 1em 0 0 0;
+  line-height: 150%;
 
   .next,
   .prev,
@@ -138,6 +147,110 @@ nav[role="navigation"] {
   }
 }
 
+table {
+  width: 100%;
+  border-bottom: dotted 1px #D6D6D6;
+  font-size: .8888889em;
+
+  thead {
+    font-weight: 500;
+    border-bottom: solid 2px #D6D6D6;
+  }
+
+  tr:nth-child(even) {
+    background-color: #E5F2FF;
+  }
+
+  td {
+    padding: .725em;
+  }
+
+  .number {
+    display: none;
+    text-align: center;
+  }
+
+  .reserve {
+    text-align: right;
+    font-weight: 500;
+
+    span {
+      display: none;
+    }
+  }
+
+  a,
+  .icon {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+  }
+
+  @media only screen and (min-width: 580px) {
+    .reserve {
+      span {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        vertical-align: middle;
+      }
+
+      .icon {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  @media only screen and (min-width: 640px) {
+    .number {
+      display: table-cell;
+      width: 40px;
+    }
+
+    .location {
+      width: 40%;
+    }
+  }
+
+  @media only screen and (min-width: 720px) {
+    .reserve {
+      span {
+        display: none;
+      }
+
+      .icon {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media only screen and (min-width: 790px) {
+    .reserve {
+      span {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        vertical-align: middle;
+      }
+
+      .icon {
+        margin-right: 10px;
+      }
+    }
+
+    .location {
+      width: 30%;
+    }
+  }
+
+  @media only screen and (min-width: 920px) {
+    .location {
+      width: 40%;
+    }
+  }
+}
+
 
 main {
 
@@ -160,7 +273,69 @@ main {
   }
 }
 
+.contact-details {
+  margin-bottom: 2.14em;
+  padding: 0;
+  list-style: none;
+  font-weight: 500;
 
+  li {
+    margin-bottom: .5em;
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
+
+  .icon {
+    margin-right: 4px;
+  }
+
+  @media only screen and (min-width: 640px) {
+    .contact-details {
+      padding-bottom: 1.6666667em;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-bottom-color: #262626;
+      border-bottom-color: rgba(255, 255, 255, .15);
+    }
+  }
+}
+
+.concealed {
+  overflow: scroll;
+  max-height: 7.4em;
+  margin-top: -10px;
+  padding: 10px 0 0 0;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #D6D6D6;
+
+  background:
+		/* Shadow covers */
+		linear-gradient(white 30%, rgba(255,255,255,0)),
+		linear-gradient(rgba(255,255,255,0), white 70%) 0 100%,
+
+		/* Shadows */
+		radial-gradient(50% 0, farthest-side, rgba(0,0,0,.2), rgba(0,0,0,0)),
+		radial-gradient(50% 100%,farthest-side, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+	background:
+		/* Shadow covers */
+		linear-gradient(white 30%, rgba(255,255,255,0)),
+		linear-gradient(rgba(255,255,255,0), white 70%) 0 100%,
+
+		/* Shadows */
+		radial-gradient(farthest-side at 50% 0, rgba(0,0,0,.2), rgba(0,0,0,0)),
+		radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+	background-repeat: no-repeat;
+	background-color: white;
+	background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+
+	/* Opera doesn't support this in the shorthand */
+	background-attachment: local, local, scroll, scroll;
+}
+
+// Page specific
 .about .sidebar img {
   display: block;
   margin-left: auto;

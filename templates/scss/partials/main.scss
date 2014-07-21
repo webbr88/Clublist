@@ -20,7 +20,34 @@ $maxWidth: 1120px;
   *zoom: 1;
 }
 
+.interior .wrapper {
+  padding-top: 2.222222em;
+
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(80%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 80%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 80%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 80%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 80%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+
+  background-attachment: fixed;
+}
+
+.wrapper {
+  position: relative;
+  margin: 0;
+  padding-top: 5em;
+  padding-bottom: 3.75em;
+
+  .overlay {
+    margin: 0;
+  }
+}
+
 .container {
+  position: relative;
+  z-index: 20;
   max-width: $maxWidth;
   margin: 0 auto;
   padding-left: 10px;
@@ -37,11 +64,8 @@ p {
  * content vertically aligned
  */
 .front header {
+  position: relative;
   background: #142D3C;
-
-  &:before {
-    height: 390px;
-  }
 
   // Contains grid overlay
   &:after {
@@ -57,14 +81,49 @@ p {
 }
 
 header {
-  position: relative;
   padding-top: 60px;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: #262626;
-  border-bottom-color: rgba(255, 255, 255, .15);
   font-size: 0; // Remove 4px gap between inline-block elements
   text-align: center;
+
+  nav[role="navigation"] {
+    position: fixed;
+    top: 0;
+
+    background: black;
+    background: rgba(0, 0, 0, .90);
+
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #262626;
+    border-bottom-color: rgba(255, 255, 255, .15);
+  }
+
+  .group {
+    margin-bottom: 0;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .feature-wrapper {
+    font-size: 0;
+  }
+
+  // Vertically align the feature content in the middle of the header
+  .feature-wrapper:before,
+  .feature {
+    content: "";
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+  }
+
+  .feature-wrapper:before {
+    height: 390px;
+  }
+
 
   .feature {
     position: relative;
@@ -74,31 +133,19 @@ header {
     text-align: center;
     font-size: 16px; // Reset font-size as it was previously set to 0
 
+
+
     .title {
       margin-bottom: 1.8em;
     }
   }
 
-  // Vertically align the feature content in the middle of the header
-  &:before,
-  .feature {
-    content: "";
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    vertical-align: middle;
-  }
-
   // Contains logo, menu icon and nav links
-  nav {
-    position: fixed;
-    z-index: 20;
+  nav[role="navigation"] {
+    z-index: 30;
     top: 0;
     left: 0;
     right: 0;
-    padding: 9px 10px;
-    background: black;
-    background: rgba(0, 0, 0, .90);
   }
 
   .logo {
@@ -134,16 +181,27 @@ header {
 }
 
 // Everything in the <main> of the front page is center aligned
-.front main {
-  text-align: center;
+.front {
+  main {
+    text-align: center;
+  }
 
   img {
     border: none;
   }
 }
 
-main {
-  padding-top: 5em;
+.interior main {
+  background-image: url("../images/backgrounds/temp.jpg");
+  background-position: 50% 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  @media only screen and (min-width: 1280px),
+              screen and (max-height: 580px) {
+    background-size: cover;
+  }
 }
 
 section {
@@ -177,7 +235,6 @@ section {
 .cta {
   position: relative;
   height: 360px;
-  margin-top: 3.75em;
   padding-top: 40px;
   background: #142D3C;
   text-align: center;
@@ -230,12 +287,68 @@ footer {
   }
 }
 
+// Section with a white background, typically paired with .infobar
+.card {
+  @include prefixed(box-sizing, border-box);
+  margin: 0;
+  padding: 1.111111em;
+  padding-bottom: 2.75em;
+  background: white;
+  color: black;
+  font-weight: 300;
+  font-size: .8888889em;
+
+  h1 {
+    font-size: 1.25em;
+    font-weight: 700;
+    line-height: 140%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: black;
+    text-transform: none;
+  }
+
+  .button[type="submit"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Sidebar that typically sits next to .card
+.infobar {
+  display: none;
+  @include prefixed(box-sizing, border-box);
+  padding: 1.6666667em 1.111111em;
+  background: black;
+  background: rgba(0, 0, 0, .6);
+  border-style: solid;
+  border-width: 1px;
+  border-color: #262626;
+  border-color: rgba(255, 255, 255, .15);
+  font-size: 16px;
+
+  h1 {
+    text-transform: none;
+    font-size: 2.25em;
+    font-weight: 500;
+    line-height: 120%;
+  }
+
+  @media only screen and (min-width:720px) {
+    display: block;
+  }
+}
+
 
 @media only screen and (min-width: 420px) {
-  .container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+
 }
 
 @media only screen and (min-width: 640px) {
@@ -243,13 +356,19 @@ footer {
     height: 300px;
   }
 
+  .front header nav[role="navigation"] {
+    padding-top: 0;
+    background: none;
+    border-bottom: none;
+  }
+
   header {
-    padding-bottom: 20px;
+    padding-top: 0;
 
     nav[role="navigation"] {
-      position: absolute;
+      position: relative;
+      background: black;
       top: 0;
-      background: none;
       font-size: 14px; // Reset font as it was previously set to 0
 
       .logo {
@@ -268,6 +387,7 @@ footer {
 
         .boxed {
           margin-left: .725em;
+          padding: .725em;
         }
       }
     }
@@ -292,18 +412,19 @@ footer {
   .features {
     max-width: 960px;
     margin: 0 auto;
+    padding: 0;
 
     > div {
       display: inline-block;
       *display: inline;
       vertical-align: top;
       width: 30%;
-      max-width: 220px;
+      max-width: 160px;
       margin-bottom: 0;
     }
 
     .middle {
-      margin: 0 20px;
+      margin: 0 40px;
     }
   }
 
@@ -320,14 +441,30 @@ footer {
   }
 }
 
+@media only screen and (min-width: 670px) {
+  .features > div {
+    max-width: 180px;
+  }
+}
+
+@media only screen and (min-width: 720px) {
+  .club-description {
+    display: none;
+  }
+}
+
 @media only screen and (min-width: 820px) {
+  .features > div {
+    max-width: 200px;
+  }
+
   .features .middle {
-    margin: 0 40px;
+    margin: 0 60px;
   }
 }
 
 @media only screen and (min-width: 920px) {
-  .front header:before {
+  header .feature-wrapper:before {
     height: 670px;
   }
 
@@ -344,11 +481,11 @@ footer {
   }
 
   .features > div {
-    max-width: 240px;
+    max-width: 260px;
   }
 
   .features .middle {
-    margin: 0 60px;
+    margin: 0 40px;
   }
 }
 
@@ -357,11 +494,20 @@ footer {
     max-width: 1040px;
   }
 
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .front main .container {
     max-width: 1120px;
   }
 
+  .features > div {
+    max-width: 260px;
+  }
+
   .features .middle {
-    margin: 0 80px;
+    margin: 0 60px;
   }
 }
