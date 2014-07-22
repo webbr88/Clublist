@@ -20,29 +20,40 @@ $maxWidth: 1120px;
   *zoom: 1;
 }
 
-.interior .wrapper {
-  padding-top: 2.222222em;
+main .group:last-of-type {
+  margin-bottom: 0;
+}
 
-  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(80%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 80%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 80%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 80%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 80%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+.interior {
 
-  background-attachment: fixed;
+  .wrapper {
+    padding-top: 2.222222em;
+
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(80%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 80%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 80%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 80%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 80%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+    background-attachment: fixed;
+  }
 }
 
 .wrapper {
   position: relative;
   margin: 0;
-  padding-top: 5em;
-  padding-bottom: 3.75em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 
-  .overlay {
-    margin: 0;
+  @media only screen and (min-width: 640px) {
+    padding-top: 5em;
+    padding-bottom: 5em;
   }
+}
+
+.overlay {
+  margin: 0;
 }
 
 .container {
@@ -65,7 +76,10 @@ p {
  */
 .front header {
   position: relative;
-  background: #142D3C;
+  background-image: url("../images/backgrounds/bg-header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
 
   // Contains grid overlay
   &:after {
@@ -76,7 +90,7 @@ p {
     right: 0;
     bottom: 0;
     left: 0;
-    background: url("../images/backgrounds/bg-overlay-big.png") fixed;
+    background: url("../images/backgrounds/bg-overlay.png") fixed;
   }
 }
 
@@ -128,12 +142,14 @@ header {
   .feature {
     position: relative;
     z-index: 10;
-    margin: 0 20px;
+    margin: 0 20px 0 20px;
     max-width: 420px;
     text-align: center;
     font-size: 16px; // Reset font-size as it was previously set to 0
 
-
+    @media only screen and (min-width: 640px) {
+      margin-top: -40px;
+    }
 
     .title {
       margin-bottom: 1.8em;
@@ -172,12 +188,19 @@ header {
 
 .banner {
   position: relative;
-  height: 200px;
+  height: 140px;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #262626;
   border-bottom-color: rgba(255, 255, 255, .15);
-  background: #142D3C;
+  background-image: url("../images/backgrounds/bg-party.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+
+  @media only screen and (min-width: 640px) {
+    height: 200px;
+  }
 }
 
 // Everything in the <main> of the front page is center aligned
@@ -192,15 +215,15 @@ header {
 }
 
 .interior main {
-  background-image: url("../images/backgrounds/temp.jpg");
+  background-image: url("../images/backgrounds/bg-interior.jpg");
+  background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: contain;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  // background-attachment: fixed;
 
   @media only screen and (min-width: 1280px),
               screen and (max-height: 580px) {
-    background-size: cover;
+    // background-size: cover;
   }
 }
 
@@ -230,29 +253,26 @@ section {
     margin-bottom: 3.75em;
     max-width: 250px;
   }
+
+  .forward,
+  .back {
+    font-size: .8888889em;
+  }
 }
 
 .cta {
   position: relative;
-  height: 360px;
-  padding-top: 40px;
-  background: #142D3C;
+  height: 450px;
+  padding-top: 60px;
+  background-color: black;
+  background-image: url("../images/backgrounds/bg-footer.jpg");
+  background-position: 50% 0;
+  background-repeat: no-repeat;
   text-align: center;
 
   .container {
     position: relative;
-    z-index: 10;
-  }
-
-  &:before {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: url("../images/backgrounds/bg-overlay-big.png") fixed;
+    z-index: 20;
   }
 }
 
@@ -291,17 +311,30 @@ footer {
 .card {
   @include prefixed(box-sizing, border-box);
   margin: 0;
-  padding: 1.111111em;
+  padding: 1em;
   padding-bottom: 2.75em;
   background: white;
   color: black;
   font-weight: 300;
   font-size: .8888889em;
 
+  &.club h1 {
+    display: block;
+    border-bottom: none;
+  }
+
   h1 {
-    font-size: 1.25em;
+    display: none;
+    margin-bottom: .725em;
+    padding-bottom: .4em;
+    font-size: 1.75em;
     font-weight: 700;
     line-height: 140%;
+    border-bottom: solid 1px #F0F0F0;
+
+    @media only screen and (min-width: 720px) {
+      display: block;
+    }
   }
 
   h1,
@@ -321,17 +354,138 @@ footer {
   }
 }
 
-// Sidebar that typically sits next to .card
-.infobar {
-  display: none;
-  @include prefixed(box-sizing, border-box);
-  padding: 1.6666667em 1.111111em;
-  background: black;
-  background: rgba(0, 0, 0, .6);
+.box {
+  padding: 1.111111em;
   border-style: solid;
   border-width: 1px;
   border-color: #262626;
   border-color: rgba(255, 255, 255, .15);
+  background: black;
+  background: rgba(0, 0, 0, .7);
+  font-size: 16px;
+
+  .titleset {
+    margin-top: 0;
+  }
+}
+
+.card-list {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+
+  > li {
+    @include prefixed(box-sizing, border-box);
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+    width: 100%;
+    margin-bottom: 2.5em;
+    padding: .8888889em;
+    padding-bottom: 1.5em;
+    list-style: none;
+    font-size: 18px;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    img {
+      @include prefixed(box-sizing, border-box);
+    }
+
+    .reservation {
+      display: block;
+      text-align: center;
+      font-size: .8888889em;
+      font-weight: 500;
+    }
+
+    h2 {
+      margin: 0;
+      margin-bottom: .4em;
+      font-size: 1.5555556em;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: black;
+    }
+
+    img {
+      border: black solid 2px;
+    }
+
+    @media only screen and (min-width: 520px) {
+      width: 48.4375%;
+
+      &:nth-child(odd) {
+        margin-right: 1.5625%;
+      }
+
+      &:nth-child(even) {
+        margin-left: 1.5625%;
+      }
+    }
+
+    @media only screen and (min-width: 840px) {
+      width: 46.875%;
+
+      &:nth-child(odd) {
+        margin-right: 3.125%;
+      }
+
+      &:nth-child(even) {
+        margin-left: 3.125%;
+      }
+    }
+  }
+}
+
+.profile {
+  text-align: center;
+
+  > * {
+    margin-bottom: 0;
+  }
+
+  dl {
+    margin-bottom: 1em;
+    text-align: left;
+
+    dt,
+    dd {
+      float: left;
+      margin: 0;
+
+    }
+
+    dt {
+      width: 30%;
+      font-weight: 500;
+    }
+
+    dd {
+      width: 60%;
+      margin-bottom: .6em;
+    }
+  }
+}
+
+// Sidebar that typically sits next to .card
+.infobar {
+  display: none;
+  @include prefixed(box-sizing, border-box);
   font-size: 16px;
 
   h1 {
@@ -341,14 +495,26 @@ footer {
     line-height: 120%;
   }
 
-  @media only screen and (min-width:720px) {
+  h2 {
+    margin: 0;
+    font-size: 1.5555556em;
+  }
+
+  .headerset {
+    padding-bottom: 1em;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #262626;
+    border-bottom-color: rgba(255, 255, 255, .15);
+  }
+
+  @media only screen and (min-width: 720px) {
     display: block;
   }
 }
 
-
-@media only screen and (min-width: 420px) {
-
+.payment {
+  margin-bottom: 0;
 }
 
 @media only screen and (min-width: 640px) {
@@ -362,44 +528,7 @@ footer {
     border-bottom: none;
   }
 
-  header {
-    padding-top: 0;
 
-    nav[role="navigation"] {
-      position: relative;
-      background: black;
-      top: 0;
-      font-size: 14px; // Reset font as it was previously set to 0
-
-      .logo {
-        padding: 1.5em 0;
-      }
-
-      ul {
-        position: relative;
-        display: block;
-        float: right;
-        padding: 0.625em 0;
-
-        a {
-          padding: 1em .725em;
-        }
-
-        .boxed {
-          margin-left: .725em;
-          padding: .725em;
-        }
-      }
-    }
-
-    .feature {
-      max-width: 100%;
-    }
-  }
-
-  .menu {
-    display: none;
-  }
 
   .title {
     max-width: 640px;
@@ -448,7 +577,46 @@ footer {
 }
 
 @media only screen and (min-width: 720px) {
-  .club-description {
+  .mobile-details {
+    display: none;
+  }
+
+  header {
+    padding-top: 0;
+
+    nav[role="navigation"] {
+      position: relative;
+      background: black;
+      top: 0;
+      font-size: 14px; // Reset font as it was previously set to 0
+
+      .logo {
+        padding: 1.5em 0;
+      }
+
+      ul {
+        position: relative;
+        display: block;
+        float: right;
+        padding: 0.625em 0;
+
+        a {
+          padding: 1em .725em;
+        }
+
+        .boxed {
+          margin-left: .725em;
+          padding: .725em;
+        }
+      }
+    }
+
+    .feature {
+      max-width: 100%;
+    }
+  }
+
+  .menu {
     display: none;
   }
 }

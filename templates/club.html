@@ -33,12 +33,12 @@
 
 	<main role="main">
 		<div class="wrapper">
-			<div class="overlay small"></div>
+			<div class="overlay"></div>
 
 
 			<div class="container">
 				<div class="group two-three">
-					<div class="card">
+					<div class="card club">
 
 						<div id="slider" class="slider">
 
@@ -52,19 +52,23 @@
 							</ul>
 						</div>
 
-						<div class="club-description">
+						<div class="mobile-details">
+
 							<h1>The Jane Hotel extra title extra title extra title</h1>
 
 							<ul class="contact-details">
-								<li class="phone"><i class="icon phone blue"></i>345-678-9078</li>
-								<li class="marker"><i class="icon marker blue"></i>35 Little West 15th</li>
+								<li class="phone"><i class="icon phone black"></i>345-678-9078</li>
+								<li class="marker"><i class="icon marker black"></i>35 Little West 15th</li>
 							</ul>
 
 							<div class="concealed description">
 								<p>The VIP Room NYC is the chic, modern nightclub, inspired by European nightlife, with the sophistication of Paris and the energy of Saint Tropez. With locations in five of the world’s unrivaled party destinations – St. Tropez, Paris, Cannes, Dubai, and now New York, VIP Room has become one of the most popular nightlife destinations. VIP Room, started by Jean-Roch in 1998 in Paris, is famous for its ‘crème de la crème’ clientele, with a worldwide reputation for attracting high end international jetsetters, trendsetters, socialites, and celebrities. Luxury lifestyle meets French decadence at VIP Room to offer an exclusive European nightlife experience in New York with live performances, DJs, and non-stop dancing.</p>
 							</div>
 
-							<h2><i class="icon cocktail blue"></i>Book Table</h2>
+							<div class="titleset">
+								<i class="icon cocktail black"></i>
+								<h2>Book Table</h2>
+							</div>
 						</div>
 
 						<table>
@@ -106,29 +110,34 @@
 
 						<form action="#">
 
-							<fieldset>
+							<fieldset class="suffixed-labels">
 								<label>When are you looking to party?</label>
 								<input class="third" type="text" name="date" /><button class="date-picker">Choose date</button>
 							</fieldset>
 
-							<fieldset>
+							<fieldset class="suffixed-labels">
 								<label>How many are going to your party?</label>
-								<div class="inputset"><input class="third" type="number" name="girls" value="0" /><i class="icon girl blue"></i><span>Girls</span></div>
-								<div class="inputset"><input class="third" type="number" name="boys" value="0" /><i class="icon boy blue" ></i><span>Boys</span></div>
+								<div class="inputset"><input class="third" type="number" name="girls" value="0" /><span class="suffix"><i class="icon girl black"></i><span>Girls</span></span></div>
+								<div class="inputset"><input class="third" type="number" name="boys" value="0" /><span class="suffix"><i class="icon boy black" ></i><span>Boys</span></span></div>
 							</fieldset>
 
-							<input class="button submit" type="submit" value="Proceed to Payment" />
+							<fieldset class="submit">
+								<input class="button submit" type="submit" value="Proceed to Payment" />
+							</fieldset>
 						</form>
 
 					</div>
 
-					<div class="infobar">
-						<h1>The Jane Hotel extra title</h1>
+					<div class="infobar box">
 
-						<ul class="contact-details">
-							<li class="phone"><i class="icon phone"></i>345-678-9078</li>
-							<li class="marker"><i class="icon marker"></i>35 Little West 15th</li>
-						</ul>
+						<div class="headerset">
+							<h1>The Jane Hotel extra title</h1>
+
+							<ul class="contact-details">
+								<li class="phone"><i class="icon phone"></i>345-678-9078</li>
+								<li class="marker"><i class="icon marker"></i>35 Little West 15th</li>
+							</ul>
+						</div>
 
 						<p>The VIP Room NYC is the chic, modern nightclub, inspired by European nightlife, with the sophistication of Paris and the energy of Saint Tropez. With locations in five of the world’s unrivaled party destinations – St. Tropez, Paris, Cannes, Dubai, and now New York, VIP Room has become one of the most popular nightlife destinations. VIP Room, started by Jean-Roch in 1998 in Paris, is famous for its ‘crème de la crème’ clientele, with a worldwide reputation for attracting high end international jetsetters, trendsetters, socialites, and celebrities. Luxury lifestyle meets French decadence at VIP Room to offer an exclusive European nightlife experience in New York with live performances, DJs, and non-stop dancing.</p>
 					</div>
@@ -141,6 +150,8 @@
 				<a class="button facebook" href="#" title="Sign In with Facebook">Sign In with Facebook</a>
 				<p class="hint">...and get instant access</p>
 			</div>
+
+			<div class="overlay"></div>
 		</div>
 
 	</main>

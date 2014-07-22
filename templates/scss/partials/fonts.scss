@@ -81,6 +81,69 @@ main {
     margin-bottom: .5em;
   }
 
+  .group > div > .titleset {
+    margin-top: 0;
+  }
+
+  .titleset {
+    display: block;
+    margin-top: 2em;
+    font-size: 1em;
+    text-align: center;
+
+    @media only screen and (min-width: 480px) {
+      font-size: 1.2em;
+    }
+
+    @media only screen and (min-width: 720px) {
+      display: none;
+    }
+
+    &.all {
+      display: block;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .icon {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+      text-transform: uppercase;
+      font-size: 1.125em;
+      font-weight: 700;
+    }
+
+    @media only screen and (min-width: 640px) {
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: 0;
+        font-size: .8333333em;
+        font-weight: 500;
+      }
+    }
+
+    .icon {
+      margin-right: 8px;
+    }
+  }
+
 }
 
 .front {

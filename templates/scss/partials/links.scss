@@ -5,6 +5,8 @@ a {
   @include prefixed(transition-duration, .25s);
 }
 
+
+
 .current,
 .current:hover,
 .forward:hover,
@@ -20,10 +22,15 @@ main a {
   color: $primaryHighlight;
 }
 
+// Anchor links
+.infobar a[href^="#"],
+main p a[href^="#"] {
+  border-bottom: dotted $primaryHighlight 1px;
+}
+
 // Back/forward text links with arrows
 .back,
 .forward {
-  font-size: .8em;
   font-weight: 300;
   color: white;
 }

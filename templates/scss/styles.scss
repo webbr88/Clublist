@@ -23,12 +23,7 @@ body {
 @import "partials/grid";
 @import "partials/main";
 @import "partials/buttons";
-@import "partials/sprites";
-@import "partials/carousels";
-@import "partials/slider";
-@import "partials/messages";
-@import "partials/forms";
-@import "partials/icons";
+
 
 
 nav[role="navigation"] {
@@ -72,12 +67,8 @@ nav[role="navigation"] {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: url("../images/backgrounds/bg-overlay-big.png");
+  background-image: url("../images/backgrounds/bg-overlay.png");
   background-attachment: fixed;
-
-  &.small {
-    background-image: url("../images/backgrounds/bg-overlay-small.png");
-  }
 }
 
 // Alignment
@@ -271,6 +262,19 @@ main {
     height: auto;
     border: white solid 2px;
   }
+
+  blockquote {
+
+    p {
+      margin-bottom: .4em;
+    }
+  }
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: #D6D6D6;
 }
 
 .contact-details {
@@ -302,11 +306,53 @@ main {
   }
 }
 
+.feature-list {
+  padding: 0;
+  padding-left: 1em;
+
+    li {
+    list-style: none;
+    line-height: 240%;
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 20px;
+    }
+  }
+}
+
+.reservation-list dl {
+  margin: 0;
+  font-weight: 300;
+
+  dt,
+  dd {
+    margin: 0;
+  }
+
+  dt {
+    margin-bottom: .2em;
+    font-family: $Lato;
+    font-size: 1.111111em;
+
+  }
+
+  dd {
+    margin-bottom: 1.5em;
+    padding-bottom: 1em;
+    border-bottom: dashed 1px;
+    border-bottom-color: #262626;
+    border-bottom-color: rgba(255, 255, 255, .15);
+    color: $primaryHighlight;
+    font-weight: 500;
+  }
+}
+
 .concealed {
   overflow: scroll;
-  max-height: 7.4em;
-  margin-top: -10px;
-  padding: 10px 0 0 0;
+  height: 7.4em;
+  padding: 0;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #D6D6D6;
@@ -336,13 +382,25 @@ main {
 }
 
 // Page specific
-.about .sidebar img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+.about .sidebar {
+  max-width: 320px;
+  margin: 0 auto;
 
-  @media only screen and (min-width: 640px) {
-    width: 100%;
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+    @media only screen and (min-width: 640px) {
+      width: 100%;
+    }
   }
 }
+
+@import "partials/sprites";
+@import "partials/carousels";
+@import "partials/slider";
+@import "partials/messages";
+@import "partials/forms";
+@import "partials/icons";
