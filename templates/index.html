@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head class="no-js">
 	<meta charset="utf-8">
 	<meta name="description" content="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,25 +8,40 @@
 
 	<title>Social Axis</title>
 
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,700|Roboto:100,300,300italic,500' rel='stylesheet' type='text/css'>
 	<link href="css/styles.css" rel="stylesheet">
+	<!--[if lt IE 10]>
+		<link href="css/ie.css" rel="stylesheet">
+	<![endif]-->
+	<!--[if IE 7]>
+		<link href="css/ie7.css" rel="stylesheet">
+	<![endif]-->
 
+	<script src="js/third-party/modernizr.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="js/third-party/html5shiv-printshiv.min.js"></script>
+		<script src="js/third-party/nwmatcher-1.2.5-min.js"></script>
+		<script src="js/third-party/selectivizr-min.js"></script>
 		<script src="js/third-party/respond.min.js"></script>
 	<![endif]-->
 </head>
 <body class="front">
 
 	<header role="banner">
+		<div class="header-bg"></div>
+		<div class="overlay"></div>
 		<nav role="navigation">
 			<div class="group container">
-				<a class="logo" href="#"><img src="images/social-axis-logo.png" alt="Social Axis" /></a>
-				<a href="#" class="menu" id="menu">Menu</a>
-				<ul>
-					<li><a class="current" href="/about.html" title="About Social Axis">About</a></li>
-					<li><a href="/contact-us.html" title="Contact Social Axis">Contact Us</a></li>
-					<li><a class="boxed" href="#" title="Sign In with Facebook">Sign In</a></li>
-				</ul>
+				<a class="logo" href="#"><img src="images/social-axis-logo.png" alt="Social Axis"  width="110" height="18"/></a>
+				<a href="#links" class="menu" id="menu">Menu</a>
+				<div id="links">
+					<button id="close-menu" type="button"><i class="icon close">Close<span></span></i></button>
+					<ul>
+						<li><a class="current" href="/about.html" title="About Social Axis">About</a></li>
+						<li><a href="/contact-us.html" title="Contact Social Axis">Contact Us</a></li>
+						<li><a class="boxed" href="#" title="Sign In with Facebook">Sign In</a></li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 
@@ -39,25 +54,55 @@
 		</div>
 	</header>
 
-	<main role="main">
+	<main id="main" role="main">
 
 		<div class="wrapper">
 			<div class="container">
 
-				<div id="carousel" class="carousel">
-					<button class="prev" id="carousel-prev">Previous</button>
-					<button class="next" id="carousel-next">Next</button>
-					<div class="screen">
-						<ul id="carousel-canvas">
-							<li><img src="images/content/temp1.jpg" alt="Girl in club having a good time" /></li>
-							<li><img src="images/content/temp1.jpg" alt="Girl in club having a good time" /></li>
-							<li><img src="images/content/temp1.jpg" alt="Girl in club having a good time" /></li>
-							<li><img src="images/content/temp1.jpg" alt="Girl in club having a good time" /></li>
-							<li><img src="images/content/temp1.jpg" alt="Girl in club having a good time" /></li>
-							<li><img src="images/content/temp1.jpg" alt="Girl in club having a good time" /></li>
-							<li><img src="images/content/temp1.jpg" alt="Girl in club having a good time" /></li>
-							<li><img src="images/content/temp1.jpg" alt="Girl in club having a good time" /></li>
-						</ul>
+				<div id="carousel" class="slick-slider carousel">
+
+					<button id="carousel-prev" class="slick-prev" type="button"><i class="icon back">&lt;<span></span></i></button>
+					<button id="carousel-next" class="slick-next" type="button"><i class="icon next">&gt;<span></span></i></button>
+
+					<div>
+						<div class="inner">
+							<img src="images/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+						</div>
+					</div>
+					<div>
+						<div class="inner">
+							<img src="images/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+						</div>
+					</div>
+					<div>
+						<div class="inner">
+							<img src="images/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+						</div>
+					</div>
+					<div>
+						<div class="inner">
+							<img src="images/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+						</div>
+					</div>
+					<div>
+						<div class="inner">
+							<img src="images/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+						</div>
+					</div>
+					<div>
+						<div class="inner">
+							<img src="images/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+						</div>
+					</div>
+					<div>
+						<div class="inner">
+							<img src="images/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+						</div>
+					</div>
+					<div>
+						<div class="inner">
+							<img src="images/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+						</div>
 					</div>
 				</div>
 
@@ -65,21 +110,21 @@
 					<h2>Take Control<br class="l490" /> of your Night</h2>
 
 					<div>
-						<img src="images/icons/social.png" alt="A loop with circles around it, making up a network" />
+						<img src="images/icons/social.png" alt="A loop with circles around it, making up a network" width="126" height="140" />
 						<h3>Hookup</h3>
 						<p>Social Axis leverages your social network to get exclusive hookups from your favorite clubs.</p>
 						<a class="forward" href="#" title="Learn more about Hookups">Learn more</a>
 					</div>
 
 					<div class="middle">
-						<img src="images/icons/cocktail.png" alt="A cocktail in a glass with a slice of fruit on the lip" />
+						<img src="images/icons/cocktail.png" alt="A cocktail in a glass with a slice of fruit on the lip" width="143" height="140" />
 						<h3>Book Your Table</h3>
 						<p>Social Axis brings all of the best nightclubs in your city together, and lets you book the table you want.</p>
 						<a class="forward" href="#" title="Learn more about Booking a Table">Learn more</a>
 					</div>
 
 					<div>
-						<img src="images/icons/tickets.png" alt="A pair of tickets" />
+						<img src="images/icons/tickets.png" alt="A pair of tickets" width="142" height="140" />
 						<h3>Get Rewarded</h3>
 						<p>Every picture, follower, or check-in gives nightclubs exposure and Social Axis rewards you for that.</p>
 						<a class="forward" href="#" title="Learn more about Rewards">Learn more</a>
@@ -103,9 +148,9 @@
 	<footer class="container" role="contentinfo">
 
 		<ul class="social-links">
-			<li><a class="icon twitter" href="#" title="View Social Axis on Twitter">Twitter</a></li>
-			<li><a class="icon instagram" href="#" title="View Social Axis on Instagram">Instagram</a></li>
-			<li><a class="icon facebook" href="#" title="View Social Axis on Facebook">Facebook</a></li>
+			<li><a href="#" title="View Social Axis on Twitter"><i class="icon twitter">Twitter<span></span></i></a></li>
+			<li><a class="icon instagram" href="#" title="View Social Axis on Instagram"><i class="icon instagram">Instagram<span></span></i></a></li>
+			<li><a class="icon facebook" href="#" title="View Social Axis on Facebook"><i class="icon facebook">Facebook<span></span></i></a></li>
 		</ul>
 
 		<nav role="navigation">
@@ -116,13 +161,10 @@
 			</ul>
 		</nav>
 
-		<a class="logo" href="#"><img src="images/social-axis-logo.png" alt="Social Axis" /></a>
+		<a class="logo" href="#"><img src="images/social-axis-logo.png" alt="Social Axis"  width="110" height="18"/></a>
 		<small>Copyright &copy; <time datetime="2014">2014</time> <a href="#">Social Axis</a></small>
 	</footer>
 
-	<script src="js/third-party/jquery-1.11.1.min.js"></script>
-	<script src="js/third-party/retina.min.js"></script>
 	<script src="js/scripts.js"></script>
-
 </body>
 </html>

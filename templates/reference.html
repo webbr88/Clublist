@@ -8,10 +8,17 @@
 
 	<title>Social Axis</title>
 
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,700|Roboto:100,300,300italic,500' rel='stylesheet' type='text/css'>
 	<link href="css/styles.css" rel="stylesheet">
+	<!--[if lt IE 10]>
+		<link href="css/ie.css" rel="stylesheet">
+	<![endif]-->
 
+	<script src="js/third-party/modernizr.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="js/third-party/html5shiv-printshiv.min.js"></script>
+		<script src="js/third-party/nwmatcher-1.2.5-min.js"></script>
+		<script src="js/third-party/selectivizr-min.js"></script>
 		<script src="js/third-party/respond.min.js"></script>
 	<![endif]-->
 </head>
@@ -21,12 +28,15 @@
 		<nav role="navigation">
 			<div class="group container">
 				<a class="logo" href="#"><img src="images/social-axis-logo.png" alt="Social Axis" /></a>
-				<a href="#" class="menu" id="menu">Menu</a>
-				<ul>
-					<li><a class="current" href="/about.html" title="About Social Axis">About</a></li>
-					<li><a href="/contact-us.html" title="Contact Social Axis">Contact Us</a></li>
-					<li><a class="boxed" href="#" title="Sign In with Facebook">Sign In</a></li>
-				</ul>
+				<a href="#links" class="menu" id="menu">Menu</a>
+				<div id="links">
+					<button id="close-menu" type="button"><i class="icon close">Close<span></span></i></button>
+					<ul>
+						<li><a class="current" href="/about.html" title="About Social Axis">About</a></li>
+						<li><a href="/contact-us.html" title="Contact Social Axis">Contact Us</a></li>
+						<li><a class="boxed" href="#" title="Sign In with Facebook">Sign In</a></li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 	</header>
@@ -57,19 +67,38 @@
 
 						<br />
 
-						<a class="button back" href="#" title="Title of button">Back Button</a>
+						<a class="button" href="#" title="Title of button"><i class="icon back"><span></span></i>Back Button</a>
 
 						<br /><br />
 
-						<a class="button forward" href="#" title="Title of button">Next Button</a>
+						<a class="button" href="#" title="Title of button">Next Button<i class="icon next"><span></span></i></a>
 
 						<br /><br />
 
-						<a class="button submit" href="#" title="Title of button">Submit Button</a>
+						<a class="button" href="#" title="Title of button"><i class="icon submit"><span></span></i>Submit Button</a>
 
 						<br /><br />
 
-						<a class="button reservation" href="#" title="Title of button">Reservation Button</a>
+						<a class="button" href="#" title="Title of button"><i class="icon cocktail"><span></span></i>Reservation Button</a>
+
+						<br /><br />
+
+						<div style="background: white; padding: 1em">
+
+							<a class="button blue" href="#" title="Title of button"><i class="icon back"><span></span></i>Back Button</a>
+
+							<br /><br />
+
+							<a class="button blue" href="#" title="Title of button">Next Button<i class="icon next"><span></span></i></a>
+
+							<br /><br />
+
+							<a class="button blue" href="#" title="Title of button"><i class="icon submit"><span></span></i>Submit Button</a>
+
+							<br /><br />
+
+							<a class="button blue" href="#" title="Title of button"><i class="icon cocktail"><span></span></i>Reservation Button</a>
+						</div>
 					</div>
 				</section>
 
@@ -124,6 +153,7 @@
 					<i class="icon twitter"></i>
 					<i class="icon facebook"></i>
 					<i class="icon instagram"></i>
+					<i class="icon check"></i>
 
 					<br /><br />
 
@@ -141,6 +171,7 @@
 					<i class="icon blue twitter"></i>
 					<i class="icon blue facebook"></i>
 					<i class="icon blue instagram"></i>
+					<i class="icon blue check"></i>
 
 					<br /><br />
 
@@ -261,9 +292,9 @@
 	<footer class="container" role="contentinfo">
 
 		<ul class="social-links">
-			<li><a class="icon twitter" href="#" title="View Social Axis on Twitter">Twitter</a></li>
-			<li><a class="icon instagram" href="#" title="View Social Axis on Instagram">Instagram</a></li>
-			<li><a class="icon facebook" href="#" title="View Social Axis on Facebook">Facebook</a></li>
+			<li><a href="#" title="View Social Axis on Twitter"><i class="icon twitter">Twitter<span></span></i></a></li>
+			<li><a class="icon instagram" href="#" title="View Social Axis on Instagram"><i class="icon instagram">Instagram<span></span></i></a></li>
+			<li><a class="icon facebook" href="#" title="View Social Axis on Facebook"><i class="icon facebook">Facebook<span></span></i></a></li>
 		</ul>
 
 		<nav role="navigation">
@@ -278,9 +309,6 @@
 		<small>Copyright &copy; <time datetime="2014">2014</time> <a href="#">Social Axis</a></small>
 	</footer>
 
-	<script src="js/third-party/jquery-1.11.1.min.js"></script>
-	<script src="js/third-party/retina.min.js"></script>
-	<script src="js/scripts.js"></script>
-
+	<script src="js/scripts.min.js"></script>
 </body>
 </html>

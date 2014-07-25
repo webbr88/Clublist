@@ -1,12 +1,18 @@
 // Show the desktop carousel and style it
+
+.js .slick-slider {
+  display: block;
+}
+
 .carousel {
   position: relative;
-  display: block;
+  display: none;
   margin-bottom: 4.5em;
 
   button {
-    display: none; // Hide buttons for mobile (we'll rely on swiping)
+    display: none !important; // Hide buttons for mobile (we'll rely on swiping)
     position: absolute;
+    z-index: 30;
     top: 50%;
     width: 30px;
     height: 30px;
@@ -15,20 +21,24 @@
     background-color: transparent;
   }
 
-  .prev {
-    left: 0;
+  .inner {
+    margin: 0;
   }
 
-  .next {
-    right: 0;
+  .slick-prev {
+    left: 10px;
   }
 
-  .screen {
+  .slick-next {
+    right: 10px;
+  }
+
+  .slick-list {
     position: relative;
     padding: 0;
     font-size: 0; // Remove 4px gap
     overflow: hidden;
-    white-space: nowrap;
+    border: white solid 2px;
 
     &:after {
       content: "";
@@ -63,25 +73,24 @@
       height: auto;
       max-width: 100%;
       @include prefixed(box-sizing, border-box);
-      border: white solid 2px;
     }
   }
 }
 
 @media only screen and (min-width: 321px) {
-  .carousel .screen {
+  .carousel .slick-list {
     margin: 0 10px;
   }
 }
 
 @media only screen and (min-width: 360px) {
-  .carousel .screen {
+  .carousel .slick-list {
     margin: 0 20px;
   }
 }
 
 @media only screen and (min-width: 380px) {
-  .carousel .screen {
+  .carousel .slick-list {
     margin: 0 40px;
   }
 }
@@ -89,20 +98,24 @@
 @media only screen and (min-width: 420px) {
   .carousel {
 
+    .slick-list {
+      border: none;
+    }
+
     // Remove the swipe indicator
-    .screen:after {
+    .slick-list:after {
       content: none;
     }
 
     // Show the nav buttons
-    button {
-      display: block;
+    .slick-prev,
+    .slick-next {
+      display: block !important;
     }
 
-    // 2 rows of images
-    ul li {
-      width: 45%;
-      margin: 0 2.5%;
+    .inner {
+      margin: 0 10px;
+      border: white solid 2px;
     }
   }
 }
@@ -110,22 +123,45 @@
 @media only screen and (min-width: 640px) {
   .carousel {
     margin-bottom: 6.875em;
-
-    // 3 rows of images
-    ul li {
-      width: 30%;
-      margin: 0 1.66666667%;
-    }
   }
 }
 
-@media only screen and (min-width: 960px) {
-  .carousel {
 
-    // 4 rows of images
-    ul li {
-      width: 22%;
-      margin: 0 1.5%;
-    }
-  }
+/* Slider */
+.slick-slider { position: relative; display: none; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -ms-touch-action: none; touch-action: none; -webkit-tap-highlight-color: transparent; }
+
+.slick-list { position: relative; overflow: hidden; display: block; margin: 0; }
+.slick-list:focus { outline: none; }
+.slick-list.dragging { cursor: pointer; cursor: hand; }
+
+.slick-slider .slick-list, .slick-track, .slick-slide, .slick-slide img { -webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+
+.slick-track { position: relative; left: 0; top: 0; display: block; zoom: 1; margin: 0; }
+.slick-track:before, .slick-track:after { content: ""; display: table; }
+.slick-track:after { clear: both; }
+.slick-loading .slick-track { visibility: hidden; }
+
+.slick-slide {
+  position: relative;
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+  margin: 0;
 }
+
+.inner {
+  margin: 0 20px;
+}
+
+.slick-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.slick-slide.slick-loading img { display: none; }
+.slick-slide.dragging img { pointer-events: none; }
+.slick-initialized .slick-slide { display: block; }
+.slick-loading .slick-slide { visibility: hidden; }

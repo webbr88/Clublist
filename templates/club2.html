@@ -8,10 +8,17 @@
 
 	<title>Social Axis</title>
 
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,700|Roboto:100,300,300italic,500' rel='stylesheet' type='text/css'>
 	<link href="css/styles.css" rel="stylesheet">
+	<!--[if lt IE 10]>
+		<link href="css/ie.css" rel="stylesheet">
+	<![endif]-->
 
+	<script src="js/third-party/modernizr.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="js/third-party/html5shiv-printshiv.min.js"></script>
+		<script src="js/third-party/nwmatcher-1.2.5-min.js"></script>
+		<script src="js/third-party/selectivizr-min.js"></script>
 		<script src="js/third-party/respond.min.js"></script>
 	<![endif]-->
 </head>
@@ -21,17 +28,20 @@
 		<nav role="navigation">
 			<div class="group container">
 				<a class="logo" href="#"><img src="images/social-axis-logo.png" alt="Social Axis" /></a>
-				<a href="#" class="menu" id="menu">Menu</a>
-				<ul>
-					<li><a class="current" href="/about.html" title="About Social Axis">About</a></li>
-					<li><a href="/contact-us.html" title="Contact Social Axis">Contact Us</a></li>
-					<li><a class="boxed" href="#" title="Sign In with Facebook">Sign In</a></li>
-				</ul>
+				<a href="#links" class="menu" id="menu">Menu</a>
+				<div id="links">
+					<button id="close-menu" type="button"><i class="icon close">Close<span></span></i></button>
+					<ul>
+						<li><a class="current" href="/about.html" title="About Social Axis">About</a></li>
+						<li><a href="/contact-us.html" title="Contact Social Axis">Contact Us</a></li>
+						<li><a class="boxed" href="#" title="Sign In with Facebook">Sign In</a></li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 	</header>
 
-	<main role="main">
+	<main id="main" role="main">
 		<div class="wrapper">
 			<div class="overlay small"></div>
 
@@ -79,31 +89,62 @@
 							</div>
 
 
-							<form  action="#">
+							<form id="party-form2" action="club3.html">
 
 								<fieldset>
 									<label>Card Number</label>
-									<input class="half" type="text" name="card" placeholder="4242 4242 4242 4242" maxlength="19" />
+									<input class="half" type="text" name="card" placeholder="4242 4242 4242 4242" required data-error-msg="Please enter a valid Card Number" />
 								</fieldset>
 
 								<div class="group">
 
 									<fieldset class="half">
 										<label>CV Code</label>
-										<input type="text" name="cv" placeholder="123" maxlength="3" />
+										<input type="text" name="cv" placeholder="123" min="100" max="999" maxlength="3" required data-error-msg="Please enter a valid CV Code" />
 									</fieldset>
 
 									<fieldset class="expiry half">
 										<label>Expiry <small>Month/Year</small></label>
-										<input class="month" type="text" name="month" placeholder="12" maxlength="2" />
+										<select name="month" class="custom-selector" required>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+										</select>
 										<span>/</span>
-										<input class="year" type="text" name="year" placeholder="14" maxlength="2" />
+										<select name="year" class="custom-selector" required>
+											<option value="14">14</option>
+											<option value="15">15</option>
+											<option value="16">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+											<option value="21">21</option>
+											<option value="22">22</option>
+											<option value="23">23</option>
+											<option value="24">24</option>
+										</select>
 									</fieldset>
-
 								</div>
 
+								<div id="errors" class="errors message warning">
+									The following errors occured:
+									<ul>
+									</ul>
+								</div>
+
+
 								<fieldset class="submit">
-									<input class="button submit" type="submit" value="Book my Table" />
+									<button id="club-submit2" class="button blue" type="submit"><i class="icon submit"><span></span></i>Book my Table</button>
 								</fieldset>
 							</form>
 						</div>
@@ -138,11 +179,6 @@
 		</div>
 
 		<div class="cta">
-			<div class="container">
-				<a class="button facebook" href="#" title="Sign In with Facebook">Sign In with Facebook</a>
-				<p class="hint">...and get instant access</p>
-			</div>
-
 			<div class="overlay"></div>
 		</div>
 
@@ -151,9 +187,9 @@
 	<footer class="container" role="contentinfo">
 
 		<ul class="social-links">
-			<li><a class="icon twitter" href="#" title="View Social Axis on Twitter">Twitter</a></li>
-			<li><a class="icon instagram" href="#" title="View Social Axis on Instagram">Instagram</a></li>
-			<li><a class="icon facebook" href="#" title="View Social Axis on Facebook">Facebook</a></li>
+			<li><a href="#" title="View Social Axis on Twitter"><i class="icon twitter">Twitter<span></span></i></a></li>
+			<li><a class="icon instagram" href="#" title="View Social Axis on Instagram"><i class="icon instagram">Instagram<span></span></i></a></li>
+			<li><a class="icon facebook" href="#" title="View Social Axis on Facebook"><i class="icon facebook">Facebook<span></span></i></a></li>
 		</ul>
 
 		<nav role="navigation">
@@ -168,9 +204,6 @@
 		<small>Copyright &copy; <time datetime="2014">2014</time> <a href="#">Social Axis</a></small>
 	</footer>
 
-	<script src="js/third-party/jquery-1.11.1.min.js"></script>
-	<script src="js/third-party/retina.min.js"></script>
 	<script src="js/scripts.js"></script>
-
 </body>
 </html>

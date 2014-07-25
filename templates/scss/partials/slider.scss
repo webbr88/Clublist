@@ -1,9 +1,27 @@
 .slider {
-  overflow: hidden;
+  position: relative;
+  max-height: 400px;
   position: relative;
   padding: 0;
   margin: 0 0 1.6em 0;
-  border: black solid 2px;
+
+
+  .slick-list {
+    overflow: hidden;
+    border: black solid 2px;
+  }
+
+  button {
+    display: none !important; // Hide buttons for mobile (we'll rely on swiping)
+    position: absolute;
+    z-index: 30;
+    top: 50%;
+    width: 31px;
+    height: 31px;
+    margin-top: -15px;
+    @include imageReplace();
+    background-color: transparent;
+  }
 
   &:after {
     content: "";
@@ -22,16 +40,11 @@
     border: none;
   }
 
-  .next,
-  .prev {
-    display: none;
-  }
-
-  .next {
+  .slick-next {
     right: 20px;
   }
 
-  .prev {
+  .slick-prev {
     left: 20px;
   }
 
@@ -63,18 +76,9 @@
       content: none;
     }
 
-    .next,
-    .prev {
-      display: block;
-      cursor: pointer;
-      position: absolute;
-      z-index: 10;
-      top: 50%;
-      width: 31px;
-      height: 31px;
-      margin-top: -15px;
-      @include imageReplace();
-      background-color: transparent;
+    .slick-next,
+    .slick-prev {
+      display: block !important;
     }
   }
 }

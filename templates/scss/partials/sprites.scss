@@ -7,9 +7,7 @@
 .back.button:before,
 .submit.button:before,
 .slider:after,
-.slider .next,
-.slider .prev,
-.carousel .screen:after,
+.carousel .slick-list:after,
 .icon,
 .pagination .first,
 .pagination .prev,
@@ -33,7 +31,7 @@
          (min-resolution: 1.5dppx) {
 
     background-image: url('../images/sprites@2x.png');
-    background-size: 500px 349px;
+    background-size: 500px 350px;
   }
 }
 
@@ -47,6 +45,10 @@
 }
 
 .next {
+  background-position: -41px -5px;
+}
+
+.icon.forward {
   background-position: -41px -5px;
 }
 
@@ -64,19 +66,19 @@
 
 // Pagination Links
 .pagination .first {
-  background-position: -224px -236px;
+  background-position: -224px -237px;
 }
 
 .pagination .prev {
-  background-position: -225px -196px;
+  background-position: -225px -197px;
 }
 
 .pagination .next {
-  background-position: -224px -174px;
+  background-position: -224px -175px;
 }
 
 .pagination .last {
-  background-position: -224px -216px;
+  background-position: -224px -217px;
 }
 
 // Buttons
@@ -89,7 +91,7 @@
 }
 
 .button.facebook:before {
-  background-position: -94px -233px;
+  background-position: -384px -114px;
 }
 
 .button.submit:before {
@@ -98,15 +100,15 @@
 
 // Carousel/Slider
 .slider:after,
-.carousel .screen:after {
+.carousel .slick-list:after {
   background-position: -260px -75px;
 }
 
-.slider .next {
+.slider .slick-next {
   background-position: -41px -262px;
 }
 
-.slider .prev {
+.slider .slick-prev {
   background-position: -5px -262px;
 }
 
@@ -117,10 +119,14 @@
 
 // Icons
 .icon.twitter {
-  background-position: -150px -233px;
+  background-position: -442px -114px;
+
+  span {
+    background-position: -442px -216px;
+  }
 
   &.blue {
-    background-position: -442px -215px;
+    background-position: -442px -216px;
   }
 
   &.black {
@@ -129,10 +135,14 @@
 }
 
 .icon.facebook {
-  background-position: -94px -233px;
+  background-position: -384px -114px;
+
+  span {
+    background-position: -384px -216px;
+  }
 
   &.blue {
-    background-position: -384px -215px;
+    background-position: -384px -216px;
   }
 
   &.black {
@@ -141,14 +151,26 @@
 }
 
 .icon.instagram {
-  background-position: -122px -233px;
+  background-position: -413px -114px;
+
+  span {
+    background-position: -413px -216px;
+  }
 
   &.blue {
-    background-position: -413px -215px;
+    background-position: -413px -216px;
   }
 
   &.black {
     background-position: -413px -320px;
+  }
+}
+
+.icon.close {
+  background-position: -95px -205px;
+
+  span {
+    background-position: -95px -234px;
   }
 }
 
@@ -284,17 +306,29 @@
   }
 }
 
+.icon.check {
+  background-position: -95px -143px;
+
+  &.blue {
+    background-position: -65px -143px;
+  }
+
+  &.full {
+    background-position: -5px -234px;
+  }
+}
+
 // Message Icons
 .success:before {
-  background-position: -5px -233px;
+  background-position: -5px -234px;
 }
 
 .warning:before {
-  background-position: -35px -233px;
+  background-position: -35px -234px;
 }
 
 .error:before {
-  background-position: -65px -233px;
+  background-position: -65px -234px;
 }
 
 
@@ -305,6 +339,21 @@
        (min-device-pixel-ratio: 1.5),
        (min-resolution: 144dpi),
        (min-resolution: 1.5dppx) {
+
+         body:after {
+           content: "2x";
+           display: none;
+         }
+
+        .front header {
+          background-image: url("../images/backgrounds/bg-header@2x.jpg");
+          background-size: 1280px 965px;
+        }
+
+        .cta {
+          background-image: url("../images/backgrounds/bg-footer@2x.jpg");
+          background-size: 1280px 510px;
+        }
 
         .overlay,
         .front header:after {

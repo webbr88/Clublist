@@ -41,6 +41,7 @@ module.exports = function(grunt) {
           dist: {
             src: [
               'js/partials/third-party.js',
+              'js/partials/validation.js',
               'js/partials/init.js',
             ],
             dest: 'js/scripts.js',

@@ -11,8 +11,6 @@
  *    user zoom.
  */
 
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700|Roboto:100,300,300italic,500);
-
 html {
   font-family: sans-serif;
   /* 1 */
@@ -496,7 +494,8 @@ main p a[href^="#"] {
   *display: inline;
   zoom: 1;
   vertical-align: middle;
-  margin-left: 6px;
+  margin-left: 8px;
+  margin-top: -1px;
   width: 10px;
   height: 15px;
   -webkit-transition-duration: 0.25s;
@@ -518,6 +517,7 @@ main p a[href^="#"] {
   zoom: 1;
   vertical-align: middle;
   margin-right: 8px;
+  margin-top: -1px;
   width: 10px;
   height: 15px;
   -webkit-transition-duration: 0.25s;
@@ -577,12 +577,12 @@ main p a[href^="#"] {
 
 body {
   font-family: "Roboto", sans-serif;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 nav[role="navigation"] {
   font-family: "Lato", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -728,7 +728,7 @@ main .titleset .icon {
 .button + .hint {
   font-family: "Roboto", sans-serif;
   font-size: 14px;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .features {
@@ -856,7 +856,7 @@ main .titleset .icon {
 
   .group.one-three > div:nth-of-type(1) {
     width: 32.69230769230769%;
-    max-width: 340px;
+    width: 340px;
     margin-right: 5.769230769230769%;
   }
 
@@ -936,24 +936,16 @@ main .titleset .icon {
   *zoom: 1;
 }
 
+body {
+  position: relative;
+}
+
 main .group:last-of-type {
   margin-bottom: 0;
 }
 
 .interior .wrapper {
   padding-top: 2.222222em;
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(80%, black));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, transparent 0%, black 80%);
-  /* Chrome10+,Safari5.1+ */
-  /* Opera 11.10+ */
-  /* IE10+ */
-  background: linear-gradient(to bottom, transparent 0%, black 80%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000',GradientType=0 );
-  /* IE6-9 */
-  background-attachment: fixed;
 }
 
 .wrapper {
@@ -987,6 +979,10 @@ p {
   margin: 0;
 }
 
+.js .header-bg {
+  opacity: 0;
+}
+
 /**
  * Used to force the feature section to a specific height and to make the
  * content vertically aligned
@@ -994,27 +990,41 @@ p {
 
 .front header {
   position: relative;
-  background-image: url("../images/backgrounds/bg-header.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50%;
+  background-color: #132936;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #262626;
+  border-bottom-color: rgba(255, 255, 255, 0.15);
 }
 
-.front header:after {
-  content: "";
+.front header .header-bg {
   position: absolute;
-  z-index: 1;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background: url("../images/backgrounds/bg-overlay.png") fixed;
+  background-image: url("../images/backgrounds/bg-header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+}
+
+.front header .header-bg.show {
+  opacity: 1;
 }
 
 header {
   padding-top: 60px;
   font-size: 0;
   text-align: center;
+}
+
+header button {
+  display: none;
 }
 
 header nav[role="navigation"] {
@@ -1075,8 +1085,7 @@ header .feature .title {
 header nav[role="navigation"] {
   z-index: 30;
   top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
 }
 
 header .logo {
@@ -1129,11 +1138,17 @@ header ul {
   border: none;
 }
 
-.interior main {
+.interior {
   background-image: url("../images/backgrounds/bg-interior.jpg");
   background-repeat: no-repeat;
-  background-position: 50% 0;
+  background-position: 50% 60px;
   background-size: contain;
+}
+
+@media only screen and (min-width: 640px) {
+  .interior {
+    background-position: 50% 0;
+  }
 }
 
 section {
@@ -1319,7 +1334,7 @@ footer .logo {
   display: block;
   text-align: center;
   font-size: .8888889em;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .card-list > li h2 {
@@ -1372,31 +1387,111 @@ footer .logo {
   }
 }
 
-.profile {
+.profile.box {
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0;
+}
+
+.profile.box .titleset {
+  margin-top: .825em;
+  margin-bottom: .625em;
+}
+
+.profile.box .profile-slider {
+  position: relative;
+  z-index: 100;
+  -webkit-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  font-size: 0;
+}
+
+.profile.box .profile-slider.open {
+  -webkit-transform: translateX(-100%) translateZ(0);
+  -ms-transform: translateX(-100%) translateZ(0);
+  transform: translateX(-100%) translateZ(0);
+}
+
+.profile.box .status {
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-bottom: dotted 1px #26b4e1;
+  color: #26b4e1;
+  -webkit-transition: 0.25s color;
+  transition: 0.25s color;
+}
+
+.profile.box .status:hover {
+  color: #8c8e91;
+}
+
+.profile.box .profile-details,
+.profile.box .status-details {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: top;
+  white-space: normal;
+  margin: 0;
+  padding: 1.111111em;
+  font-size: 16px;
+}
+
+.profile.box .status-details #close-status {
+  padding: 0;
+  border: 0;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  *text-indent: -999px;
+}
+
+.profile.box button.prev {
+  height: 31px;
+  width: 31px;
+  background-color: transparent;
+  border: 0;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  *text-indent: -999px;
+}
+
+.profile.box .profile-details {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
   text-align: center;
 }
 
-.profile > * {
+.profile.box .profile-details > * {
   margin-bottom: 0;
 }
 
-.profile dl {
+.profile.box .profile-details dl {
   margin-bottom: 1em;
   text-align: left;
 }
 
-.profile dl dt,
-.profile dl dd {
+.profile.box .profile-details dl dt,
+.profile.box .profile-details dl dd {
   float: left;
   margin: 0;
 }
 
-.profile dl dt {
+.profile.box .profile-details dl dt {
   width: 30%;
   font-weight: 500;
 }
 
-.profile dl dd {
+.profile.box .profile-details dl dd {
   width: 60%;
   margin-bottom: .6em;
 }
@@ -1443,12 +1538,6 @@ footer .logo {
 @media only screen and (min-width: 640px) {
   .banner {
     height: 300px;
-  }
-
-  .front header nav[role="navigation"] {
-    padding-top: 0;
-    background: none;
-    border-bottom: none;
   }
 
   .title {
@@ -1498,6 +1587,12 @@ footer .logo {
 @media only screen and (min-width: 720px) {
   .mobile-details {
     display: none;
+  }
+
+  .front header nav[role="navigation"] {
+    padding-top: 0;
+    border-bottom: none;
+    background: none;
   }
 
   header {
@@ -1552,7 +1647,7 @@ footer .logo {
 
 @media only screen and (min-width: 920px) {
   header .feature-wrapper:before {
-    height: 670px;
+    height: 580px;
   }
 
   .title {
@@ -1603,7 +1698,16 @@ footer .logo {
  * Buttons
  */
 
-.button {
+.no-opacity button .icon span {
+  display: none;
+}
+
+.no-opacity button:hover .icon span {
+  display: block;
+}
+
+.button,
+button {
   display: inline-block;
   *display: inline;
   zoom: 1;
@@ -1612,69 +1716,192 @@ footer .logo {
   color: white;
   font-family: "Lato", sans-serif;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
   background-color: transparent;
+  -webkit-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -webkit-transition-properties: background-color, color;
+  -moz-transition-properties: background-color, color;
+  -ms-transition-properties: background-color, color;
+  -o-transition-properties: background-color, color;
+  transition-properties: background-color, color;
 }
 
-.button:hover {
-  background: #26b4e1;
+.button .next:after,
+.button .back:before,
+button .next:after,
+button .back:before {
+  content: none;
+}
+
+.button:hover,
+button:hover {
+  background-color: #26b4e1;
   color: white;
 }
 
-.button.facebook {
+.button.facebook,
+button.facebook {
   background: #3b5998;
   border: #3b5998 solid 2px;
 }
 
-.button.facebook:before {
+.button.facebook:before,
+button.facebook:before {
   content: "";
   display: inline-block;
   *display: inline;
   zoom: 1;
   vertical-align: middle;
-  margin-top: -1px;
   width: 25px;
   height: 25px;
   margin-right: 10px;
 }
 
-.button.facebook:hover {
+.button.facebook:hover,
+button.facebook:hover {
   background: #344e82;
   border-color: #344e82;
 }
 
-.button.submit:before {
-  content: "";
-  display: inline-block;
-  *display: inline;
-  zoom: 1;
-  vertical-align: middle;
+.button.back:before,
+button.back:before {
+  width: 25px;
+  height: 25px;
+}
+
+.button.back:hover:before,
+button.back:hover:before {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.button.forward:after,
+button.forward:after {
+  width: 25px;
+  height: 25px;
+}
+
+.button.forward:hover:after,
+button.forward:hover:after {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.button:hover .icon span,
+button:hover .icon span {
+  opacity: 1;
+}
+
+.button .icon,
+button .icon {
+  position: relative;
+  width: 25px;
+  height: 25px;
   margin-top: -1px;
-  width: 25px;
-  height: 25px;
-  margin-right: 10px;
+  background-image: url("../images/sprites.png");
+  background-repeat: no-repeat;
 }
 
-.button.back:before {
-  width: 25px;
-  height: 25px;
+@media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .button .icon,
+  button .icon {
+    background-image: url("../images/sprites@2x.png");
+    background-size: 500px 349px;
+  }
 }
 
-.button.back:hover:before {
-  -webkit-transform: translateX(0);
-  -ms-transform: translateX(0);
-  transform: translateX(0);
+.button .icon span,
+button .icon span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  background-image: url("../images/sprites.png");
+  background-repeat: no-repeat;
+  -webkit-transition: 0.25s opacity;
+  transition: 0.25s opacity;
 }
 
-.button.forward:after {
-  width: 25px;
-  height: 25px;
+@media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .button .icon span,
+  button .icon span {
+    background-image: url("../images/sprites@2x.png");
+    background-size: 500px 349px;
+  }
 }
 
-.button.forward:hover:after {
-  -webkit-transform: translateX(0);
-  -ms-transform: translateX(0);
-  transform: translateX(0);
+.button .icon.next,
+button .icon.next {
+  margin-left: 8px;
+  background-position: -35px -113px;
+}
+
+.button .icon.next span,
+button .icon.next span {
+  background-position: -95px -113px;
+}
+
+.button .icon.back,
+button .icon.back {
+  margin-right: 8px;
+  background-position: -5px -113px;
+}
+
+.button .icon.back span,
+button .icon.back span {
+  background-position: -65px -113px;
+}
+
+.button .icon.submit,
+button .icon.submit {
+  margin-right: 8px;
+  background-position: -65px -173px;
+}
+
+.button .icon.submit span,
+button .icon.submit span {
+  background-position: -95px -143px;
+}
+
+.button .icon.cocktail,
+button .icon.cocktail {
+  margin-right: 8px;
+  background-position: -325px -181px;
+}
+
+.button .icon.cocktail span,
+button .icon.cocktail span {
+  background-position: -325px -79px;
+}
+
+.button.blue,
+button.blue {
+  color: #26b4e1;
+}
+
+.button.blue:hover,
+button.blue:hover {
+  color: white;
+}
+
+.button.blue .icon.next,
+button.blue .icon.next {
+  background-position: -35px -143px;
+}
+
+.button.blue .icon.back,
+button.blue .icon.back {
+  background-position: -5px -143px;
+}
+
+.button.blue .icon.submit,
+button.blue .icon.submit {
+  background-position: -65px -143px;
 }
 
 .card .button {
@@ -1683,6 +1910,11 @@ footer .logo {
 
 .card .button:hover {
   color: white;
+}
+
+#close-status {
+  background-color: transparent;
+  border: none;
 }
 
 nav[role="navigation"] li {
@@ -1747,6 +1979,7 @@ nav[role="navigation"] li {
   border-top-color: #262626;
   border-top-color: rgba(255, 255, 255, 0.15);
   max-width: 400px;
+  *width: 400px;
   margin: 0 auto;
   padding: 1em 0 0 0;
   line-height: 150%;
@@ -1907,6 +2140,7 @@ main img {
 }
 
 main img {
+  width: auto;
   max-width: 100%;
   height: auto;
   border: white solid 2px;
@@ -1988,13 +2222,13 @@ hr {
   padding-bottom: 1em;
   border-bottom: dashed 1px;
   border-bottom-color: #262626;
-  border-bottom-color: rgba(255, 255, 255, 0.15);
+  border-bottom-color: rgba(255, 255, 255, 0.25);
   color: #26b4e1;
   font-weight: 500;
 }
 
 .concealed {
-  overflow: scroll;
+  overflow-y: scroll;
   height: 7.4em;
   padding: 0;
   border-bottom-style: solid;
@@ -2012,6 +2246,7 @@ hr {
 
 .about .sidebar {
   max-width: 320px;
+  *width: 320px;
   margin: 0 auto;
 }
 
@@ -2037,9 +2272,7 @@ hr {
 .back.button:before,
 .submit.button:before,
 .slider:after,
-.slider .next,
-.slider .prev,
-.carousel .screen:after,
+.carousel .slick-list:after,
 .icon,
 .pagination .first,
 .pagination .prev,
@@ -2065,9 +2298,7 @@ hr {
   .back.button:before,
   .submit.button:before,
   .slider:after,
-  .slider .next,
-  .slider .prev,
-  .carousel .screen:after,
+  .carousel .slick-list:after,
   .icon,
   .pagination .first,
   .pagination .prev,
@@ -2080,7 +2311,7 @@ hr {
   .error:before,
   .date-picker {
     background-image: url("../images/sprites@2x.png");
-    background-size: 500px 349px;
+    background-size: 500px 350px;
   }
 }
 
@@ -2093,6 +2324,10 @@ hr {
 }
 
 .next {
+  background-position: -41px -5px;
+}
+
+.icon.forward {
   background-position: -41px -5px;
 }
 
@@ -2109,19 +2344,19 @@ hr {
 }
 
 .pagination .first {
-  background-position: -224px -236px;
+  background-position: -224px -237px;
 }
 
 .pagination .prev {
-  background-position: -225px -196px;
+  background-position: -225px -197px;
 }
 
 .pagination .next {
-  background-position: -224px -174px;
+  background-position: -224px -175px;
 }
 
 .pagination .last {
-  background-position: -224px -216px;
+  background-position: -224px -217px;
 }
 
 .button.forward:after {
@@ -2133,7 +2368,7 @@ hr {
 }
 
 .button.facebook:before {
-  background-position: -94px -233px;
+  background-position: -384px -114px;
 }
 
 .button.submit:before {
@@ -2141,15 +2376,15 @@ hr {
 }
 
 .slider:after,
-.carousel .screen:after {
+.carousel .slick-list:after {
   background-position: -260px -75px;
 }
 
-.slider .next {
+.slider .slick-next {
   background-position: -41px -262px;
 }
 
-.slider .prev {
+.slider .slick-prev {
   background-position: -5px -262px;
 }
 
@@ -2158,11 +2393,15 @@ hr {
 }
 
 .icon.twitter {
-  background-position: -150px -233px;
+  background-position: -442px -114px;
+}
+
+.icon.twitter span {
+  background-position: -442px -216px;
 }
 
 .icon.twitter.blue {
-  background-position: -442px -215px;
+  background-position: -442px -216px;
 }
 
 .icon.twitter.black {
@@ -2170,11 +2409,15 @@ hr {
 }
 
 .icon.facebook {
-  background-position: -94px -233px;
+  background-position: -384px -114px;
+}
+
+.icon.facebook span {
+  background-position: -384px -216px;
 }
 
 .icon.facebook.blue {
-  background-position: -384px -215px;
+  background-position: -384px -216px;
 }
 
 .icon.facebook.black {
@@ -2182,15 +2425,27 @@ hr {
 }
 
 .icon.instagram {
-  background-position: -122px -233px;
+  background-position: -413px -114px;
+}
+
+.icon.instagram span {
+  background-position: -413px -216px;
 }
 
 .icon.instagram.blue {
-  background-position: -413px -215px;
+  background-position: -413px -216px;
 }
 
 .icon.instagram.black {
   background-position: -413px -320px;
+}
+
+.icon.close {
+  background-position: -95px -205px;
+}
+
+.icon.close span {
+  background-position: -95px -234px;
 }
 
 .icon.swipe {
@@ -2325,19 +2580,46 @@ hr {
   background-position: -356px -320px;
 }
 
+.icon.check {
+  background-position: -95px -143px;
+}
+
+.icon.check.blue {
+  background-position: -65px -143px;
+}
+
+.icon.check.full {
+  background-position: -5px -234px;
+}
+
 .success:before {
-  background-position: -5px -233px;
+  background-position: -5px -234px;
 }
 
 .warning:before {
-  background-position: -35px -233px;
+  background-position: -35px -234px;
 }
 
 .error:before {
-  background-position: -65px -233px;
+  background-position: -65px -234px;
 }
 
 @media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  body:after {
+    content: "2x";
+    display: none;
+  }
+
+  .front header {
+    background-image: url("../images/backgrounds/bg-header@2x.jpg");
+    background-size: 1280px 965px;
+  }
+
+  .cta {
+    background-image: url("../images/backgrounds/bg-footer@2x.jpg");
+    background-size: 1280px 510px;
+  }
+
   .overlay,
   .front header:after {
     background-image: url("../images/backgrounds/bg-overlay@2x.png");
@@ -2354,15 +2636,20 @@ hr {
   }
 }
 
+.js .slick-slider {
+  display: block;
+}
+
 .carousel {
   position: relative;
-  display: block;
+  display: none;
   margin-bottom: 4.5em;
 }
 
 .carousel button {
-  display: none;
+  display: none !important;
   position: absolute;
+  z-index: 30;
   top: 50%;
   width: 30px;
   height: 30px;
@@ -2375,23 +2662,27 @@ hr {
   background-color: transparent;
 }
 
-.carousel .prev {
-  left: 0;
+.carousel .inner {
+  margin: 0;
 }
 
-.carousel .next {
-  right: 0;
+.carousel .slick-prev {
+  left: 10px;
 }
 
-.carousel .screen {
+.carousel .slick-next {
+  right: 10px;
+}
+
+.carousel .slick-list {
   position: relative;
   padding: 0;
   font-size: 0;
   overflow: hidden;
-  white-space: nowrap;
+  border: white solid 2px;
 }
 
-.carousel .screen:after {
+.carousel .slick-list:after {
   content: "";
   position: absolute;
   right: 2px;
@@ -2427,39 +2718,43 @@ hr {
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
-  border: white solid 2px;
 }
 
 @media only screen and (min-width: 321px) {
-  .carousel .screen {
+  .carousel .slick-list {
     margin: 0 10px;
   }
 }
 
 @media only screen and (min-width: 360px) {
-  .carousel .screen {
+  .carousel .slick-list {
     margin: 0 20px;
   }
 }
 
 @media only screen and (min-width: 380px) {
-  .carousel .screen {
+  .carousel .slick-list {
     margin: 0 40px;
   }
 }
 
 @media only screen and (min-width: 420px) {
-  .carousel .screen:after {
+  .carousel .slick-list {
+    border: none;
+  }
+
+  .carousel .slick-list:after {
     content: none;
   }
 
-  .carousel button {
-    display: block;
+  .carousel .slick-prev,
+  .carousel .slick-next {
+    display: block !important;
   }
 
-  .carousel ul li {
-    width: 45%;
-    margin: 0 2.5%;
+  .carousel .inner {
+    margin: 0 10px;
+    border: white solid 2px;
   }
 }
 
@@ -2467,26 +2762,137 @@ hr {
   .carousel {
     margin-bottom: 6.875em;
   }
-
-  .carousel ul li {
-    width: 30%;
-    margin: 0 1.66666667%;
-  }
 }
 
-@media only screen and (min-width: 960px) {
-  .carousel ul li {
-    width: 22%;
-    margin: 0 1.5%;
-  }
+/* Slider */
+
+.slick-slider {
+  position: relative;
+  display: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: none;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+}
+
+.slick-list:focus {
+  outline: none;
+}
+
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.slick-slider .slick-list,
+.slick-track,
+.slick-slide,
+.slick-slide img {
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  zoom: 1;
+  margin: 0;
+}
+
+.slick-track:before,
+.slick-track:after {
+  content: "";
+  display: table;
+}
+
+.slick-track:after {
+  clear: both;
+}
+
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.slick-slide {
+  position: relative;
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+  margin: 0;
+}
+
+.inner {
+  margin: 0 20px;
+}
+
+.slick-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.slick-slide.slick-loading img {
+  display: none;
+}
+
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+  display: block;
+}
+
+.slick-loading .slick-slide {
+  visibility: hidden;
 }
 
 .slider {
-  overflow: hidden;
+  position: relative;
+  max-height: 400px;
   position: relative;
   padding: 0;
   margin: 0 0 1.6em 0;
+}
+
+.slider .slick-list {
+  overflow: hidden;
   border: black solid 2px;
+}
+
+.slider button {
+  display: none !important;
+  position: absolute;
+  z-index: 30;
+  top: 50%;
+  width: 31px;
+  height: 31px;
+  margin-top: -15px;
+  border: 0;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  *text-indent: -999px;
+  background-color: transparent;
 }
 
 .slider:after {
@@ -2506,16 +2912,11 @@ hr {
   border: none;
 }
 
-.slider .next,
-.slider .prev {
-  display: none;
-}
-
-.slider .next {
+.slider .slick-next {
   right: 20px;
 }
 
-.slider .prev {
+.slider .slick-prev {
   left: 20px;
 }
 
@@ -2547,22 +2948,9 @@ hr {
     content: none;
   }
 
-  .slider .next,
-  .slider .prev {
-    display: block;
-    cursor: pointer;
-    position: absolute;
-    z-index: 10;
-    top: 50%;
-    width: 31px;
-    height: 31px;
-    margin-top: -15px;
-    border: 0;
-    font: 0/0 a;
-    text-shadow: none;
-    color: transparent;
-    *text-indent: -999px;
-    background-color: transparent;
+  .slider .slick-next,
+  .slider .slick-prev {
+    display: block !important;
   }
 }
 
@@ -2570,6 +2958,7 @@ hr {
  * Messages such as success, warning, error and so on.
  */
 
+.message,
 .success,
 .warning,
 .error {
@@ -2582,6 +2971,7 @@ hr {
   text-align: left;
 }
 
+.message:before,
 .success:before,
 .warning:before,
 .error:before {
@@ -2595,8 +2985,32 @@ hr {
   margin-right: 10px;
 }
 
+.js .table-choice input[type="radio"] {
+  display: none;
+}
+
 form {
   font-size: 16px;
+}
+
+form .errors {
+  margin-top: 1em;
+}
+
+form .group {
+  margin-bottom: 0;
+}
+
+form ::-webkit-placeholder {
+  color: #D6D6D6;
+}
+
+form ::-moz-placeholder {
+  color: #D6D6D6;
+}
+
+form :-ms-placeholder {
+  color: #D6D6D6;
 }
 
 form fieldset {
@@ -2612,6 +3026,31 @@ form .inputset:last-of-type {
   margin-bottom: 0;
 }
 
+form .errors {
+  max-height: 0;
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-properties: max-height;
+  -moz-transition-properties: max-height;
+  -ms-transition-properties: max-height;
+  -o-transition-properties: max-height;
+  transition-properties: max-height;
+}
+
+form .errors.show {
+  height: auto;
+  max-height: 1000px;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+
+form .errors ul {
+  margin-bottom: 0;
+}
+
 form fieldset.submit {
   margin-top: 1.6em;
 }
@@ -2624,8 +3063,8 @@ form label {
   font-size: 1em;
 }
 
-form .expiry span {
-  font-weight: bold;
+form .sod_list {
+  font-size: 14px;
 }
 
 form input,
@@ -2637,12 +3076,54 @@ form span {
   vertical-align: middle;
 }
 
+form input {
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+form input:focus {
+  box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.05), 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
 form .icon {
-  margin: 0 6px 0 8px;
+  margin: 0 6px 0 0;
 }
 
 form span {
   font-size: .875em;
+}
+
+form .table-choice tbody tr:hover {
+  background: #D6D6D6;
+  cursor: pointer;
+}
+
+form .table-choice button {
+  padding: 0;
+  border: none;
+  color: #26b4e1;
+  font-size: 1.25em;
+}
+
+form .table-choice button:hover {
+  background-color: transparent;
+}
+
+form .reveal {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+form .reveal.show {
+  overflow: visible;
+  max-height: 1000px;
 }
 
 form input {
@@ -2656,8 +3137,11 @@ form input {
   border: solid 1px #D6D6D6;
 }
 
+form input[type="radio"],
+form input[type="checkbox"],
 form input[type="submit"] {
   width: auto;
+  min-width: 12px;
 }
 
 form .date-picker {
@@ -2678,7 +3162,8 @@ form .date-picker {
 }
 
 form input.month,
-form input.year {
+form input.year,
+form .custom-select {
   width: 3em;
   min-width: 30px;
   text-align: center;
@@ -2686,6 +3171,13 @@ form input.year {
 
 form .suffixed-labels input {
   font-size: 16px;
+}
+
+form .suffixed-labels input.hour,
+form .suffixed-labels input.min {
+  width: 2.5em;
+  min-width: 30px;
+  text-align: center;
 }
 
 form .suffixed-labels span {
@@ -2703,6 +3195,7 @@ form .suffixed-labels .suffix {
   zoom: 1;
   vertical-align: middle;
   width: 30%;
+  margin-left: 8px;
 }
 
 form .suffixed-labels .suffix .icon {
@@ -2748,13 +3241,47 @@ form .suffixed-labels .suffix span {
   }
 }
 
+.no-opacity .icon span {
+  display: none;
+}
+
+.no-opacity .icon:hover span {
+  display: block;
+}
+
 .icon {
+  position: relative;
   display: inline-block;
   *display: inline;
   zoom: 1;
   vertical-align: middle;
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
+}
+
+.icon:hover span {
+  opacity: 1;
+}
+
+.icon span {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  background-image: url("../images/sprites.png");
+  background-repeat: no-repeat;
+  -webkit-transition: 0.25s opacity;
+  transition: 0.25s opacity;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .icon span {
+    background-image: url("../images/sprites@2x.png");
+    background-size: 500px 349px;
+  }
 }
 
 .icon.twitter {
@@ -2767,4 +3294,968 @@ form .suffixed-labels .suffix span {
 
 .icon.calendar {
   width: 25px;
+}
+
+.ui-datepicker {
+  font-size: 14px !important;
+}
+
+/*! jQuery UI - v1.11.0 - 2014-06-26
+* http://jqueryui.com
+* Includes: core.css, accordion.css, autocomplete.css, button.css, datepicker.css, dialog.css, draggable.css, menu.css, progressbar.css, resizable.css, selectable.css, selectmenu.css, slider.css, sortable.css, spinner.css, tabs.css, tooltip.css, theme.css
+* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Verdana%2CArial%2Csans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=cccccc&bgTextureHeader=highlight_soft&bgImgOpacityHeader=75&borderColorHeader=aaaaaa&fcHeader=222222&iconColorHeader=222222&bgColorContent=ffffff&bgTextureContent=flat&bgImgOpacityContent=75&borderColorContent=aaaaaa&fcContent=222222&iconColorContent=222222&bgColorDefault=e6e6e6&bgTextureDefault=glass&bgImgOpacityDefault=75&borderColorDefault=d3d3d3&fcDefault=555555&iconColorDefault=888888&bgColorHover=dadada&bgTextureHover=glass&bgImgOpacityHover=75&borderColorHover=999999&fcHover=212121&iconColorHover=454545&bgColorActive=ffffff&bgTextureActive=glass&bgImgOpacityActive=65&borderColorActive=aaaaaa&fcActive=212121&iconColorActive=454545&bgColorHighlight=fbf9ee&bgTextureHighlight=glass&bgImgOpacityHighlight=55&borderColorHighlight=fcefa1&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=fef1ec&bgTextureError=glass&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=cd0a0a&iconColorError=cd0a0a&bgColorOverlay=aaaaaa&bgTextureOverlay=flat&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=flat&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px
+* Copyright 2014 jQuery Foundation and other contributors; Licensed MIT */
+
+.ui-front {
+  z-index: 100;
+}
+
+/* Interaction Cues
+----------------------------------*/
+
+.ui-state-disabled {
+  cursor: default !important;
+}
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+
+.ui-icon {
+  display: block;
+  text-indent: -99999px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+
+.ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
+}
+
+.ui-button {
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  line-height: normal;
+  margin-right: .1em;
+  cursor: pointer;
+  vertical-align: middle;
+  text-align: center;
+  overflow: visible;
+  /* removes extra width in IE */
+}
+
+.ui-button,
+.ui-button:link,
+.ui-button:visited,
+.ui-button:hover,
+.ui-button:active {
+  text-decoration: none;
+}
+
+/* to make room for the icon, a width needs to be set here */
+
+.ui-button-icon-only {
+  width: 2.2em;
+}
+
+/* button elements seem to need a little more width */
+
+button.ui-button-icon-only {
+  width: 2.4em;
+}
+
+.ui-button-icons-only {
+  width: 3.4em;
+}
+
+button.ui-button-icons-only {
+  width: 3.7em;
+}
+
+.ui-datepicker {
+  width: 17em;
+  padding: .2em .2em 0;
+  display: none;
+}
+
+.ui-datepicker .ui-datepicker-header {
+  position: relative;
+  padding: .2em 0;
+}
+
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+  position: absolute;
+  top: 2px;
+  width: 1.8em;
+  height: 1.8em;
+}
+
+.ui-datepicker .ui-datepicker-prev-hover,
+.ui-datepicker .ui-datepicker-next-hover {
+  top: 1px;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+  left: 2px;
+}
+
+.ui-datepicker .ui-datepicker-next {
+  right: 2px;
+}
+
+.ui-datepicker .ui-datepicker-prev-hover {
+  left: 1px;
+}
+
+.ui-datepicker .ui-datepicker-next-hover {
+  right: 1px;
+}
+
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span {
+  display: block;
+  position: absolute;
+  left: 50%;
+  margin-left: -8px;
+  top: 50%;
+  margin-top: -8px;
+}
+
+.ui-datepicker .ui-datepicker-title {
+  margin: 0 2.3em;
+  line-height: 1.8em;
+  text-align: center;
+}
+
+.ui-datepicker .ui-datepicker-title select {
+  font-size: 1em;
+  margin: 1px 0;
+}
+
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year {
+  width: 49%;
+}
+
+.ui-datepicker table {
+  width: 100%;
+  font-size: .9em;
+  border-collapse: collapse;
+  margin: 0 0 .4em;
+}
+
+.ui-datepicker th {
+  padding: .7em .3em;
+  text-align: center;
+  font-weight: bold;
+  border: 0;
+}
+
+.ui-datepicker td {
+  border: 0;
+  padding: 1px;
+}
+
+.ui-datepicker td span,
+.ui-datepicker td a {
+  display: block;
+  padding: .2em;
+  text-align: right;
+  text-decoration: none;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane {
+  background-image: none;
+  margin: .7em 0 0 0;
+  padding: 0 .2em;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane button {
+  float: right;
+  margin: .5em .2em .4em;
+  cursor: pointer;
+  padding: .2em .6em .3em .6em;
+  width: auto;
+  overflow: visible;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+  float: left;
+}
+
+/* with multiple calendars */
+
+.ui-datepicker.ui-datepicker-multi {
+  width: auto;
+}
+
+.ui-datepicker-multi .ui-datepicker-group {
+  float: left;
+}
+
+.ui-datepicker-multi .ui-datepicker-group table {
+  width: 95%;
+  margin: 0 auto .4em;
+}
+
+.ui-datepicker-multi-2 .ui-datepicker-group {
+  width: 50%;
+}
+
+.ui-datepicker-multi-3 .ui-datepicker-group {
+  width: 33.3%;
+}
+
+.ui-datepicker-multi-4 .ui-datepicker-group {
+  width: 25%;
+}
+
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+  border-left-width: 0;
+}
+
+.ui-datepicker-multi .ui-datepicker-buttonpane {
+  clear: left;
+}
+
+.ui-datepicker-row-break {
+  clear: both;
+  width: 100%;
+  font-size: 0;
+}
+
+/* RTL support */
+
+.ui-datepicker-rtl {
+  direction: rtl;
+}
+
+.ui-datepicker-rtl .ui-datepicker-prev {
+  right: 2px;
+  left: auto;
+}
+
+.ui-datepicker-rtl .ui-datepicker-next {
+  left: 2px;
+  right: auto;
+}
+
+.ui-datepicker-rtl .ui-datepicker-prev:hover {
+  right: 1px;
+  left: auto;
+}
+
+.ui-datepicker-rtl .ui-datepicker-next:hover {
+  left: 1px;
+  right: auto;
+}
+
+.ui-datepicker-rtl .ui-datepicker-buttonpane {
+  clear: right;
+}
+
+.ui-datepicker-rtl .ui-datepicker-buttonpane button {
+  float: left;
+}
+
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,
+.ui-datepicker-rtl .ui-datepicker-group {
+  float: right;
+}
+
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+  border-right-width: 0;
+  border-left-width: 1px;
+}
+
+/* Component containers
+----------------------------------*/
+
+.ui-widget {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 1.1em;
+}
+
+.ui-widget .ui-widget {
+  font-size: 1em;
+}
+
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 1em;
+}
+
+.ui-widget-content {
+  border: 1px solid #aaaaaa;
+  background: white url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x;
+  color: #222222;
+}
+
+.ui-widget-content a {
+  color: #222222;
+}
+
+.ui-widget-header {
+  border: 1px solid #aaaaaa;
+  background: #cccccc url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png") 50% 50% repeat-x;
+  color: #222222;
+  font-weight: bold;
+}
+
+.ui-widget-header a {
+  color: #222222;
+}
+
+/* Interaction states
+----------------------------------*/
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  border: 1px solid #d3d3d3;
+  background: #e6e6e6 url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #555555;
+}
+
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited {
+  color: #555555;
+  text-decoration: none;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+  border: 1px solid #999999;
+  background: #dadada url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-bg_glass_75_dadada_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #212121;
+}
+
+.ui-state-hover a,
+.ui-state-hover a:hover,
+.ui-state-hover a:link,
+.ui-state-hover a:visited,
+.ui-state-focus a,
+.ui-state-focus a:hover,
+.ui-state-focus a:link,
+.ui-state-focus a:visited {
+  color: #212121;
+  text-decoration: none;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  border: 1px solid #aaaaaa;
+  background: white url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #212121;
+}
+
+.ui-state-active a,
+.ui-state-active a:link,
+.ui-state-active a:visited {
+  color: #212121;
+  text-decoration: none;
+}
+
+/* Interaction Cues
+----------------------------------*/
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+  border: 1px solid #fcefa1;
+  background: #fbf9ee url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png") 50% 50% repeat-x;
+  color: #363636;
+}
+
+.ui-state-highlight a,
+.ui-widget-content .ui-state-highlight a,
+.ui-widget-header .ui-state-highlight a {
+  color: #363636;
+}
+
+.ui-state-error,
+.ui-widget-content .ui-state-error,
+.ui-widget-header .ui-state-error {
+  border: 1px solid #cd0a0a;
+  background: #fef1ec url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png") 50% 50% repeat-x;
+  color: #cd0a0a;
+}
+
+.ui-state-error a,
+.ui-widget-content .ui-state-error a,
+.ui-widget-header .ui-state-error a {
+  color: #cd0a0a;
+}
+
+.ui-state-error-text,
+.ui-widget-content .ui-state-error-text,
+.ui-widget-header .ui-state-error-text {
+  color: #cd0a0a;
+}
+
+.ui-priority-primary,
+.ui-widget-content .ui-priority-primary,
+.ui-widget-header .ui-priority-primary {
+  font-weight: bold;
+}
+
+.ui-priority-secondary,
+.ui-widget-content .ui-priority-secondary,
+.ui-widget-header .ui-priority-secondary {
+  opacity: .7;
+  -webkit-filter: Alpha(Opacity=70);
+  filter: Alpha(Opacity=70);
+  font-weight: normal;
+}
+
+.ui-state-disabled,
+.ui-widget-content .ui-state-disabled,
+.ui-widget-header .ui-state-disabled {
+  opacity: .35;
+  -webkit-filter: Alpha(Opacity=35);
+  filter: Alpha(Opacity=35);
+  background-image: none;
+}
+
+.ui-state-disabled .ui-icon {
+  -webkit-filter: Alpha(Opacity=35);
+  filter: Alpha(Opacity=35);
+  /* For IE8 - See #6059 */
+}
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+
+.ui-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.ui-icon,
+.ui-widget-content .ui-icon {
+  background-image: url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-icons_222222_256x240.png");
+}
+
+.ui-widget-header .ui-icon {
+  background-image: url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-icons_222222_256x240.png");
+}
+
+.ui-state-default .ui-icon {
+  background-image: url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-icons_888888_256x240.png");
+}
+
+.ui-state-hover .ui-icon,
+.ui-state-focus .ui-icon {
+  background-image: url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-icons_454545_256x240.png");
+}
+
+.ui-state-active .ui-icon {
+  background-image: url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-icons_454545_256x240.png");
+}
+
+.ui-state-highlight .ui-icon {
+  background-image: url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-icons_2e83ff_256x240.png");
+}
+
+.ui-state-error .ui-icon,
+.ui-state-error-text .ui-icon {
+  background-image: url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-icons_cd0a0a_256x240.png");
+}
+
+/* positioning */
+
+.ui-icon-blank {
+  background-position: 16px 16px;
+}
+
+.ui-icon-circle-plus {
+  background-position: 0 -192px;
+}
+
+.ui-icon-circle-minus {
+  background-position: -16px -192px;
+}
+
+.ui-icon-circle-close {
+  background-position: -32px -192px;
+}
+
+.ui-icon-circle-triangle-e {
+  background-position: -48px -192px;
+}
+
+.ui-icon-circle-triangle-s {
+  background-position: -64px -192px;
+}
+
+.ui-icon-circle-triangle-w {
+  background-position: -80px -192px;
+}
+
+.ui-icon-circle-triangle-n {
+  background-position: -96px -192px;
+}
+
+.ui-icon-circle-arrow-e {
+  background-position: -112px -192px;
+}
+
+.ui-icon-circle-arrow-s {
+  background-position: -128px -192px;
+}
+
+.ui-icon-circle-arrow-w {
+  background-position: -144px -192px;
+}
+
+.ui-icon-circle-arrow-n {
+  background-position: -160px -192px;
+}
+
+.ui-icon-circle-zoomin {
+  background-position: -176px -192px;
+}
+
+.ui-icon-circle-zoomout {
+  background-position: -192px -192px;
+}
+
+.ui-icon-circle-check {
+  background-position: -208px -192px;
+}
+
+/* Overlays */
+
+.ui-widget-overlay {
+  background: #aaaaaa url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png") 50% 50% repeat-x;
+  opacity: .3;
+  -webkit-filter: Alpha(Opacity=30);
+  filter: Alpha(Opacity=30);
+}
+
+.ui-widget-shadow {
+  margin: -8px 0 0 -8px;
+  padding: 8px;
+  background: #aaaaaa url("http://code.jquery.com/ui/1.11.0/themes/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png") 50% 50% repeat-x;
+  opacity: .3;
+  -webkit-filter: Alpha(Opacity=30);
+  filter: Alpha(Opacity=30);
+  border-radius: 8px;
+}
+
+#pageslide {
+  /* These styles MUST be included. Do not change. */
+  display: none;
+  position: absolute;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  z-index: 999999;
+  margin: 0;
+  /* Specify the width of your pageslide here */
+  width: 200px;
+  padding: 20px;
+  /* These styles are optional, and describe how the pageslide will look */
+  background-color: #333;
+  color: #FFF;
+  -moz-shadow: inset 0 0 5px 5px #222;
+  box-shadow: inset 0 0 5px 5px #222;
+}
+
+#pageslide ul {
+  position: relative;
+  top: 25px;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+#pageslide li {
+  list-style: none;
+  margin: 0;
+  border: none;
+  border-bottom: white solid 1px;
+  font-weight: 300;
+}
+
+#pageslide li a {
+  display: block;
+  border: none;
+  padding: 1em 0 .6em 0;
+}
+
+#pageslide li a:hover {
+  background: none;
+  color: #8c8e91;
+}
+
+#pageslide button {
+  float: right;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border: 0;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  *text-indent: -999px;
+}
+
+#pageslide button:hover {
+  background: transparent;
+}
+
+/* ===========================================================
+ *
+ *  Name:          selectordie_theme_02.css
+ *  Updated:       2014-07-07
+ *  Created by:    Per V @ Vst.mn
+ *  What?:         Custom "theme" for Select or Die
+ *                 To use this theme, include this file
+ *                 instead of the .selectordie.css file
+ *
+ *
+ *  Oddny | Cogs 'n Kegs
+ * =========================================================== */
+
+/* Remove, change to fit your needs */
+
+.sod_select,
+.sod_select * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* The SoD - Please keep this first three lines intact, otherwise all hell will break looooooose */
+
+.sod_select {
+  display: inline-block;
+  position: relative;
+  z-index: 1000;
+  line-height: 1;
+  width: 4.6em;
+  padding: 10px;
+  border: 1px solid #D6D6D6;
+  color: #808080;
+  text-align: left;
+  text-transform: none;
+  outline: 0;
+  outline-offset: -2px;
+  /* Opera */
+  cursor: default;
+}
+
+/* Up/Down arrows */
+
+.sod_select:before,
+.sod_select:after {
+  content: "";
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  bottom: 10px;
+  border-left: 1px solid #e5e5e5;
+}
+
+/* Down arrow */
+
+.sod_select:after {
+  content: "\25BC";
+  right: 12px;
+  top: 16px;
+  border-left: none;
+  font-size: 7px;
+}
+
+.sod_select.above:after {
+  content: "\25B2";
+}
+
+/* Change the border color on hover, focus and when open */
+
+.sod_select:hover,
+.sod_select.open,
+.sod_select.focus {
+  background: #ffffff;
+  border-color: #d4d4d4;
+}
+
+.sod_select.open {
+  color: #919191;
+}
+
+.sod_select.focus {
+  box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.05), 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* When the entire SoD is disabled, go crazy! */
+
+.sod_select.disabled {
+  border-color: #d4d4d4;
+  color: #b2b2b2;
+  cursor: not-allowed;
+}
+
+.sod_select.disabled:hover {
+  background: #fcfcfc;
+}
+
+/* The "label", or whatever we should call it. Keep the first three lines for truncating. */
+
+.sod_select .sod_label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 15px;
+}
+
+.sod_select .sod_prefix {
+  /* Use this if you're using a prefix and want to style it */
+}
+
+.sod_select .sod_placeholder {
+  /* Use this if you're using a placeholder and want to style it */
+}
+
+/* Options list wrapper */
+
+.sod_select .sod_list_wrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  height: auto;
+  width: 4.6em;
+  margin: 10px 0 0 -1px;
+  border: 1px solid #d4d4d4;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  color: #808080;
+  font-weight: 300;
+  z-index: 1;
+}
+
+/* Shows the option list (don't edit) */
+
+.sod_select.open .sod_list_wrapper {
+  display: block;
+}
+
+/* Don't display the options when  */
+
+.sod_select.disabled.open .sod_list_wrapper {
+  display: none;
+}
+
+/* When the option list is displayed above the SoD */
+
+.sod_select.above .sod_list_wrapper {
+  top: auto;
+  bottom: 100%;
+  margin: 0 0 10px -1px;
+  border: 1px solid #d4d4d4;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Arrow(s) displayed when the SoD is active, only in this "theme" */
+
+.sod_select .sod_list_wrapper:after,
+.sod_select .sod_list_wrapper:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  right: 10px;
+  border: solid transparent;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.sod_select.above .sod_list_wrapper:after,
+.sod_select.above .sod_list_wrapper:before {
+  top: 100%;
+  bottom: auto;
+}
+
+.sod_select .sod_list_wrapper:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #ffffff;
+  border-width: 6px;
+}
+
+.sod_select.above .sod_list_wrapper:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: #ffffff;
+}
+
+.sod_select .sod_list_wrapper:before {
+  margin-right: -2px;
+  border-color: rgba(212, 212, 212, 0);
+  border-bottom-color: #d4d4d4;
+  border-width: 8px;
+}
+
+.sod_select.above .sod_list_wrapper:before {
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: #d4d4d4;
+}
+
+/* Options list container */
+
+.sod_select .sod_list {
+  overflow-y: auto;
+  padding: 0 4px;
+  margin: 4px 0;
+  border-radius: 3px;
+}
+
+/* All the options. Keep the first three lines for truncating... */
+
+.sod_select .sod_option {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  position: relative;
+  padding: 10px;
+  list-style-type: none;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+/* Remove the bottom border from the last item */
+
+.sod_select .sod_option:last-child {
+  border-bottom: none;
+}
+
+/* Optgroups */
+
+.sod_select .sod_option.optgroup,
+.sod_select .sod_option.optgroup.disabled {
+  background: inherit;
+  color: #939393;
+  font-size: 10px;
+  font-style: italic;
+}
+
+/* Children of an optgroup */
+
+.sod_select .sod_option.groupchild {
+  padding-left: 20px;
+}
+
+/* Disabled option */
+
+.sod_select .sod_option.disabled {
+  background: inherit;
+  color: #cccccc;
+}
+
+/* Hover state for options, also used when a user uses his/hers up/down keys */
+
+.sod_select .sod_option.active {
+  background: #f7f7f7;
+  border-radius: 3px;
+  color: #676767;
+}
+
+/*Make room for the check mark */
+
+.sod_select .sod_option.selected {
+  padding-right: 25px;
+  font-weight: 500;
+}
+
+/* Displays a check mark for the selected option */
+
+.sod_select .sod_option.selected:before {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: inline-block;
+  color: #808080;
+  height: 9px;
+  width: 10px;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMTAgOSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAgOSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8cGF0aCBmaWxsPSIjRDlEOUQ4IiBkPSJNNCw2LjdDMy42LDYuMywzLjUsNi4xLDMuMSw1LjdDMi42LDUuMiwyLDQuNiwxLjUsNC4xYy0wLjgtMC44LTIsMC40LTEuMiwxLjJjMC45LDAuOSwxLjksMS45LDIuOCwyLjgNCgkJYzAuNywwLjcsMS4zLDEsMiwwQzYuNyw2LDguMywzLjcsOS44LDEuNUMxMC41LDAuNSw5LTAuMyw4LjMsMC42bDAsMEM2LjcsMi45LDUuNyw0LjQsNCw2LjciLz4NCjwvZz4NCjwvc3ZnPg0K);
+}
+
+/* Add a .no_highlight class to you SoD to hide the check mark */
+
+.sod_select.no_highlight .sod_option.selected:before {
+  display: none;
+}
+
+.sod_select .sod_option.link {
+  /* If data-link is set on a specific option */
+}
+
+.sod_select .sod_option.linkexternal {
+  /* If data-link-external is set on a specific option */
+}
+
+/* Hide native select */
+
+.sod_select select {
+  display: none !important;
+}
+
+/* The native select in touch mode. Keep this first line. Sorry, keep everything. */
+
+.sod_select.touch select {
+  -webkit-appearance: menulist-button;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block !important;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: 1;
 }

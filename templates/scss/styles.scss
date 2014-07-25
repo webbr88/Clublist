@@ -93,6 +93,7 @@ nav[role="navigation"] {
   border-top-color: #262626;
   border-top-color: rgba(255, 255, 255, .15);
   max-width: 400px;
+  *width: 400px;
   margin: 0 auto;
   padding: 1em 0 0 0;
   line-height: 150%;
@@ -258,6 +259,7 @@ main {
   }
 
   img {
+    width: auto;
     max-width: 100%;
     height: auto;
     border: white solid 2px;
@@ -343,14 +345,14 @@ hr {
     padding-bottom: 1em;
     border-bottom: dashed 1px;
     border-bottom-color: #262626;
-    border-bottom-color: rgba(255, 255, 255, .15);
+    border-bottom-color: rgba(255, 255, 255, .25);
     color: $primaryHighlight;
     font-weight: 500;
   }
 }
 
 .concealed {
-  overflow: scroll;
+  overflow-y: scroll;
   height: 7.4em;
   padding: 0;
   border-bottom-style: solid;
@@ -384,6 +386,7 @@ hr {
 // Page specific
 .about .sidebar {
   max-width: 320px;
+  *width: 320px;
   margin: 0 auto;
 
   img {
@@ -404,3 +407,6 @@ hr {
 @import "partials/messages";
 @import "partials/forms";
 @import "partials/icons";
+@import "partials/datepicker";
+@import "partials/pageslide";
+@import "partials/dropdowns";
