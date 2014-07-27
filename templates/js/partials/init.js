@@ -1,3 +1,19 @@
+WebFontConfig = {
+	google: {
+		families: ['Lato:300,700', 'Roboto:100,300,300italic,500']
+	}
+};
+
+(function() {
+	var wf = document.createElement('script');
+	wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+						'://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js';
+	wf.type = 'text/javascript';
+	wf.async = 'true';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(wf, s);
+})();
+
 $(document).ready(function() {
 
   // Auto scroll on anchor links
@@ -17,7 +33,7 @@ $(document).ready(function() {
   $datePickerButton = $("#datepicker-button");
   $datePicker.datepicker();
 
-  $datePickerButton.on("click", function(e) {
+  $("#datepicker-button").on("click", function(e) {
     e.preventDefault();
 
     var isOpen = $datePicker.datepicker("widget").is(":visible");
@@ -79,24 +95,32 @@ $(document).ready(function() {
       // jQuery fallback for browsers that don't support CSS Transforms
       if (Modernizr.csstransitions === true) {
 
-        $profileSlider.addClass("open");
+        var css = {};
+
+        css[Modernizr.prefixed("transform")] = "translateX(-" + ($profileSlider.outerWidth() + 24) + "px)";
+        css[Modernizr.prefixed("transition")] = ".25s ease-in-out " + Modernizr.prefixed("transform");
+
+        $profileSlider.css(css);
       }
 
       else {
         $profileSlider.animate({
-          "left": "-" + $profileSlider.width() + "px"
+          "left": "-" + ($profileSlider.outerWidth() + 24) + "px"
         }, 500);
       }
     },
 
     back: function() {
 
-
-
       // jQuery fallback for browsers that don't support CSS Transforms
       if (Modernizr.csstransitions === true) {
 
-        $profileSlider.removeClass("open");
+        var css = {};
+
+        css[Modernizr.prefixed("transform")] = "translateX(0)";
+        css[Modernizr.prefixed("transition")] = ".25s ease-in-out " + Modernizr.prefixed("transform");
+
+        $profileSlider.css(css);
       }
 
       else {
@@ -122,7 +146,7 @@ $(document).ready(function() {
   });
 
   // Fancy selector for time
-  $(".custom-selector").selectOrDie();
+  $(".custom-selector").selectmenu();
 
 
   // Detect if retina is supported
@@ -146,14 +170,17 @@ $(document).ready(function() {
   var introImageSrc = "images/backgrounds/bg-header" + imageType + ".jpg";
 
   // Preloader intro image
-  $("body").append('<img class="intro-bg" style="display: none;" src="images/backgrounds/bg-header.jpg" width="1280" height="965" />');
-  $introBg = $('.intro-bg');
+  $("body").append('<img id="intro-bg" style="display: none;" src="' + introImageSrc +'" width="1280" height="965" />');
+  $introBg = $('#intro-bg');
 
   if(document.querySelectorAll !== undefined) {
 
     // When the intro image has loaded, add the "show" class which controls the fade in
     $introBg.imagesLoaded( function() {
-      $(".header-bg").addClass("show");
+      $introBg.remove();
+      $(".header-bg").css({
+        "background-image": "url(" + introImageSrc + ")"
+      }).addClass("show");
     });
   }
 
@@ -227,9 +254,10 @@ $(document).ready(function() {
     slider.slickPrev();
   });
 
-});
+  $(window).resize(function() {
+      profileSlider.back();
+      $.pageslide.close(); //close pageslide if it's open
+      $("body").css('width', ''); //remove the width from the body
+  });
 
-$(window).resize(function() {
-    $.pageslide.close(); //close pageslide if it's open
-    $("body").css('width', ''); //remove the width from the body
 });

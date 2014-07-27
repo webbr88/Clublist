@@ -1,12 +1,9 @@
 .side {
   float: right;
-  outline: red solid 1px;
 }
 
 .group {
   margin-bottom: 3.75em;
-
-
 }
 
 @media only screen and (min-width: 720px) {
@@ -24,7 +21,6 @@
 
       > div:nth-of-type(2) {
         width: 62.5%;
-
       }
     }
 
@@ -105,13 +101,12 @@
       }
 
       > div:nth-of-type(1) {
-        width: 32.69230769230769%;
-        width: 340px;
-        margin-right: 5.769230769230769%;
+        width: 33%;
+        margin-right: 6%;
       }
 
       > div:nth-of-type(2) {
-        width: 61.53846153846154%;
+        width: 61%;
 
       }
     }
@@ -123,12 +118,12 @@
       }
 
       > div:nth-of-type(1) {
-        width: 61.53846153846154%;
-        margin-right: 5.769230769230769%;
+        width: 61%;
+        margin-right: 6%;
       }
 
       > div:nth-of-type(2) {
-        width: 32.69230769230769%;
+        width: 33%;
       }
     }
 

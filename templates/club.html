@@ -4,14 +4,16 @@
 	<meta charset="utf-8">
 	<meta name="description" content="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<title>Social Axis</title>
 
-	<link href='http://fonts.googleapis.com/css?family=Lato:300,700|Roboto:100,300,300italic,500' rel='stylesheet' type='text/css'>
 	<link href="css/styles.css" rel="stylesheet">
 	<!--[if lt IE 10]>
 		<link href="css/ie.css" rel="stylesheet">
+	<![endif]-->
+	<!--[if IE 7]>
+		<link href="css/ie7.css" rel="stylesheet">
 	<![endif]-->
 
 	<script src="js/third-party/modernizr.min.js"></script>
@@ -50,153 +52,157 @@
 			<div class="container">
 				<div class="group two-three">
 					<div class="card club">
-						<div id="slider" class="slider slick-slider">
+						<div class="card-inner">
+							<div id="slider" class="slider slick-slider">
 
-							<button id="slider-prev" class="slick-prev" type="button"><i class="icon back">&lt;<span></span></i></button>
-							<button id="slider-next" class="slick-next" type="button"><i class="icon next">&gt;<span></span></i></button>
+								<button id="slider-prev" class="slick-prev" type="button"><i class="icon back">&lt;<span></span></i></button>
+								<button id="slider-next" class="slick-next" type="button"><i class="icon next">&gt;<span></span></i></button>
 
-							<div><img src="images/content/temp2.jpg" alt="" /></div>
-							<div><img src="images/content/temp2.jpg" alt="" /></div>
-							<div><img src="images/content/temp2.jpg" alt="" /></div>
-						</div>
-
-						<div class="mobile-details">
-
-							<h1>The Jane Hotel extra title extra title extra title</h1>
-
-							<ul class="contact-details">
-								<li class="phone"><i class="icon phone black"></i>345-678-9078</li>
-								<li class="marker"><i class="icon marker black"></i>35 Little West 15th</li>
-							</ul>
-
-							<div class="concealed description">
-								<p>The VIP Room NYC is the chic, modern nightclub, inspired by European nightlife, with the sophistication of Paris and the energy of Saint Tropez. With locations in five of the world’s unrivaled party destinations – St. Tropez, Paris, Cannes, Dubai, and now New York, VIP Room has become one of the most popular nightlife destinations. VIP Room, started by Jean-Roch in 1998 in Paris, is famous for its ‘crème de la crème’ clientele, with a worldwide reputation for attracting high end international jetsetters, trendsetters, socialites, and celebrities. Luxury lifestyle meets French decadence at VIP Room to offer an exclusive European nightlife experience in New York with live performances, DJs, and non-stop dancing.</p>
+								<div><img src="images/content/temp2.jpg" alt="" /></div>
+								<div><img src="images/content/temp2.jpg" alt="" /></div>
+								<div><img src="images/content/temp2.jpg" alt="" /></div>
 							</div>
 
-							<div class="titleset">
-								<i class="icon cocktail black"></i>
-								<h2>Book Table</h2>
-							</div>
-						</div>
+							<div class="mobile-details">
 
-						<form id="party-form" action="club2.html">
+								<h1>The Jane Hotel extra title extra title extra title</h1>
 
-							<fieldset id="table-choice" class="table-choice">
-								<table>
-									<thead>
-										<tr>
-											<td class="number">#</td>
-											<td class="location">Location</td>
-											<td class="min">Table Min.</td>
-											<td class="reserve"></td>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td class="number">1</td>
-											<td class="location">Back Left</td>
-											<td class="min">$1000</td>
-											<td class="reserve">
-												<input type="radio" name="location" value="1" required />
-												<button type="button"><i class="icon cocktail blue"></i><span>Book my table</span></button>
-												</td>
-										</tr>
-										<tr>
-											<td class="number">2</td>
-											<td class="location">Back Right</td>
-											<td class="min">$1000</td>
-											<td class="reserve">
-												<input rel="location" type="radio" name="location" value="2" required />
-												<button type="button"><i class="icon cocktail blue"></i><span>Book my table</span></button>
-											</td>
-										</tr>
-										<tr>
-											<td class="number">3</td>
-											<td class="location">Extra long title, too long!</td>
-											<td class="min">$999999</td>
-											<td class="reserve">
-												<input rel="location" type="radio" name="location" value="3" required />
-												<button type="button"><i class="icon cocktail blue"></i><span>Book my table</span></button>
-											</td>
-										</tr>
-										<tr>
-											<td class="number">88</td>
-											<td class="location">Back Right</td>
-											<td class="min">$1000</td>
-											<td class="reserve">
-												<input rel="location" type="radio" name="location" value="4" required />
-												<button type="button"><i class="icon cocktail blue"></i><span>Book my table</span></button>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</fieldset>
+								<ul class="contact-details">
+									<li class="phone"><i class="icon phone black"></i>345-678-9078</li>
+									<li class="marker"><i class="icon marker black"></i>35 Little West 15th</li>
+								</ul>
 
-							<div id="party-details" class="reveal">
-
-								<fieldset class="suffixed-labels">
-									<label>When are you looking to party?</label>
-
-									<div class="inputset">
-
-										<select name="hours" class="custom-selector" required>
-											<option value="7">7</option>
-											<option value="8">8</option>
-											<option value="9">9</option>
-											<option value="10">10</option>
-											<option value="11">11</option>
-										</select>
-
-										<span>:</span>
-
-										<select name="mins" class="custom-selector" required>
-											<option value="00">00</option>
-											<option value="15">15</option>
-											<option value="30">30</option>
-											<option value="45">45</option>
-										</select>
-
-										<span class="suffix">pm</span>
-									</div>
-
-									<div class="inputset">
-										<input id="datepicker" class="third" type="text" name="date" placeholder="07/24/2014" required data-error-msg="Please enter a valid date" />
-										<button id="datepicker-button" class="date-picker">Choose date</button>
-									</div>
-								</fieldset>
-
-								<fieldset class="suffixed-labels" name="no-of-people" data-error-msg="At least one person must be going to your party">
-									<label>How many are going to your party?</label>
-									<div class="inputset"><input class="third" type="number" min="0" max="999" maxlength="3" name="girls" value="0" required /><span class="suffix"><i class="icon girl black"></i><span>Girls</span></span></div>
-									<div class="inputset"><input class="third" type="number" min="0" max="999" maxlength="3" name="boys" value="0" required /><span class="suffix"><i class="icon boy black" ></i><span>Boys</span></span></div>
-								</fieldset>
-
-								<div id="errors" class="errors message warning">
-									The following errors occured:
-									<ul>
-									</ul>
+								<div class="concealed description">
+									<p>The VIP Room NYC is the chic, modern nightclub, inspired by European nightlife, with the sophistication of Paris and the energy of Saint Tropez. With locations in five of the world’s unrivaled party destinations – St. Tropez, Paris, Cannes, Dubai, and now New York, VIP Room has become one of the most popular nightlife destinations. VIP Room, started by Jean-Roch in 1998 in Paris, is famous for its ‘crème de la crème’ clientele, with a worldwide reputation for attracting high end international jetsetters, trendsetters, socialites, and celebrities. Luxury lifestyle meets French decadence at VIP Room to offer an exclusive European nightlife experience in New York with live performances, DJs, and non-stop dancing.</p>
 								</div>
 
-								<fieldset class="submit">
-									<button id="club-submit" class="button blue" type="submit">Proceed to Payment<i class="icon next"><span></span></i></button>
-								</fieldset>
+								<div class="titleset">
+									<i class="icon cocktail black"></i>
+									<h2>Book Table</h2>
+								</div>
 							</div>
-						</form>
 
+							<form id="party-form" action="club2.html">
+
+								<fieldset id="table-choice" class="table-choice">
+									<table>
+										<thead>
+											<tr>
+												<td class="number">#</td>
+												<td class="location">Location</td>
+												<td class="min">Table Min.</td>
+												<td class="reserve"></td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="number">1</td>
+												<td class="location">Back Left</td>
+												<td class="min">$1000</td>
+												<td class="reserve">
+													<input type="radio" name="location" value="1" required />
+													<button type="button"><i class="icon cocktail blue"></i><span>Book my table</span></button>
+													</td>
+											</tr>
+											<tr>
+												<td class="number">2</td>
+												<td class="location">Back Right</td>
+												<td class="min">$1000</td>
+												<td class="reserve">
+													<input rel="location" type="radio" name="location" value="2" required />
+													<button type="button"><i class="icon cocktail blue"></i><span>Book my table</span></button>
+												</td>
+											</tr>
+											<tr>
+												<td class="number">3</td>
+												<td class="location">Extra long title, too long!</td>
+												<td class="min">$999999</td>
+												<td class="reserve">
+													<input rel="location" type="radio" name="location" value="3" required />
+													<button type="button"><i class="icon cocktail blue"></i><span>Book my table</span></button>
+												</td>
+											</tr>
+											<tr>
+												<td class="number">88</td>
+												<td class="location">Back Right</td>
+												<td class="min">$1000</td>
+												<td class="reserve">
+													<input rel="location" type="radio" name="location" value="4" required />
+													<button type="button"><i class="icon cocktail blue"></i><span>Book my table</span></button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</fieldset>
+
+								<div id="party-details" class="reveal">
+
+									<fieldset class="suffixed-labels">
+										<label>When are you looking to party?</label>
+
+										<div class="inputset">
+
+											<select name="hours" class="custom-selector" required>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+											</select>
+
+											<span>:</span>
+
+											<select name="mins" class="custom-selector" required>
+												<option value="00">00</option>
+												<option value="15">15</option>
+												<option value="30">30</option>
+												<option value="45">45</option>
+											</select>
+
+											<span class="suffix">pm</span>
+										</div>
+
+										<div class="inputset">
+											<input id="datepicker" class="third" type="text" name="date" placeholder="07/24/2014" required data-error-msg="Please enter a valid date" />
+											<button id="datepicker-button" class="date-picker">Choose date</button>
+										</div>
+									</fieldset>
+
+									<fieldset class="suffixed-labels" name="no-of-people" data-error-msg="At least one person must be going to your party">
+										<label>How many are going to your party?</label>
+										<div class="inputset"><input class="third" type="number" min="0" max="999" maxlength="3" name="girls" placeholder="0" /><span class="suffix"><i class="icon girl black"></i><span>Girls</span></span></div>
+										<div class="inputset"><input class="third" type="number" min="0" max="999" maxlength="3" name="boys" placeholder="0" /><span class="suffix"><i class="icon boy black" ></i><span>Boys</span></span></div>
+									</fieldset>
+
+									<div id="errors" class="errors message warning">
+										The following errors occured:
+										<ul>
+										</ul>
+									</div>
+
+									<fieldset class="submit">
+										<button id="club-submit" class="button blue" type="submit">Proceed to Payment<i class="icon next"><span></span></i></button>
+									</fieldset>
+								</div>
+							</form>
+						</div>
 					</div>
 
 					<div class="infobar box">
 
-						<div class="headerset">
-							<h1>The Jane Hotel extra title</h1>
+						<div class="box-inner">
 
-							<ul class="contact-details">
-								<li class="phone"><i class="icon phone"></i>345-678-9078</li>
-								<li class="marker"><i class="icon marker"></i>35 Little West 15th</li>
-							</ul>
+							<div class="headerset">
+								<h1>The Jane Hotel extra title</h1>
+
+								<ul class="contact-details">
+									<li class="phone"><i class="icon phone"></i>345-678-9078</li>
+									<li class="marker"><i class="icon marker"></i>35 Little West 15th</li>
+								</ul>
+							</div>
+
+							<p>The VIP Room NYC is the chic, modern nightclub, inspired by European nightlife, with the sophistication of Paris and the energy of Saint Tropez. With locations in five of the world’s unrivaled party destinations – St. Tropez, Paris, Cannes, Dubai, and now New York, VIP Room has become one of the most popular nightlife destinations. VIP Room, started by Jean-Roch in 1998 in Paris, is famous for its ‘crème de la crème’ clientele, with a worldwide reputation for attracting high end international jetsetters, trendsetters, socialites, and celebrities. Luxury lifestyle meets French decadence at VIP Room to offer an exclusive European nightlife experience in New York with live performances, DJs, and non-stop dancing.</p>
 						</div>
-
-						<p>The VIP Room NYC is the chic, modern nightclub, inspired by European nightlife, with the sophistication of Paris and the energy of Saint Tropez. With locations in five of the world’s unrivaled party destinations – St. Tropez, Paris, Cannes, Dubai, and now New York, VIP Room has become one of the most popular nightlife destinations. VIP Room, started by Jean-Roch in 1998 in Paris, is famous for its ‘crème de la crème’ clientele, with a worldwide reputation for attracting high end international jetsetters, trendsetters, socialites, and celebrities. Luxury lifestyle meets French decadence at VIP Room to offer an exclusive European nightlife experience in New York with live performances, DJs, and non-stop dancing.</p>
 					</div>
 				</div>
 			</div>

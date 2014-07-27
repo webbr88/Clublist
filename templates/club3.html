@@ -4,14 +4,16 @@
 	<meta charset="utf-8">
 	<meta name="description" content="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<title>Social Axis</title>
 
-	<link href='http://fonts.googleapis.com/css?family=Lato:300,700|Roboto:100,300,300italic,500' rel='stylesheet' type='text/css'>
 	<link href="css/styles.css" rel="stylesheet">
 	<!--[if lt IE 10]>
 		<link href="css/ie.css" rel="stylesheet">
+	<![endif]-->
+	<!--[if IE 7]>
+		<link href="css/ie7.css" rel="stylesheet">
 	<![endif]-->
 
 	<script src="js/third-party/modernizr.min.js"></script>
@@ -49,17 +51,47 @@
 			<div class="container">
 				<div class="group two-three">
 					<div class="card">
+						<div class="card-inner">
+							<h1>Payment Confirmed</h1>
 
-						<h1>Payment Confirmed</h1>
+							<p class="message success">Your card was successfully charged and your Reservation is booked. Have fun!</p>
 
-						<p class="message success">Your card was successfully charged and your Reservation is booked. Have fun!</p>
+							<p class="message error">Payment declined.</p>
 
-						<p class="message error">Payment declined.</p>
+							<div class="mobile-details">
 
-						<div class="mobile-details">
+								<div class="titleset">
+									<i class="icon cocktail black"></i>
+									<h2>Reservation Details</h2>
+								</div>
 
-							<div class="titleset">
-								<i class="icon cocktail black"></i>
+								<h3>Name</h3>
+								<p>Renaldo Webb</p>
+
+								<h3>Nightclub</h3>
+								<p>Hotel Chantelle</p>
+
+								<h3>Date</h3>
+								<p>Wed 16 July</p>
+
+								<h3>Amount</h3>
+								<p>$1400</p>
+
+								<h3>Males</h3>
+								<p>1</p>
+
+								<h3>Chicks</h3>
+								<p>2</p>
+
+							</div>
+
+							<p class="align-center"><a class="forward highlight" href="#">My reservations</a></p>
+						</div>
+					</div>
+
+					<div class="infobar box">
+						<div class="box-inner">
+							<div class="headerset">
 								<h2>Reservation Details</h2>
 							</div>
 
@@ -80,36 +112,7 @@
 
 							<h3>Chicks</h3>
 							<p>2</p>
-
 						</div>
-
-						<p class="align-center"><a class="forward highlight" href="#">My reservations</a></p>
-
-					</div>
-
-					<div class="infobar box">
-
-						<div class="headerset">
-							<h2>Reservation Details</h2>
-						</div>
-
-						<h3>Name</h3>
-						<p>Renaldo Webb</p>
-
-						<h3>Nightclub</h3>
-						<p>Hotel Chantelle</p>
-
-						<h3>Date</h3>
-						<p>Wed 16 July</p>
-
-						<h3>Amount</h3>
-						<p>$1400</p>
-
-						<h3>Males</h3>
-						<p>1</p>
-
-						<h3>Chicks</h3>
-						<p>2</p>
 					</div>
 				</div>
 			</div>

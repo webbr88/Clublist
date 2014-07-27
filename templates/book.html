@@ -4,14 +4,16 @@
 	<meta charset="utf-8">
 	<meta name="description" content="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<title>Social Axis</title>
 
-	<link href='http://fonts.googleapis.com/css?family=Lato:300,700|Roboto:100,300,300italic,500' rel='stylesheet' type='text/css'>
 	<link href="css/styles.css" rel="stylesheet">
 	<!--[if lt IE 10]>
 		<link href="css/ie.css" rel="stylesheet">
+	<![endif]-->
+	<!--[if IE 7]>
+		<link href="css/ie7.css" rel="stylesheet">
 	<![endif]-->
 
 	<script src="js/third-party/modernizr.min.js"></script>
@@ -52,55 +54,61 @@
 
 						<div class="profile box">
 
-							<div id="profile-slider" class="profile-slider">
-								<div class="profile-details">
-									<img src="images/content/temp3.jpg" alt="Username" />
+							<div class="box-inner">
 
-									<dl class="group">
-										<dt>Name:</dt>
-										<dd>Ian Lunn</dd>
-										<dt>City:</dt>
-										<dd>New York, NY</dd>
-										<dt>Status:</dt>
-										<dd><button id="show-status" class="status">Party Animal</button></dd>
-									</dl>
-								</div>
+								<div id="profile-slider" class="profile-slider">
+									<div class="profile-details">
+										<img src="images/content/temp3.jpg" alt="Username" />
 
-								<div class="status-details">
-									<button id="close-status" type="button"><i class="icon back"><span></span>Back</i></button>
-
-									<div class="titleset all">
-										<i class="icon party"></i>
-										<h3>Party Animal</h3>
+										<dl class="group">
+											<dt>Name:</dt>
+											<dd>Ian Lunn</dd>
+											<dt>City:</dt>
+											<dd>New York, NY</dd>
+											<dt class="status-info">Status:</dt>
+											<dd class="status-info"><button id="show-status" class="status">Party Animal</button></dd>
+										</dl>
 									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante eget purus bibendum fringilla. Suspendisse sit amet est ut lacus posuere suscipit.</p>
+
+									<div class="status-details">
+										<button id="close-status" type="button"><i class="icon back"><span></span>Back</i></button>
+
+										<div class="titleset all">
+											<i class="icon party"></i>
+											<h3>Party Animal</h3>
+										</div>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante eget purus bibendum fringilla. Suspendisse sit amet est ut lacus posuere suscipit.</p>
+									</div>
 								</div>
 							</div>
 						</div>
 
 						<div class="reservation-list box">
 
-							<div class="titleset all">
-								<i class="icon calendar"></i>
-								<h3>My Reservations</h3>
+							<div class="box-inner">
+
+								<div class="titleset all">
+									<i class="icon calendar"></i>
+									<h3>My Reservations</h3>
+								</div>
+
+								<dl>
+									<dt>The VIP Room</dt>
+									<dd>7pm Friday, July 20th</dd>
+
+									<dt>The Janet Hotel</dt>
+									<dd>9pm Friday, July 22nd</dd>
+								</dl>
+
+								<p class="align-center"><a href="#" class="forward">Book another table</a></p>
+
+								<div class="titleset all">
+									<i class="icon calendar"></i>
+									<h3>My Reservations</h3>
+								</div>
+
+								<p class="align-center">No reservations! We should change that.</p>
 							</div>
-
-							<dl>
-								<dt>The VIP Room</dt>
-								<dd>7pm Friday, July 20th</dd>
-
-								<dt>The Janet Hotel</dt>
-								<dd>9pm Friday, July 22nd</dd>
-							</dl>
-
-							<p class="align-center"><a href="#" class="forward">Book another table</a></p>
-
-							<div class="titleset all">
-								<i class="icon calendar"></i>
-								<h3>My Reservations</h3>
-							</div>
-
-							<p class="align-center">No reservations! We should change that.</p>
 						</div>
 
 					</div>
@@ -109,35 +117,43 @@
 
 						<ul class="card-list">
 							<li class="card">
-								<img src="images/content/temp2.jpg" alt="Club name" />
-								<h2>The VIP Room long title</h2>
-								<p class="concealed">Lorem ipsum dolor sit amet, consectetur</p>
+								<div class="card-inner">
+									<img src="images/content/temp2.jpg" alt="Club name" />
+									<h2>The VIP Room long title</h2>
+									<p class="concealed">Lorem ipsum dolor sit amet, consectetur</p>
 
-								<a class="forward reservation highlight" href="#" title="Title of link">Make a reservation</a>
+									<a class="forward reservation highlight" href="#" title="Title of link">Make a reservation</a>
+								</div>
 							</li>
 
 							<li class="card">
-								<img src="images/content/temp2.jpg" alt="Club name" />
-								<h2>Hotel Chantelle</h2>
-								<p class="concealed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut pretium sapien. Fusce at eros a eros vulputate mattis ac et ante. Cras id mi semper, tincidunt tellus ut, tempor tellus. Morbi non porta arcu, a vehicula odio. Aliquam erat volutpat. Aliquam porttitor consectetur felis ac pulvinar. In hac habitasse platea dictumst. Donec tristique laoreet venenatis. Aliquam volutpat mi vitae luctus molestie. Maecenas vitae faucibus turpis. Proin viverra at justo vel lobortis. Aenean ornare, augue sit amet faucibus imperdiet, enim odio vestibulum dolor, id eleifend ante nulla in tortor. Aliquam felis libero, semper quis interdum quis, pretium id tortor. Suspendisse potenti. Suspendisse ut erat aliquam, suscipit velit tincidunt, commodo urna. Maecenas imperdiet nisi tortor, quis porttitor magna tincidunt at.</p>
+								<div class="card-inner">
+									<img src="images/content/temp2.jpg" alt="Club name" />
+									<h2>Hotel Chantelle</h2>
+									<p class="concealed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut pretium sapien. Fusce at eros a eros vulputate mattis ac et ante. Cras id mi semper, tincidunt tellus ut, tempor tellus. Morbi non porta arcu, a vehicula odio. Aliquam erat volutpat. Aliquam porttitor consectetur felis ac pulvinar. In hac habitasse platea dictumst. Donec tristique laoreet venenatis. Aliquam volutpat mi vitae luctus molestie. Maecenas vitae faucibus turpis. Proin viverra at justo vel lobortis. Aenean ornare, augue sit amet faucibus imperdiet, enim odio vestibulum dolor, id eleifend ante nulla in tortor. Aliquam felis libero, semper quis interdum quis, pretium id tortor. Suspendisse potenti. Suspendisse ut erat aliquam, suscipit velit tincidunt, commodo urna. Maecenas imperdiet nisi tortor, quis porttitor magna tincidunt at.</p>
 
-								<a class="forward reservation highlight" href="#" title="Title of link">Make a reservation</a>
+									<a class="forward reservation highlight" href="#" title="Title of link">Make a reservation</a>
+								</div>
 							</li>
 
 							<li class="card">
-								<img src="images/content/temp2.jpg" alt="Club name" />
-								<h2>The VIP Room</h2>
-								<p class="concealed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut pretium sapien. Fusce at eros a eros vulputate mattis ac et ante. Cras id mi semper, tincidunt tellus ut, tempor tellus. Morbi non porta arcu, a vehicula odio. Aliquam erat volutpat. Aliquam porttitor consectetur felis ac pulvinar. In hac habitasse platea dictumst. Donec tristique laoreet venenatis. Aliquam volutpat mi vitae luctus molestie. Maecenas vitae faucibus turpis. Proin viverra at justo vel lobortis. Aenean ornare, augue sit amet faucibus imperdiet, enim odio vestibulum dolor, id eleifend ante nulla in tortor. Aliquam felis libero, semper quis interdum quis, pretium id tortor. Suspendisse potenti. Suspendisse ut erat aliquam, suscipit velit tincidunt, commodo urna. Maecenas imperdiet nisi tortor, quis porttitor magna tincidunt at.</p>
+								<div class="card-inner">
+									<img src="images/content/temp2.jpg" alt="Club name" />
+									<h2>The VIP Room</h2>
+									<p class="concealed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut pretium sapien. Fusce at eros a eros vulputate mattis ac et ante. Cras id mi semper, tincidunt tellus ut, tempor tellus. Morbi non porta arcu, a vehicula odio. Aliquam erat volutpat. Aliquam porttitor consectetur felis ac pulvinar. In hac habitasse platea dictumst. Donec tristique laoreet venenatis. Aliquam volutpat mi vitae luctus molestie. Maecenas vitae faucibus turpis. Proin viverra at justo vel lobortis. Aenean ornare, augue sit amet faucibus imperdiet, enim odio vestibulum dolor, id eleifend ante nulla in tortor. Aliquam felis libero, semper quis interdum quis, pretium id tortor. Suspendisse potenti. Suspendisse ut erat aliquam, suscipit velit tincidunt, commodo urna. Maecenas imperdiet nisi tortor, quis porttitor magna tincidunt at.</p>
 
-								<a class="forward reservation highlight" href="#" title="Title of link">Make a reservation</a>
+									<a class="forward reservation highlight" href="#" title="Title of link">Make a reservation</a>
+								</div>
 							</li>
 
 							<li class="card">
-								<img src="images/content/temp2.jpg" alt="Club name" />
-								<h2>The VIP Room</h2>
-								<p class="concealed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut pretium sapien. Fusce at eros a eros vulputate mattis ac et ante. Cras id mi semper, tincidunt tellus ut, tempor tellus. Morbi non porta arcu, a vehicula odio. Aliquam erat volutpat. Aliquam porttitor consectetur felis ac pulvinar. In hac habitasse platea dictumst. Donec tristique laoreet venenatis. Aliquam volutpat mi vitae luctus molestie. Maecenas vitae faucibus turpis. Proin viverra at justo vel lobortis. Aenean ornare, augue sit amet faucibus imperdiet, enim odio vestibulum dolor, id eleifend ante nulla in tortor. Aliquam felis libero, semper quis interdum quis, pretium id tortor. Suspendisse potenti. Suspendisse ut erat aliquam, suscipit velit tincidunt, commodo urna. Maecenas imperdiet nisi tortor, quis porttitor magna tincidunt at.</p>
+								<div class="card-inner">
+									<img src="images/content/temp2.jpg" alt="Club name" />
+									<h2>The VIP Room</h2>
+									<p class="concealed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut pretium sapien. Fusce at eros a eros vulputate mattis ac et ante. Cras id mi semper, tincidunt tellus ut, tempor tellus. Morbi non porta arcu, a vehicula odio. Aliquam erat volutpat. Aliquam porttitor consectetur felis ac pulvinar. In hac habitasse platea dictumst. Donec tristique laoreet venenatis. Aliquam volutpat mi vitae luctus molestie. Maecenas vitae faucibus turpis. Proin viverra at justo vel lobortis. Aenean ornare, augue sit amet faucibus imperdiet, enim odio vestibulum dolor, id eleifend ante nulla in tortor. Aliquam felis libero, semper quis interdum quis, pretium id tortor. Suspendisse potenti. Suspendisse ut erat aliquam, suscipit velit tincidunt, commodo urna. Maecenas imperdiet nisi tortor, quis porttitor magna tincidunt at.</p>
 
-								<a class="forward reservation highlight" href="#" title="Title of link">Make a reservation</a>
+									<a class="forward reservation highlight" href="#" title="Title of link">Make a reservation</a>
+								</div>
 							</li>
 						</ul>
 					</div>

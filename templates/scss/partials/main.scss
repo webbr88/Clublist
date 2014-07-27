@@ -37,6 +37,7 @@ main .group:last-of-type {
 
 .wrapper {
   position: relative;
+  z-index: 10;
   margin: 0;
   padding-top: 2em;
   padding-bottom: 2em;
@@ -101,6 +102,8 @@ p {
 }
 
 header {
+  position: relative;
+  z-index: 100;
   padding-top: 60px;
   font-size: 0; // Remove 4px gap between inline-block elements
   text-align: center;
@@ -112,6 +115,8 @@ header {
   nav[role="navigation"] {
     position: fixed;
     top: 0;
+    right: 0;
+    left: 0;
 
     background: black;
     background: rgba(0, 0, 0, .90);
@@ -170,8 +175,6 @@ header {
   nav[role="navigation"] {
     z-index: 30;
     top: 0;
-    // left: 0;
-    // right: 0;
     width: 100%;
   }
 
@@ -290,8 +293,10 @@ footer {
   text-align: center;
 
   nav[role="navigation"] ul {
-    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
     margin-bottom: 3em;
+    padding: 0;
 
     li {
       display: block;
@@ -307,7 +312,12 @@ footer {
   }
 
   .social-links {
-    margin: 1.5em 0;
+    margin: 1.5em auto;
+
+    .icon,
+    a {
+      display: block;
+    }
   }
 
   .logo {
@@ -318,14 +328,15 @@ footer {
 
 // Section with a white background, typically paired with .infobar
 .card {
-  @include prefixed(box-sizing, border-box);
   margin: 0;
-  padding: 1em;
-  padding-bottom: 2.75em;
   background: white;
   color: black;
   font-weight: 300;
   font-size: .8888889em;
+
+  .card-inner {
+    padding: 1em;
+  }
 
   &.club h1 {
     display: block;
@@ -363,15 +374,23 @@ footer {
   }
 }
 
+.profile.box .box-inner .profile-details {
+  margin-right: 24px;
+}
+
 .box {
-  padding: 1.111111em;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #262626;
   border-color: rgba(255, 255, 255, .15);
   background: black;
   background: rgba(0, 0, 0, .7);
   font-size: 16px;
+
+  .box-inner {
+    margin-bottom: 0;
+    padding: 1.111111em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #262626;
+  }
 
   .titleset {
     margin-top: 0;
@@ -383,25 +402,24 @@ footer {
   padding: 0;
   font-size: 0;
 
+  .card-inner {
+    padding: .8888889em;
+    padding-bottom: 0;
+  }
+
   > li {
-    @include prefixed(box-sizing, border-box);
     display: inline-block;
     *display: inline;
     zoom: 1;
     vertical-align: top;
     width: 100%;
     margin-bottom: 2.5em;
-    padding: .8888889em;
-    padding-bottom: 1.5em;
     list-style: none;
     font-size: 18px;
+    line-height: 100%;
 
     &:last-child {
       margin: 0;
-    }
-
-    img {
-      @include prefixed(box-sizing, border-box);
     }
 
     .reservation {
@@ -420,8 +438,6 @@ footer {
       white-space: nowrap;
       overflow: hidden;
     }
-
-
 
     h2,
     h3,
@@ -506,7 +522,6 @@ footer {
     vertical-align: top;
     white-space: normal;
     margin: 0;
-    padding: 1.111111em;
     font-size: 16px;
   }
 
@@ -524,7 +539,7 @@ footer {
 
   .profile-details {
     width: 100%;
-    @include prefixed(box-sizing, border-box);
+    // @include prefixed(box-sizing, border-box);
     text-align: center;
 
     > * {
@@ -558,7 +573,6 @@ footer {
 // Sidebar that typically sits next to .card
 .infobar {
   display: none;
-  @include prefixed(box-sizing, border-box);
   font-size: 16px;
 
   h1 {
@@ -611,6 +625,7 @@ footer {
     > div {
       display: inline-block;
       *display: inline;
+      zoom: 1;
       vertical-align: top;
       width: 30%;
       max-width: 160px;
@@ -669,9 +684,13 @@ footer {
         position: relative;
         display: block;
         float: right;
+        margin: 0;
         padding: 0.625em 0;
 
         a {
+          display: inline-block;
+          *display: inline;
+          zoom: 1;
           padding: 1em .725em;
         }
 

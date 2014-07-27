@@ -43,6 +43,7 @@ form {
     overflow: hidden;
     padding-top: 0;
     padding-bottom: 0;
+    @include prefixed(transform, translateZ(0));
     @include prefixed(transition-duration, .5s);
     @include prefixed(transition-properties, max-height);
 
@@ -72,6 +73,10 @@ form {
 
   .sod_list {
     font-size: 14px;
+  }
+
+  input {
+    background-image: none;
   }
 
   input,
@@ -122,10 +127,12 @@ form {
   .reveal {
     overflow: hidden;
     max-height: 0;
+    margin-bottom: 0;
+    @include prefixed(transform, translateZ(0));
     @include prefixed(transition, .5s);
 
     &.show {
-      overflow: visible;
+      // overflow: visible;
       max-height: 1000px;
     }
   }

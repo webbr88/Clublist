@@ -4,14 +4,16 @@
 	<meta charset="utf-8">
 	<meta name="description" content="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<title>Social Axis</title>
 
-	<link href='http://fonts.googleapis.com/css?family=Lato:300,700|Roboto:100,300,300italic,500' rel='stylesheet' type='text/css'>
 	<link href="css/styles.css" rel="stylesheet">
 	<!--[if lt IE 10]>
 		<link href="css/ie.css" rel="stylesheet">
+	<![endif]-->
+	<!--[if IE 7]>
+		<link href="css/ie7.css" rel="stylesheet">
 	<![endif]-->
 
 	<script src="js/third-party/modernizr.min.js"></script>
@@ -49,15 +51,112 @@
 			<div class="container">
 				<div class="group two-three">
 					<div class="card">
+						<div class="card-inner">
 
-						<h1>Confirm Payment</h1>
+							<h1>Confirm Payment</h1>
 
-						<p class="message warning">Reservation is not complete until <a href="#payment">payment is processed</a>.</p>
+							<p class="message warning">Reservation is not complete until <a href="#payment">payment is processed</a>.</p>
 
-						<div class="mobile-details">
+							<div class="mobile-details">
 
-							<div class="titleset">
-								<i class="icon cocktail black"></i>
+								<div class="titleset">
+									<i class="icon cocktail black"></i>
+									<h2>Reservation Details</h2>
+								</div>
+
+								<p><a href="#" class="back highlight">Change reservation details</a></p>
+
+								<h3>Nightclub</h3>
+								<p>Hotel Chantelle</p>
+
+								<h3>Date</h3>
+								<p>Wed 16 July</p>
+
+								<h3>Table Min.</h3>
+								<p>$1500</p>
+
+								<h3>Social Axis Hookup</h3>
+								<p>$100</p>
+
+								<h3>Final Cost</h3>
+								<p>$1400</p>
+
+								<hr />
+							</div>
+
+							<div id="payment" class="payment">
+
+								<div class="titleset">
+									<i class="icon lock black"></i>
+									<h2>Confirm Payment</h2>
+								</div>
+
+
+								<form id="party-form2" action="club3.html">
+
+									<fieldset>
+										<label>Card Number</label>
+										<input class="half" type="text" name="card" placeholder="4242 4242 4242 4242" required data-error-msg="Please enter a valid Card Number" />
+									</fieldset>
+
+									<div class="group">
+
+										<fieldset class="half">
+											<label>CV Code</label>
+											<input type="text" name="cv" placeholder="123" min="100" max="999" maxlength="3" required data-error-msg="Please enter a valid CV Code" />
+										</fieldset>
+
+										<fieldset class="expiry half">
+											<label>Expiry <small>Month/Year</small></label>
+											<select name="month" class="custom-selector" required>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+												<option value="12">12</option>
+											</select>
+											<span>/</span>
+											<select name="year" class="custom-selector" required>
+												<option value="14">14</option>
+												<option value="15">15</option>
+												<option value="16">16</option>
+												<option value="17">17</option>
+												<option value="18">18</option>
+												<option value="19">19</option>
+												<option value="20">20</option>
+												<option value="21">21</option>
+												<option value="22">22</option>
+												<option value="23">23</option>
+												<option value="24">24</option>
+											</select>
+										</fieldset>
+									</div>
+
+									<div id="errors" class="errors message warning">
+										The following errors occured:
+										<ul>
+										</ul>
+									</div>
+
+
+									<fieldset class="submit">
+										<button id="club-submit2" class="button blue" type="submit"><i class="icon submit"><span></span></i>Book my Table</button>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+
+					<div class="infobar box">
+						<div class="box-inner">
+							<div class="headerset">
 								<h2>Reservation Details</h2>
 							</div>
 
@@ -77,102 +176,7 @@
 
 							<h3>Final Cost</h3>
 							<p>$1400</p>
-
-							<hr />
 						</div>
-
-						<div id="payment" class="payment">
-
-							<div class="titleset">
-								<i class="icon lock black"></i>
-								<h2>Confirm Payment</h2>
-							</div>
-
-
-							<form id="party-form2" action="club3.html">
-
-								<fieldset>
-									<label>Card Number</label>
-									<input class="half" type="text" name="card" placeholder="4242 4242 4242 4242" required data-error-msg="Please enter a valid Card Number" />
-								</fieldset>
-
-								<div class="group">
-
-									<fieldset class="half">
-										<label>CV Code</label>
-										<input type="text" name="cv" placeholder="123" min="100" max="999" maxlength="3" required data-error-msg="Please enter a valid CV Code" />
-									</fieldset>
-
-									<fieldset class="expiry half">
-										<label>Expiry <small>Month/Year</small></label>
-										<select name="month" class="custom-selector" required>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-											<option value="6">6</option>
-											<option value="7">7</option>
-											<option value="8">8</option>
-											<option value="9">9</option>
-											<option value="10">10</option>
-											<option value="11">11</option>
-											<option value="12">12</option>
-										</select>
-										<span>/</span>
-										<select name="year" class="custom-selector" required>
-											<option value="14">14</option>
-											<option value="15">15</option>
-											<option value="16">16</option>
-											<option value="17">17</option>
-											<option value="18">18</option>
-											<option value="19">19</option>
-											<option value="20">20</option>
-											<option value="21">21</option>
-											<option value="22">22</option>
-											<option value="23">23</option>
-											<option value="24">24</option>
-										</select>
-									</fieldset>
-								</div>
-
-								<div id="errors" class="errors message warning">
-									The following errors occured:
-									<ul>
-									</ul>
-								</div>
-
-
-								<fieldset class="submit">
-									<button id="club-submit2" class="button blue" type="submit"><i class="icon submit"><span></span></i>Book my Table</button>
-								</fieldset>
-							</form>
-						</div>
-
-					</div>
-
-					<div class="infobar box">
-
-						<div class="headerset">
-							<h2>Reservation Details</h2>
-						</div>
-
-						<p><a href="#" class="back highlight">Change reservation details</a></p>
-
-						<h3>Nightclub</h3>
-						<p>Hotel Chantelle</p>
-
-						<h3>Date</h3>
-						<p>Wed 16 July</p>
-
-						<h3>Table Min.</h3>
-						<p>$1500</p>
-
-						<h3>Social Axis Hookup</h3>
-						<p>$100</p>
-
-						<h3>Final Cost</h3>
-						<p>$1400</p>
 					</div>
 				</div>
 			</div>
