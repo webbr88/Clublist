@@ -2,7 +2,7 @@
  <% if current_user.oauth_token %>
       <% @graph = Koala::Facebook::API.new(current_user.oauth_token) %>
       <% @a = @graph.get_object("me") %>
-      <% @friends = @graph.get_connections("me", "friends") %>
+      <%# @friends = @graph.get_connections("me", "friends") %>
 
 <div class="container-fluid">
     <div class="row">
@@ -20,9 +20,9 @@
 
           <h5> Name: <%= @a["name"] %> </h5>
           <% b = 0 %>
-          <% @friends.each do |f| %>
+          <%# @friends.each do |f| %>
            <% b = b+1 %>
-          <% end %>
+          <%# end %>
 
           <% if @a["location"] %>
             <h5>City: <%= @a["location"]["name"] %></h5>
@@ -30,15 +30,15 @@
             <h5> City: New York, NY </h5>
           <%end%>
           <h5>Status:  
-      <% if @friends.size > 800 and @friends.size <= 1200 %>
+      <%# if @friends.size > 800 and @friends.size <= 1200 %>
         Turned Up
-      <% elsif @friends.size >1200 and @friends.size <=2000 %>
+      <%# elsif @friends.size >1200 and @friends.size <=2000 %>
         VIP
-      <% elsif @friends.size >2000 %>
+      <%# elsif @friends.size >2000 %>
         Socialite
-      <%else%>
+      <%#else%>
         Party Animal
-      <%end%>
+      <%#end%>
 
           </div>
         </div>
@@ -74,8 +74,8 @@
 
 <div class="container-fluid">
     <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">  
+   
+      <div class="col-md-12">  
 
 
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style=" margin: 0 auto" >

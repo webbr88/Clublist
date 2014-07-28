@@ -90,7 +90,7 @@ GEM
     json (1.8.1)
     jwt (0.1.11)
       multi_json (>= 1.5)
-    koala (1.8.0)
+    koala (1.10.0)
       addressable
       faraday
       multi_json
@@ -203,7 +203,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
-  koala
+  koala (~> 1.10.0)
   mail_form
   masonry-rails (~> 0.2.0)
   omniauth
