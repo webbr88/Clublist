@@ -1,15 +1,13 @@
+<ul class="card-list">
+  <% for nightclub in nightclub %>
+  <li class="card">
+    <div class="card-inner">
+      <%=link_to image_tag(nightclub.image.url (:medium)), nightclub %>
+      <h2><%= nightclub.name %></h2>
+      <p class="concealed"><%= nightclub.description %></p>
 
-<div id="nightclubs" class="transitions-enabled">
-    <% for nightclub in nightclub %>
-        <div class="box panel panel-default">
-        <%=link_to image_tag(nightclub.image.url (:medium)), nightclub %>
-        <div class= "panel-body">
-        <%= nightclub.name %>
-        <br><span class="glyphicon glyphicon-glass"></span> 
-       <%= link_to 'Make a reservation', nightclub %> 
-  
-  </div>
-  </div>
-     <% end %>
-</div>
-
+      <%= link_to 'Make a reservation', nightclub, class: "forward reservation highlight" %>
+    </div>
+  </li>
+  <% end %>
+</ul>

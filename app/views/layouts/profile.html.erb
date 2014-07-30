@@ -1,0 +1,96 @@
+<% if user_signed_in? %>
+<% if current_user.oauth_token %>
+			<% @graph = Koala::Facebook::API.new(current_user.oauth_token) %>
+			<% @a = @graph.get_object("me") %>
+			<%# @friends = @graph.get_connections("me", "friends") %>
+
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="group">
+
+					<div class="profile box">
+
+						<div class="box-inner">
+
+							<div id="profile-slider" class="profile-slider">
+								<div class="profile-details">
+									<img src ="<%= @picture = @graph.get_picture( "me", type: :large) %>" >
+
+									<dl class="group">
+										<dt>Name:</dt>
+										<dd><%= @a["name"] %></dd>
+
+										<% b = 0 %>
+										<%# @friends.each do |f| %>
+										<% b = b+1 %>
+										<%# end %>
+
+										<dt>City:</dt>
+										<% if @a["location"] %>
+											<dd><%= @a["location"]["name"] %></dd>
+										<%else%>
+											<dd>New York, NY</dd>
+										<%end%>
+										<dt class="status-info">Status:</dt>
+
+										<%# if @friends.size > 800 and @friends.size <= 1200 %>
+											<dd class="status-info"><button id="show-status" class="status">Turned Up</button></dd>
+										<%# elsif @friends.size >1200 and @friends.size <=2000 %>
+											<!-- <dd class="status-info"><button id="show-status" class="status">VIP</button></dd> -->
+										<%# elsif @friends.size >2000 %>
+											<!-- <dd class="status-info"><button id="show-status" class="status">Socialite</button></dd> -->
+										<%#else%>
+											<!-- <dd class="status-info"><button id="show-status" class="status">Party Animal</button></dd> -->
+										<%#end%>
+									</dl>
+								</div>
+
+								<div class="status-details">
+									<button id="close-status" type="button"><i class="icon back"><span></span>Back</i></button>
+										<%# if @friends.size > 800 and @friends.size <= 1200 %>
+
+										<div class="titleset all">
+											<i class="icon party"></i>
+											<h3>Turned Up</h3>
+										</div>
+										<p>Turned up description</p>
+
+										<%# elsif @friends.size >1200 and @friends.size <=2000 %>
+
+										<!-- <div class="titleset all">
+											<i class="icon party"></i>
+											<h3>VIP</h3>
+										</div>
+										<p>VIP description</p> -->
+
+										<%# elsif @friends.size >2000 %>
+
+										<!-- <div class="titleset all">
+											<i class="icon party"></i>
+											<h3>Socialite</h3>
+										</div>
+										<p>Socialite description</p> -->
+
+										<%#else%>
+
+									<!-- <div class="titleset all">
+										<i class="icon party"></i>
+										<h3>Party Animal</h3>
+									</div>
+									<p>Party animal description</p> -->
+									<%#end%>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="reservation-list box">
+						<div class="box-inner">
+							<%= render :partial=>'show_payments', :locals=> {:reservation => Reservation.find(:all),:table =>Table.find(:all), :nightclub => Nightclub.find(:all), :payment => Payment.find(:all)} %>
+						</div>
+					</div>
+				</div>
+			</div>
+
+<% end %>
+<% end %>

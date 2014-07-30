@@ -1,10 +1,64 @@
+</div>
 
-<footer class="footer">
- 
-  <%= link_to "Social Axis ", root_path %><span class="glyphicon glyphicon-copyright-mark"></span>
-    <ul>
-      <%= link_to "About ", about_path %>| 
-      <%= link_to "Contact Us", new_contact_path %>
-    </ul>
-  
+<div class="cta">
+  <div class="container">
+    <% if !user_signed_in? %>
+      <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), class: "button facebook" %>
+      <p class="hint">...and get instant access</p>
+    <% else %>
+
+      <%
+        # Only show the "Find your table" button when signed in and when not already on the booking page
+
+        currentUri = request.env['PATH_INFO']
+
+        # Get the directory name by removing the first / then get the text before the second /
+        cleanDirName = currentUri[1..-1].split("/").first
+
+        if user_signed_in? and cleanDirName != nil and cleanDirName != "nightclubs"
+      %>
+
+      <a href="/" class="button"><i class="icon cocktail"><span></span></i>Find Your Table</a>
+      <p class="hint">Make a reservation and party on your terms</p>
+      <% end %>
+    <% end %>
+
+  </div>
+
+  <div class="overlay"></div>
+</div>
+
+</main>
+
+<footer class="container" role="contentinfo">
+
+<ul class="social-links">
+  <li><a href="#" title="View Social Axis on Twitter"><i class="icon twitter">Twitter<span></span></i></a></li>
+  <li><a class="icon instagram" href="#" title="View Social Axis on Instagram"><i class="icon instagram">Instagram<span></span></i></a></li>
+  <li><a class="icon facebook" href="#" title="View Social Axis on Facebook"><i class="icon facebook">Facebook<span></span></i></a></li>
+</ul>
+
+<nav role="navigation">
+  <ul>
+    <!-- # If current page, add "current" class to link -->
+
+    <li><%= link_to "About", about_path %></li>
+    <li><%= link_to "Contact Us", new_contact_path %></li>
+    <% if user_signed_in? %>
+
+        <li class="l720"><%= link_to "Profile", root_path %></li>
+        <li><%= link_to "Book a table", root_path %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign in", user_omniauth_authorize_path(:facebook) %></li>
+      <% end %>
+  </ul>
+</nav>
+
+<%= link_to image_tag('/assets/social-axis-logo.png'), root_path , id: "logo", class: "logo" %>
+
+<small>Copyright &copy; <time datetime="2014">2014</time> <%= link_to "Social Axis", root_path %></small>
 </footer>
+
+<script src="/assets/third-party.min.js"></script>
+<script src="/assets/scripts.js"></script>

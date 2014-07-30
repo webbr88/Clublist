@@ -40,7 +40,6 @@ module.exports = function(grunt) {
         concat: {
           dist: {
             src: [
-              'js/partials/third-party.js',
               'js/partials/validation.js',
               'js/partials/init.js',
             ],
@@ -80,8 +79,8 @@ module.exports = function(grunt) {
           },
 
           css: {
-            files: ['scss/**/*.scss', 'css/**/*.css'],
-            tasks: ['sass', 'autoprefixer', 'cssmin'],
+            files: ['css/**/*.css'],
+            tasks: ['autoprefixer', 'cssmin'],
             options: {
               spawn: false
             }
@@ -103,5 +102,5 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     grunt.registerTask('default', ['connect', 'watch']); //watch for local development
-    grunt.registerTask('run', ['sass', 'autoprefixer', 'cssmin', 'concat', 'uglify']); //manual compile
+    grunt.registerTask('run', ['autoprefixer', 'cssmin', 'concat', 'uglify']); //manual compile
 };

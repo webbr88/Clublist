@@ -1,32 +1,38 @@
-<div class="jumbotron">
+<div class="container">
+  <div class="group three-four">
+    <div>
+      <h1>What is Social Axis?</h1>
 
-<div class="page-header">
-<strong><h2> What is Social Axis? </h2></strong>
-</div>
+      <p>Social Axis connects you to the most exclusive nightclubs in your city, while rewarding you for being socially connected.</p>
 
-<p>Social Axis connects you to the most exclusive nightclubs in your city, while rewarding you for being socially connected.</p>
-<p>We're currently in Beta testing and would love feedback or partners. <%= link_to "Contact Us", new_contact_path %> - it could be the start of a great friendship.</p>
-</br>
+      <p>We’re currently in Beta testing and would love feedback or partners. <%= link_to "Contact Us", new_contact_path %> - it could be the start of a great friendship.</p>
 
-<h3> How does Social Axis work? </h3>
+      <ul class="feature-list">
+        <li><i class="icon social big"></i><a href="#how" title="">How does Social Axis work?</a></li>
+        <li><i class="icon cocktail big"></i><a href="#hookup" title="">Huh? I can get a hookup? How?</a></li>
+        <li><i class="icon lock big"></i><a href="#privacy" title="">Wait?! What can they see?</a></li>
+        <li><i class="icon tickets big"></i><a href="#rewards" title="">So I can get into the coolest clubs at a discount?</a></li>
+      </ul>
 
-<p>By giving you control. Social Axis brings all of the best nightclubs in your city together, and lets you book the table you want. We also work with the nigthclubs to get you hookups as often as possible, making it easier for you to party on your terms. </p>
-</br>
+      <p>Social Axis connects you to the most exclusive nightclubs in your city, while rewarding you for being socially connected.</p>
 
-<h3> Huh? I can get a hookup? How? </h3>
+      <h2 id="how">How does Social Axis Work?</h2>
+      <p>By giving you control. Social Axis brings all of the best nightclubs in your city together, and lets you book the table you want. We also work with the nigthclubs to get you hookups as often as possible, making it easier for you to party on your terms.</p>
 
-<p> Simply put, Social Axis leverages your social network to get exclusive hookups from your favorite clubs. Every picture, follower, or check-in gives them exposure and Social Axis rewards you for that. </p>
-</br>
+      <h2 id="hookup">Huh? I can get a hookup? How?</h2>
+      <p>Simply put, Social Axis leverages your social network to get exclusive hookups from your favorite clubs. Every picture, follower, or check-in gives them exposure and Social Axis rewards you for that.</p>
 
-<h3> Wait?! What can they see? </h3>
+      <h2 id="privacy">Wait?! What can they see?</h2>
+      <p>Nothing really. Social Axis shares the size of your social influence. Clubs cannot see pictures or status update, but they will know how just how cool you are.</p>
 
-<p>Nothing really. Social Axis shares the size of your social influence. Clubs cannot see pictures or status update, but they will know how just how cool you are. </p>
-</br>
+      <h2 id="rewards">So I can get into the coolest clubs at a discount?</h2>
+      <p>Not only get. You get in, in style. Sign up Now!</p>
+    </div>
 
-<h3> So I can get into the coolest clubs at a discount? </h3>
-
-<p> Not only get. You get in, in style. Sign up Now! </p>
-<center><%= link_to '<i class="fa fa-facebook"></i>
-      Sign up with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook"  %> </center>
-
+    <div class="sidebar">
+      <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time" />
+      <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time" />
+      <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time" />
+    </div>
+  </div>
 </div>

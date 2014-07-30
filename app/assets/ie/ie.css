@@ -1,0 +1,4 @@
+.carousel button,
+.slider button {
+  visibility: hidden;
+}

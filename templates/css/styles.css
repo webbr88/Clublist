@@ -949,6 +949,7 @@ main .group:last-of-type {
 .wrapper {
   position: relative;
   z-index: 10;
+  min-height: 420px;
   margin: 0;
   padding-top: 2em;
   padding-bottom: 2em;
@@ -1247,6 +1248,11 @@ footer .logo {
   font-size: .8888889em;
 }
 
+.card.e404 h2 {
+  margin: 0;
+  padding: 2em;
+}
+
 .card .card-inner {
   padding: 1em;
 }
@@ -1293,6 +1299,7 @@ footer .logo {
 }
 
 .box {
+  width: 100%;
   border-color: rgba(255, 255, 255, 0.15);
   background: black;
   background: rgba(0, 0, 0, 0.7);
@@ -1364,6 +1371,7 @@ footer .logo {
 }
 
 .card-list > li img {
+  display: block;
   border: black solid 2px;
 }
 
@@ -1470,6 +1478,10 @@ footer .logo {
 .profile.box .profile-details {
   width: 100%;
   text-align: center;
+}
+
+.profile.box .profile-details img {
+  width: auto;
 }
 
 .profile.box .profile-details > * {
@@ -1926,6 +1938,10 @@ nav[role="navigation"] li {
   zoom: 1;
 }
 
+.g720 {
+  display: none;
+}
+
 @media only screen and (min-width: 446px) {
   .l450 {
     display: none;
@@ -2042,9 +2058,14 @@ table {
   font-size: .8888889em;
 }
 
-table thead {
+table thead,
+table th {
   font-weight: 500;
   border-bottom: solid 2px #D6D6D6;
+}
+
+table th {
+  text-align: left;
 }
 
 table tr:nth-child(even) {
@@ -2102,6 +2123,14 @@ table .icon {
 }
 
 @media only screen and (min-width: 720px) {
+  .l720 {
+    display: none !important;
+  }
+
+  .g720 {
+    display: block;
+  }
+
   table .reserve span {
     display: none;
   }
@@ -2252,13 +2281,13 @@ hr {
   background-attachment: local, local, scroll, scroll;
 }
 
-.about .sidebar {
+.single .sidebar {
   max-width: 320px;
   *width: 320px;
   margin: 0 auto;
 }
 
-.about .sidebar img {
+.single .sidebar img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -2266,7 +2295,7 @@ hr {
 }
 
 @media only screen and (min-width: 640px) {
-  .about .sidebar img {
+  .single .sidebar img {
     width: 100%;
   }
 }
@@ -2589,7 +2618,7 @@ hr {
 }
 
 .icon.check {
-  background-position: -95px -142px;
+  background-position: -95px -143px;
 }
 
 .icon.check.blue {
@@ -2654,6 +2683,8 @@ hr {
 
 .js .slick-slider {
   display: block;
+  max-height: 360px;
+  overflow: hidden;
 }
 
 .carousel {
@@ -3045,6 +3076,13 @@ form .inputset:last-of-type {
   margin-bottom: 0;
 }
 
+form textarea {
+
+  width: 100%;
+  padding: .4em;
+  border: 1px solid #D6D6D6;
+}
+
 form .errors {
   max-height: 0;
   overflow: hidden;
@@ -3083,10 +3121,6 @@ form label {
   margin-bottom: .625em;
   font-weight: 500;
   font-size: 1em;
-}
-
-form .sod_list {
-  font-size: 14px;
 }
 
 form input {
@@ -3155,7 +3189,9 @@ form .reveal.show {
   max-height: 1000px;
 }
 
+form textarea,
 form input {
+  color: black;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
@@ -4724,320 +4760,4 @@ form .suffixed-labels .suffix span {
 
 #pageslide button:hover {
   background: transparent;
-}
-
-/* ===========================================================
- *
- *  Name:          selectordie_theme_02.css
- *  Updated:       2014-07-07
- *  Created by:    Per V @ Vst.mn
- *  What?:         Custom "theme" for Select or Die
- *                 To use this theme, include this file
- *                 instead of the .selectordie.css file
- *
- *
- *  Oddny | Cogs 'n Kegs
- * =========================================================== */
-
-/* Remove, change to fit your needs */
-
-.sod_select,
-.sod_select * {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
-/* The SoD - Please keep this first three lines intact, otherwise all hell will break looooooose */
-
-.sod_select {
-  display: inline-block;
-  position: relative;
-  z-index: 1000;
-  line-height: 1;
-  width: 4.6em;
-  padding: 10px;
-  border: 1px solid #D6D6D6;
-  color: #808080;
-  text-align: left;
-  text-transform: none;
-  outline: 0;
-  outline-offset: -2px;
-  /* Opera */
-  cursor: default;
-}
-
-/* Up/Down arrows */
-
-.sod_select:before,
-.sod_select:after {
-  content: "";
-  position: absolute;
-  right: 30px;
-  top: 10px;
-  bottom: 10px;
-  border-left: 1px solid #e5e5e5;
-}
-
-/* Down arrow */
-
-.sod_select:after {
-  content: "\25BC";
-  right: 12px;
-  top: 16px;
-  border-left: none;
-  font-size: 7px;
-}
-
-.sod_select.above:after {
-  content: "\25B2";
-}
-
-/* Change the border color on hover, focus and when open */
-
-.sod_select:hover,
-.sod_select.open,
-.sod_select.focus {
-  background: #ffffff;
-  border-color: #d4d4d4;
-}
-
-.sod_select.open {
-  color: #919191;
-}
-
-.sod_select.focus {
-  box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.05), 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-/* When the entire SoD is disabled, go crazy! */
-
-.sod_select.disabled {
-  border-color: #d4d4d4;
-  color: #b2b2b2;
-  cursor: not-allowed;
-}
-
-.sod_select.disabled:hover {
-  background: #fcfcfc;
-}
-
-/* The "label", or whatever we should call it. Keep the first three lines for truncating. */
-
-.sod_select .sod_label {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  padding-right: 15px;
-}
-
-.sod_select .sod_prefix {
-  /* Use this if you're using a prefix and want to style it */
-}
-
-.sod_select .sod_placeholder {
-  /* Use this if you're using a placeholder and want to style it */
-}
-
-/* Options list wrapper */
-
-.sod_select .sod_list_wrapper {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  display: none;
-  height: auto;
-  width: 4.6em;
-  margin: 10px 0 0 -1px;
-  border: 1px solid #d4d4d4;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background: #ffffff;
-  color: #808080;
-  font-weight: 300;
-  z-index: 1;
-}
-
-/* Shows the option list (don't edit) */
-
-.sod_select.open .sod_list_wrapper {
-  display: block;
-}
-
-/* Don't display the options when  */
-
-.sod_select.disabled.open .sod_list_wrapper {
-  display: none;
-}
-
-/* When the option list is displayed above the SoD */
-
-.sod_select.above .sod_list_wrapper {
-  top: auto;
-  bottom: 100%;
-  margin: 0 0 10px -1px;
-  border: 1px solid #d4d4d4;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Arrow(s) displayed when the SoD is active, only in this "theme" */
-
-.sod_select .sod_list_wrapper:after,
-.sod_select .sod_list_wrapper:before {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  right: 10px;
-  border: solid transparent;
-  height: 0;
-  width: 0;
-  pointer-events: none;
-}
-
-.sod_select.above .sod_list_wrapper:after,
-.sod_select.above .sod_list_wrapper:before {
-  top: 100%;
-  bottom: auto;
-}
-
-.sod_select .sod_list_wrapper:after {
-  border-color: rgba(255, 255, 255, 0);
-  border-bottom-color: #ffffff;
-  border-width: 6px;
-}
-
-.sod_select.above .sod_list_wrapper:after {
-  border-color: rgba(255, 255, 255, 0);
-  border-top-color: #ffffff;
-}
-
-.sod_select .sod_list_wrapper:before {
-  margin-right: -2px;
-  border-color: rgba(212, 212, 212, 0);
-  border-bottom-color: #d4d4d4;
-  border-width: 8px;
-}
-
-.sod_select.above .sod_list_wrapper:before {
-  border-color: rgba(255, 255, 255, 0);
-  border-top-color: #d4d4d4;
-}
-
-/* Options list container */
-
-.sod_select .sod_list {
-  overflow-y: auto;
-  padding: 0 4px;
-  margin: 4px 0;
-  border-radius: 3px;
-}
-
-/* All the options. Keep the first three lines for truncating... */
-
-.sod_select .sod_option {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 100%;
-  position: relative;
-  padding: 10px;
-  list-style-type: none;
-  border-bottom: 1px solid #f7f7f7;
-}
-
-/* Remove the bottom border from the last item */
-
-.sod_select .sod_option:last-child {
-  border-bottom: none;
-}
-
-/* Optgroups */
-
-.sod_select .sod_option.optgroup,
-.sod_select .sod_option.optgroup.disabled {
-  background: inherit;
-  color: #939393;
-  font-size: 10px;
-  font-style: italic;
-}
-
-/* Children of an optgroup */
-
-.sod_select .sod_option.groupchild {
-  padding-left: 20px;
-}
-
-/* Disabled option */
-
-.sod_select .sod_option.disabled {
-  background: inherit;
-  color: #cccccc;
-}
-
-/* Hover state for options, also used when a user uses his/hers up/down keys */
-
-.sod_select .sod_option.active {
-  background: #f7f7f7;
-  border-radius: 3px;
-  color: #676767;
-}
-
-/*Make room for the check mark */
-
-.sod_select .sod_option.selected {
-  padding-right: 25px;
-  font-weight: 500;
-}
-
-/* Displays a check mark for the selected option */
-
-.sod_select .sod_option.selected:before {
-  content: "";
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  display: inline-block;
-  color: #808080;
-  height: 9px;
-  width: 10px;
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMTAgOSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAgOSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8cGF0aCBmaWxsPSIjRDlEOUQ4IiBkPSJNNCw2LjdDMy42LDYuMywzLjUsNi4xLDMuMSw1LjdDMi42LDUuMiwyLDQuNiwxLjUsNC4xYy0wLjgtMC44LTIsMC40LTEuMiwxLjJjMC45LDAuOSwxLjksMS45LDIuOCwyLjgNCgkJYzAuNywwLjcsMS4zLDEsMiwwQzYuNyw2LDguMywzLjcsOS44LDEuNUMxMC41LDAuNSw5LTAuMyw4LjMsMC42bDAsMEM2LjcsMi45LDUuNyw0LjQsNCw2LjciLz4NCjwvZz4NCjwvc3ZnPg0K);
-}
-
-/* Add a .no_highlight class to you SoD to hide the check mark */
-
-.sod_select.no_highlight .sod_option.selected:before {
-  display: none;
-}
-
-.sod_select .sod_option.link {
-  /* If data-link is set on a specific option */
-}
-
-.sod_select .sod_option.linkexternal {
-  /* If data-link-external is set on a specific option */
-}
-
-/* Hide native select */
-
-.sod_select select {
-  display: none !important;
-}
-
-/* The native select in touch mode. Keep this first line. Sorry, keep everything. */
-
-.sod_select.touch select {
-  -webkit-appearance: menulist-button;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block !important;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  z-index: 1;
 }

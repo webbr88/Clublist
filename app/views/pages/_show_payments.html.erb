@@ -1,60 +1,30 @@
-<div class="panel panel-default">
-
-  <div class="panel-heading">
-
-   <h3 class="panel-title">
-            Upcoming Reservations:</h3>
-          </div> 
-
+<div class="titleset all">
+  <i class="icon calendar"></i>
+  <h3>My Reservations</h3>
+</div>
 
 <% a = Payment.find_all_by_user_id(current_user.id) %>
 
-
 <% if a.size == 0 %>
 
-<div class="panel-body">
-No reservations! We should change that.
-</div>
+<p class="align-center">No reservations! We should change that.</p>
 
 <%else%>
 
-<div class="panel-body">
+<dl>
+  <% payment.each do |payment| %>
+  <% if payment.user_id == current_user.id %>
+  <% if payment.reservation_date >= Date.today.to_s %>
+  <% r=payment.table_id %>
+  <% n=Table.find(r).nightclub_id %>
+  <dt><%= Nightclub.find(n).name %> (<%= link_to 'Edit', edit_payment_path(payment) %>)</dt>
+  <dd><%= payment.reservation_date.strftime("%a %d %b")   %></dd>
+  <%end%>
+  <%end%>
+  <%end%>
+</dl>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <div class="table">
-      <th>Hotel</th>
-      <th>Date</th>
-      <th>Modify Reservations</th>
-    </div>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% payment.each do |payment| %>
-    <% if payment.user_id == current_user.id %>
-    <% if payment.reservation_date >= Date.today.to_s %>
-    <% r=payment.table_id %>
-    <% n=Table.find(r).nightclub_id %>
-      <tr>
-        <td><%= Nightclub.find(n).name %></td>
-        <td><%= payment.reservation_date.strftime("%a %d %b")   %></td>
-        <td><span class="glyphicon glyphicon-pencil"></span> 
-          <%= link_to 'Edit', edit_payment_path(payment) %> 
-
-      </tr>
-      <%end%>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
-
-
+<p class="align-center l720"><a href="#" class="forward">Book another table</a></p>
 
 </div>
 <%end%>
-</div>
-
-
-

@@ -1,32 +1,96 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class= "containter">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
- <%= link_to image_tag('/assets/social.png'), root_path , id: "logo" %>
-  
+<%
+
+currentUri = request.env['PATH_INFO']
+
+# Get the directory name by removing the first / then get the text before the second /
+cleanDirName = currentUri[1..-1].split("/").first
+
+# Change the <body> class per page
+case cleanDirName
+
+when nil, ""
+    if user_signed_in?
+      section = "club"
+    else
+      section = "front"
+    end
+
+  when "nightclubs"
+    section = "club"
+
+  when "reservations"
+    section = "reservations"
+
+  when "about", "contacts"
+    section = "single"
+
+  else
+    section = ""
+end
+
+## Add a class of "interior" when viewing pages that can only be accessed when signed in
+case section
+
+when "club", "reservations"
+    section += " interior"
+end
+
+%>
+
+<body class="<% concat section %>">
+  <% if section == "club interior" %>
+  <div class="overlay"></div>
+  <% end %>
+
+  <header role="banner">
+    <% if section == nil or "" %>
+    <div class="header-bg"></div>
+    <% end %>
+    <div class="overlay"></div>
+    <nav role="navigation">
+      <div class="group container">
+        <%= link_to image_tag('/assets/social-axis-logo.png'), root_path , id: "logo", class: "logo" %>
+        <a href="#links" class="menu" id="menu">Menu</a>
+        <div id="links">
+          <button id="close-menu" type="button"><i class="icon close">Close<span></span></i></button>
+          <ul>
+
+            <!-- # If current page, add "current" class to link -->
+
+            <li><%= link_to "About", about_path, class: "current" %></li>
+            <li><%= link_to "Contact Us", new_contact_path %></li>
+            <% if user_signed_in? %>
+
+                <li class="l720"><%= link_to "Profile", root_path %></li>
+                <li><%= link_to "Book a table", root_path, class: "boxed" %></li>
+                <li class="l720"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to "Sign in", user_omniauth_authorize_path(:facebook), class: "boxed" %></li>
+              <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <% currentUri = request.env['PATH_INFO'] %>
+  <% if cleanDirName == nil or cleanDirName == "" and !user_signed_in? %>
+    <div class="feature-wrapper">
+      <div class="feature">
+        <h1 class="title">Connect with the<br class="l450" /> Hottest Clubs<br class="l450" /> in your Area</h1>
+        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), class: "button facebook" %>
+        <p class="hint">Receive exclusive hookups<br class="l450" /> based on your social network</p>
+      </div>
+    </div>
+  <% end %>
+
+  </header>
+
+  <% if section == "single" %>
+  <div class="banner">
+    <div class="overlay"></div>
   </div>
+  <% end %>
 
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav navbar-right">
-<!-- /.Add back account settings -->
-    
-      <li><%= link_to "About", about_path %></li> 
-      <li><%= link_to "Contact Us", new_contact_path %></li> 
-      <% if user_signed_in? %>
-       
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Sign in", user_omniauth_authorize_path(:facebook) %></li>
-        <% end %>
+  <main id="main" role="main">
 
-    </ul>
-  </div><!-- /.navbar-collapse -->
-</div><!-- /.containt-collapse -->
-</nav>
+    <div class="wrapper">
