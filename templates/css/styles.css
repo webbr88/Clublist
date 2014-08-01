@@ -1511,7 +1511,10 @@ footer .logo {
 
 .infobar {
   display: none;
+  max-width: 343px;
   font-size: 16px;
+  overflow: hidden;
+  margin-bottom: 0;
 }
 
 .infobar h1 {
@@ -1971,7 +1974,7 @@ nav[role="navigation"] li {
 
 .overlay {
   position: absolute;
-  z-index: 10;
+  z-index: 9;
   top: 0;
   right: 0;
   bottom: 0;
@@ -1992,16 +1995,26 @@ nav[role="navigation"] li {
   text-align: center;
 }
 
+.button-and-hint .button.facebook {
+  color: white;
+}
+
+.button-and-hint p {
+  margin-top: .625em;
+  font-size: 14px;
+}
+
 .pagination {
+  max-width: 400px;
+  *width: 400px;
+  margin: 3em auto 0 auto;
+  padding: 1em 0 0 0;
+  line-height: 150%;
   border-top-style: solid;
   border-top-width: 1px;
   border-top-color: #262626;
   border-top-color: rgba(255, 255, 255, 0.15);
-  max-width: 400px;
-  *width: 400px;
-  margin: 0 auto;
-  padding: 1em 0 0 0;
-  line-height: 150%;
+  text-align: center;
 }
 
 .pagination li {
@@ -2236,6 +2249,53 @@ hr {
   width: 24px;
   height: 24px;
   margin-right: 20px;
+}
+
+.reservation-list ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.reservation-list li {
+  position: relative;
+  width: auto;
+  list-style: none;
+}
+
+.reservation-list li > * {
+  margin: 0;
+}
+
+.reservation-list .share {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 4px;
+  /*visibility: hidden;*/
+}
+
+.reservation-list li:hover .share {
+  visibility: visible;
+  color: transparent !important;
+}
+
+.reservation-list ul h3 {
+  margin-bottom: 0;
+  font-family: "Lato", sans-serif;
+  font-size: 1.111111em;
+}
+
+.reservation-list ul p {
+  margin-bottom: 1.5em;
+  padding-bottom: 1em;
+  border-bottom: dashed 1px;
+  border-bottom-color: #262626;
+  border-bottom-color: rgba(255, 255, 255, 0.25);
+  color: #26b4e1;
+  font-weight: 700;
 }
 
 .reservation-list dl {
