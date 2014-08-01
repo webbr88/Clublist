@@ -24,6 +24,12 @@
   <%= javascript_tag "Stripe.publishableKey = '#{Rails.configuration.stripe[:publishable_key]}';" %>
 	<%= csrf_meta_tags %>
 
+  <meta property="og:site_name" content="Social Axis" />
+  <meta property="og:title" content="Title of page here" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:description" content="Description of page here" />
+  <meta property="og:image" content="Link to an image here" />
+
   <script src="/assets/third-party/modernizr.min.js"></script>
   <!--[if lt IE 9]>
     <script src="/assets/third-party/html5shiv-printshiv.min.js"></script>
