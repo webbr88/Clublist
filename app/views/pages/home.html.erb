@@ -2,147 +2,184 @@
  <% if current_user.oauth_token %>
       <% @graph = Koala::Facebook::API.new(current_user.oauth_token) %>
       <% @a = @graph.get_object("me") %>
-      <% @friends = @graph.get_connections("me", "taggable_friends") %>
+      <%# @friends = @graph.get_connections("me", "friends") %>
 
-<div class="container-fluid">
-    <div class="row">
-      <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">
+      <div class="overlay"></div>
+      <div class="container">
 
-          <h3 class="panel-title">
-            Welcome to Social Axis!</h3></div> 
-         <div class="panel-body">
-        </br>
-         <center> <img src ="<%= @picture = @graph.get_picture( "me", type: :large) %>" > </center>
-      
+        <div class="group one-three">
+
+          <div class="infobar">
+
+            <div class="profile box">
+
+              <div class="box-inner">
+
+                <div id="profile-slider" class="profile-slider">
+                  <div class="profile-details">
+                    <img src ="<%= @picture = @graph.get_picture( "me", type: :large) %>" >
+
+                    <dl class="group">
+                      <dt>Name:</dt>
+                      <dd><%= @a["name"] %></dd>
+
+                      <% b = 0 %>
+                      <%# @friends.each do |f| %>
+                       <% b = b+1 %>
+                      <%# end %>
+
+                      <dt>City:</dt>
+                      <% if @a["location"] %>
+                        <dd><%= @a["location"]["name"] %></dd>
+                      <%else%>
+                        <dd>New York, NY</dd>
+                      <%end%>
+                      <dt class="status-info">Status:</dt>
+
+                      <%# if @friends.size > 800 and @friends.size <= 1200 %>
+                        <dd class="status-info"><button id="show-status" class="status">Turned Up</button></dd>
+                      <%# elsif @friends.size >1200 and @friends.size <=2000 %>
+                        <!-- <dd class="status-info"><button id="show-status" class="status">VIP</button></dd> -->
+                      <%# elsif @friends.size >2000 %>
+                        <!-- <dd class="status-info"><button id="show-status" class="status">Socialite</button></dd> -->
+                      <%#else%>
+                        <!-- <dd class="status-info"><button id="show-status" class="status">Party Animal</button></dd> -->
+                      <%#end%>
+                    </dl>
+                  </div>
+
+                  <div class="status-details">
+                    <button id="close-status" type="button"><i class="icon back"><span></span>Back</i></button>
+                      <%# if @friends.size > 800 and @friends.size <= 1200 %>
+
+                      <div class="titleset all">
+                        <i class="icon party"></i>
+                        <h3>Turned Up</h3>
+                      </div>
+                      <p>Turned up description</p>
+
+                      <%# elsif @friends.size >1200 and @friends.size <=2000 %>
+
+                      <!-- <div class="titleset all">
+                        <i class="icon party"></i>
+                        <h3>VIP</h3>
+                      </div>
+                      <p>VIP description</p> -->
+
+                      <%# elsif @friends.size >2000 %>
+
+                      <!-- <div class="titleset all">
+                        <i class="icon party"></i>
+                        <h3>Socialite</h3>
+                      </div>
+                      <p>Socialite description</p> -->
+
+                      <%#else%>
+
+                    <!-- <div class="titleset all">
+                      <i class="icon party"></i>
+                      <h3>Party Animal</h3>
+                    </div>
+                    <p>Party animal description</p> -->
+                    <%#end%>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="reservation-list box">
+              <div class="box-inner">
+                <%= render :partial=>'show_payments', :locals=> {:reservation => Reservation.find(:all),:table =>Table.find(:all), :nightclub => Nightclub.find(:all), :payment => Payment.find(:all)} %>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <%= render :partial=>'show_nightclubs', :locals=> {:nightclub => Nightclub.find(:all)} %>
+          </div>
+        </div>
+      </div>
+
+      <% end %>
 
 
-          <h5> Name: <%= @a["name"] %> </h5>
-          <% b = 0 %>
-          <%# @friends.each do |f| %>
-           <% b = b+1 %>
-          <%# end %>
+    <% else %>
 
-          <% if @a["location"] %>
-            <h5>City: <%= @a["location"]["name"] %></h5>
-          <%else%>
-            <h5> City: New York, NY </h5>
-          <%end%>
-          <h5>Status:  
-      <%# if @friends.size > 800 and @friends.size <= 1200 %>
-       
-      <%# elsif @friends.size >1200 and @friends.size <=2000 %>
-       
-      <%# elsif @friends.size >2000 %>
-    
-      <%#else%>
-      <%= @friends.size%>
-      <br>
-        Party Animal
-      <%#end%>
+      <div class="container">
 
+        <div id="carousel" class="slick-slider carousel">
+
+          <button id="carousel-prev" class="slick-prev" type="button"><i class="icon back">&lt;<span></span></i></button>
+          <button id="carousel-next" class="slick-next" type="button"><i class="icon next">&gt;<span></span></i></button>
+
+          <div>
+            <div class="inner">
+              <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+            </div>
+          </div>
+          <div>
+            <div class="inner">
+              <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+            </div>
+          </div>
+          <div>
+            <div class="inner">
+              <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+            </div>
+          </div>
+          <div>
+            <div class="inner">
+              <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+            </div>
+          </div>
+          <div>
+            <div class="inner">
+              <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+            </div>
+          </div>
+          <div>
+            <div class="inner">
+              <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+            </div>
+          </div>
+          <div>
+            <div class="inner">
+              <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+            </div>
+          </div>
+          <div>
+            <div class="inner">
+              <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+            </div>
           </div>
         </div>
 
-    
-        <%= render :partial=>'show_payments', :locals=> {:reservation => Reservation.find(:all),:table =>Table.find(:all), :nightclub => Nightclub.find(:all), :payment => Payment.find(:all)} %>
-    
-      </div>
+        <div class="features">
+          <h2>Take Control<br class="l490" /> of your Night</h2>
 
-    <div class="col-md-8">
-       <div class="panel panel-default">
-         <div class="panel-heading"> 
-         <h4> <%= @a["first_name"]%> let's book you a table: </h4>
-        </div>
-         <%= render :partial=>'show_nightclubs', :locals=> {:nightclub => Nightclub.find(:all)} %>
-      </div>
-      </div>
-    </div>
-</div>
-
-
-  <% else %>
-
-    <h3> <%= current_user.email %> Let's Book you a table </h3>
-          <%= render :partial=>'show_nightclubs', :locals=> {:nightclub => Nightclub.find(:all)} %>
-
-         
-  <% end %>
-</div>
-</div>
-
-     <% else %>
-
-<div class="container-fluid">
-    <div class="row">
-   
-      <div class="col-md-12">  
-
-
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style=" margin: 0 auto" >
-         
-          <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          </ol>
-         
-          <!-- Slider Content (Wrapper for slides )-->
-          <div class="carousel-inner">
-            <div class="item active">
-              <img src="/assets/lounge.jpg" style='width:100%;' border="0" alt="Null">
-              <div class="carousel-caption">
-                <h4><p>Social Axis connects you with the hottest nightclubs in your area. Book table service on your terms while receiving exclusive hookups based on your social network. Take control of your night. </p></h4>
-              <center> <%= link_to '<i class="fa fa-facebook"></i>
-              Sign in with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook"  %> </center>
-              </div>
-            </div>
-             <div class="item">
-              <img src="/assets/tables.jpg" style='width:100%;' border="0" alt="Null">
-              <div class="carousel-caption" >
-                 <h4><p>Social Axis connects you with the hottest nightclubs in your area. Book table service on your terms while receiving exclusive hookups based on your social network. Take control of your night. </p></h4>
-              <center> <%= link_to '<i class="fa fa-facebook"></i>
-              Sign in with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook"  %> </center>
-              </div>
-            </div>
-
-               <div class="item">
-              <img src="/assets/club.jpg" style='width:100%;' border="0" alt="Null">
-              <div class="carousel-caption">
-                 <h4><p>Social Axis connects you with the hottest nightclubs in your area. Book table service on your terms while receiving exclusive hookups based on your social network. Take control of your night. </p></h4>
-              <center> <%= link_to '<i class="fa fa-facebook"></i>
-              Sign in with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook"  %> </center>
-              </div>
-            </div>
-
-
-
-
+          <div>
+            <img src="/assets/icons/social.png" alt="A loop with circles around it, making up a network" width="126" height="140" />
+            <h3>Hookup</h3>
+            <p>Social Axis leverages your social network to get exclusive hookups from your favorite clubs.</p>
+            <a class="forward" href="/about/" title="Learn more about Hookups">Learn more</a>
           </div>
-         
-          <!-- Controls -->
-          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-          </a>
-          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </a>
 
+          <div class="middle">
+            <img src="/assets/icons/cocktail.png" alt="A cocktail in a glass with a slice of fruit on the lip" width="143" height="140" />
+            <h3>Book Your Table</h3>
+            <p>Social Axis brings all of the best nightclubs in your city together, and lets you book the table you want.</p>
+            <a class="forward" href="/about/" title="Learn more about Booking a Table">Learn more</a>
+          </div>
 
-
+          <div>
+            <img src="/assets/icons/tickets.png" alt="A pair of tickets" width="142" height="140" />
+            <h3>Get Rewarded</h3>
+            <p>Every picture, follower, or check-in gives nightclubs exposure and Social Axis rewards you for that.</p>
+            <a class="forward" href="/about/" title="Learn more about Rewards">Learn more</a>
+          </div>
         </div>
 
-        <div>
-        </br>
-
-        </div>
-        
-        </div>
-    </div>
-</div>
-             <% end %>
+      </div>
 
 
-
+    <% end %>

@@ -1,47 +1,109 @@
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-7">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">
-					<%= @nightclub.name %>:
-					</h3>
-				</div> 
- 				<div class="panel-body">
-					<%= render :partial=>'carousel' %></br>
-						<p><strong>Address:</strong>
-			 		 		<%= @nightclub.address %>
-						</p>
+<div class="container">
+	<div class="group two-three">
+		<div class="card club">
+			<div class="card-inner">
 
-						<p>
-						  <strong>Phone number:</strong>
-						  <%= @nightclub.phone_number %>
-						</p>
-						<%= render :partial=>'show_tables', :locals=> {:tables => Table.find_all_by_nightclub_id(@nightclub.id)} %>
+				<%= render :partial=>'carousel' %>
 
+				<div class="mobile-details">
+					<h1><%= @nightclub.name %></h1>
+
+					<ul class="contact-details">
+						<li class="phone"><i class="icon phone black"></i><%= @nightclub.phone_number %></li>
+						<li class="marker"><i class="icon marker black"></i><%= @nightclub.address %></li>
+					</ul>
+
+					<div class="concealed description">
+						<p><%= @nightclub.description %></p>
+					</div>
+
+					<div class="titleset">
+						<i class="icon cocktail black"></i>
+						<h2>Book Table</h2>
+					</div>
 				</div>
 
+				<form id="party-form" action="/tables/" method="get">
 
-				<div class="panel-footer">
-					<span class="glyphicon glyphicon-home"></span>
-<%= link_to 'Home', root_path %>  |
-					<span class="glyphicon glyphicon-hand-left"></span>
-					<%= link_to 'Back', root_path %>
+					<fieldset id="table-choice" class="table-choice">
+					<%= render :partial=>'show_tables', :locals=> {:tables => Table.find_all_by_nightclub_id(@nightclub.id)} %>
+					</fieldset>
+
+					<div id="party-details" class="reveal">
+
+						<fieldset class="suffixed-labels">
+							<label>When are you looking to party?</label>
+
+							<div class="inputset">
+
+								<select name="hours" class="custom-selector" required>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+								</select>
+
+								<span>:</span>
+
+								<select name="mins" class="custom-selector" required>
+									<option value="00">00</option>
+									<option value="15">15</option>
+									<option value="30">30</option>
+									<option value="45">45</option>
+								</select>
+
+								<span class="suffix">pm</span>
+							</div>
+
+							<div class="inputset">
+								<input id="datepicker" class="third" type="text" name="date" placeholder="07/24/2014" required data-error-msg="Please enter a valid date" />
+								<button id="datepicker-button" class="date-picker">Choose date</button>
+							</div>
+						</fieldset>
+
+						<fieldset class="suffixed-labels" name="no-of-people" data-error-msg="At least one person must be going to your party">
+							<label>How many are going to your party?</label>
+							<div class="inputset"><input class="third" type="number" min="0" max="999" maxlength="3" name="girls" placeholder="0" /><span class="suffix"><i class="icon girl black"></i><span>Girls</span></span></div>
+							<div class="inputset"><input class="third" type="number" min="0" max="999" maxlength="3" name="boys" placeholder="0" /><span class="suffix"><i class="icon boy black" ></i><span>Boys</span></span></div>
+						</fieldset>
+
+						<div id="errors" class="errors message warning">
+							The following errors occured:
+							<ul>
+							</ul>
+						</div>
+
+						<fieldset class="submit">
+							<button id="club-submit" class="button blue" type="submit">Proceed to Payment<i class="icon next"><span></span></i></button>
+						</fieldset>
+					</div>
+
+				</form>
+
+				<div class="button-and-hint">
+					<a class="button facebook" href="https://www.facebook.com/sharer/sharer.php?u=<url>" title="Title of button">Share on Facebook</a>
+					<p class="hint">Let your friends know your party is booked!</p>
 				</div>
 			</div>
 		</div>
 
-		<div class="col-md-5">
-			<div class="panel panel-default">
-        		<div class="panel-heading">
-        			<h3 class="panel-title">Description</h3>
-        		</div> 
-         		<div class="panel-body">
-        			<%= @nightclub.description %>
+		<div class="infobar box">
+
+			<div class="box-inner">
+
+				<div class="headerset">
+					<h1><%= @nightclub.name %></h1>
+
+					<ul class="contact-details">
+						<li class="phone"><i class="icon phone"></i><%= @nightclub.phone_number %></li>
+						<li class="marker"><i class="icon marker"></i><%= @nightclub.address %></li>
+					</ul>
 				</div>
-       		</div>
+
+				<p><%= @nightclub.description %></p>
+			</div>
 		</div>
-		
 
 	</div>
 </div>

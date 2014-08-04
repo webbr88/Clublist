@@ -1,0 +1,51 @@
+body {
+  min-width: 640px;
+}
+
+.about .sidebar {
+  float: right !important;
+}
+
+.feature {
+  padding: 4em 0;
+}
+
+.reserve button {
+  width: 140px;
+}
+
+#party-details {
+  display: none;
+}
+
+#party-details.show {
+  display: block;
+}
+
+br {
+  display: block !important;
+}
+
+.button .icon {
+  display: none !important;
+}
+
+.status-info,
+.status-details {
+  display: none !important;
+}
+
+.card-list .reservation {
+  padding-bottom: 2em;
+}
+
+.card-list li {
+  width: 47% !important;
+  margin-left: 1% !important;
+  margin-right: 1% !important;
+}
+
+.group > div {
+  margin-left: .5% !important;
+  margin-right: .5% !important;
+}

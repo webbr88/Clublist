@@ -10,9 +10,7 @@ Clublist::Application.routes.draw do
   
   root "pages#home"
   get "about" => "pages#about"
-  #get "contact" => "pages#contact"  Added in new contacts page
-  get "terms" => "pages#terms"
-  get "privacy" => "pages#privacy"
+  #get "contact" => "pages#contact"
   resources :charges
 
 match '/contacts',     to: 'contacts#new',             via: 'get'
