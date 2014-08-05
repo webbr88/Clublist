@@ -1,84 +1,113 @@
-<div class="container-fluid">
-    <div class="row">
-     <div class="col-md-1"></div>
-      <div class="col-md-5">
+<div class="container">
+  <div class="group two-three">
+    <div class="card club">
+      <div class="card-inner">
 
-<div class="panel panel-default">
- <div class="panel-heading">
-<h3 class="panel-title">
-<% Nightclub.connection %>
-<%=Nightclub.find(@table.nightclub_id).name%>
-</h3>
- </div>
+        <%= render :partial=>'carousel' %>
 
- <div class="panel-body">
+        <div class="mobile-details">
+          <% Nightclub.connection %>
+          <h1><%=Nightclub.find(@table.nightclub_id).name%></h1>
 
-<%= render :partial=>'new_reservation', :locals=> {:reservation => Reservation.new(:table_id=> @table.id, :amount=> @table.min_cost, :nightclub_id=> @table.nightclub_id) } %>
+          <ul class="contact-details">
+            <li class="phone"><i class="icon phone black"></i><%= Nightclub.find(@table.nightclub_id).phone_number %></li>
+            <li class="marker"><i class="icon marker black"></i><%= Nightclub.find(@table.nightclub_id).address %></li>
+          </ul>
 
-</div>
-<div class="panel-footer">
-<span class="glyphicon glyphicon-home"></span>
-<%= link_to 'Home', root_path %>  |
-<span class="glyphicon glyphicon-hand-left"></span>
-<%= link_to 'Back', nightclub_path(@table.nightclub_id) %>
-</div>
+          <div class="concealed description">
+            <p><%= Nightclub.find(@table.nightclub_id).description %></p>
+          </div>
 
-</div>
+          <div class="titleset">
+            <i class="icon cocktail black"></i>
+            <h2>Book Table</h2>
+          </div>
+        </div>
 
-</div>
-     <div class="col-md-5"> 
+        <form id="party-form" action="/tables/" method="get">
 
+          <fieldset id="table-choice" class="table-choice">
+          <%= render :partial=>'show_tables', :locals=> {:tables => Table.find_all_by_nightclub_id(Nightclub.find(@table.nightclub_id))} %>
+          </fieldset>
 
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin: 0 auto" >
- 
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
- 
-  <!-- Slider Content (Wrapper for slides )-->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="/assets/lounge.jpg" alt="...">
-      <div class="carousel-caption">
-     <%=Nightclub.find(@table.nightclub_id).name%>
+          <%# Partial for making reservation %>
+          <%= render :partial=>'new_reservation', :locals=> {:reservation => Reservation.new(:table_id=> @table.id, :amount=> @table.min_cost, :nightclub_id=> @table.nightclub_id) } %>
+
+          <!--div id="party-details" class="reveal">
+
+            <fieldset class="suffixed-labels">
+              <label>When are you looking to party?</label>
+
+              <div class="inputset">
+
+                <select name="hours" class="custom-selector" required>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                </select>
+
+                <span>:</span>
+
+                <select name="mins" class="custom-selector" required>
+                  <option value="00">00</option>
+                  <option value="15">15</option>
+                  <option value="30">30</option>
+                  <option value="45">45</option>
+                </select>
+
+                <span class="suffix">pm</span>
+              </div>
+
+              <div class="inputset">
+                <input id="datepicker" class="third" type="text" name="date" placeholder="07/24/2014" required data-error-msg="Please enter a valid date" />
+                <button id="datepicker-button" class="date-picker">Choose date</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="suffixed-labels" name="no-of-people" data-error-msg="At least one person must be going to your party">
+              <label>How many are going to your party?</label>
+              <div class="inputset"><input class="third" type="number" min="0" max="999" maxlength="3" name="girls" placeholder="0" /><span class="suffix"><i class="icon girl black"></i><span>Girls</span></span></div>
+              <div class="inputset"><input class="third" type="number" min="0" max="999" maxlength="3" name="boys" placeholder="0" /><span class="suffix"><i class="icon boy black" ></i><span>Boys</span></span></div>
+            </fieldset>
+
+            <div id="errors" class="errors message warning">
+              The following errors occured:
+              <ul>
+              </ul>
+            </div>
+
+            <fieldset class="submit">
+              <button id="club-submit" class="button blue" type="submit">Proceed to Payment<i class="icon next"><span></span></i></button>
+            </fieldset>
+          </div>
+
+        </form>
+
+        <div class="button-and-hint">
+          <a class="button facebook" href="https://www.facebook.com/sharer/sharer.php?u=<url>" title="Title of button">Share on Facebook</a>
+          <p class="hint">Let your friends know your party is booked!</p>
+        </div>
+      </div>
+    </div-->
+
+    <div class="infobar box">
+
+      <div class="box-inner">
+
+        <div class="headerset">
+          <h1><%= Nightclub.find(@table.nightclub_id).name %></h1>
+
+          <ul class="contact-details">
+            <li class="phone"><i class="icon phone"></i><%= Nightclub.find(@table.nightclub_id).phone_number %></li>
+            <li class="marker"><i class="icon marker"></i><%= Nightclub.find(@table.nightclub_id).address %></li>
+          </ul>
+        </div>
+
+        <p><%= Nightclub.find(@table.nightclub_id).description %></p>
       </div>
     </div>
-     <div class="item">
-      <img src="/assets/tables.jpg" alt="...">
-      <div class="carousel-caption">
-    <%=Nightclub.find(@table.nightclub_id).name%>
-      </div>
-    </div>
-
-       <div class="item">
-      <img src="/assets/club.jpg" alt="...">
-      <div class="carousel-caption">
-  <%=Nightclub.find(@table.nightclub_id).name%>
-      </div>
-    </div>
-
-
-
 
   </div>
- 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-
-
-
 </div>
-
-
-     </div>
-</div>
-</div>
-    <div class="col-md-1"></div>
