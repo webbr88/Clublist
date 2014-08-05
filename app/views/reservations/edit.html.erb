@@ -1,84 +1,12 @@
-<div class="container-fluid">
-    <div class="row">
-     <div class="col-md-1"></div>
-      <div class="col-md-5">
+<div class="container">
+  <div class="group two-three">
+    <div class="card club">
+      <div class="card-inner">
+        <% Nightclub.connection %>
+        <h1><%=Nightclub.find(@reservation.nightclub_id).name%></h1>
 
-<div class="panel panel-default">
- <div class="panel-heading">
-<h3 class="panel-title">
-<% Nightclub.connection %>
-<%=Nightclub.find(@reservation.nightclub_id).name%>
-</h3>
- </div>
-
- <div class="panel-body">
-
-<%= render :partial=>'edit_reservation', :locals=> {:reservation => Reservation.new(:table_id=> @reservation.id, :amount=> @reservation.amount, :nightclub_id=> @reservation.nightclub_id) } %>
-
-</div>
-<div class="panel-footer">
-<span class="glyphicon glyphicon-home"></span>
-<%= link_to 'Home', root_path %>  |
-<span class="glyphicon glyphicon-hand-left"></span>
-<%= link_to 'Back', nightclub_path(@reservation.nightclub_id) %>
-</div>
-
-</div>
-
-</div>
-     <div class="col-md-5"> 
-
-
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin: 0 auto" >
- 
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
- 
-  <!-- Slider Content (Wrapper for slides )-->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="/assets/lounge.jpg" alt="...">
-      <div class="carousel-caption">
-     <%=Nightclub.find(@reservation.nightclub_id).name%>
+        <%= render :partial=>'edit_reservation', :locals=> {:reservation => Reservation.new(:table_id=> @reservation.id, :amount=> @reservation.amount, :nightclub_id=> @reservation.nightclub_id) } %>
       </div>
     </div>
-     <div class="item">
-      <img src="/assets/tables.jpg" alt="...">
-      <div class="carousel-caption">
-    <%=Nightclub.find(@reservation.nightclub_id).name%>
-      </div>
-    </div>
-
-       <div class="item">
-      <img src="/assets/club.jpg" alt="...">
-      <div class="carousel-caption">
-  <%=Nightclub.find(@reservation.nightclub_id).name%>
-      </div>
-    </div>
-
-
-
-
   </div>
- 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-
-
-
 </div>
-
-
-     </div>
-</div>
-</div>
-    <div class="col-md-1"></div>

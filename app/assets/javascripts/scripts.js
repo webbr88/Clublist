@@ -199,7 +199,7 @@ $(document).ready(function() {
   });
 
   // Datepicker
-  $datePicker = $("#datepicker");
+  $datePicker = $("#reservation_reservation_date");
   $datePickerButton = $("#datepicker-button");
   $datePicker.datepicker();
 
@@ -240,23 +240,23 @@ $(document).ready(function() {
 
   var noOfReveals = 0;
 
-  $tableChoice.find("tbody tr").on("click", function(e) {
-
-    // Deselect the previous row and select the new one
-    form.rows.deselect($(this));
-    form.rows.select($(this));
-
-    // Show the party-details section and scroll to it
-    if (noOfReveals === 0) {
-      $("#party-details").addClass("show");
-      $.scrollTo("#party-details", {
-        duration: 500,
-        offset: -80
-      });
-
-      noOfReveals++;
-    }
-  });
+  // $tableChoice.find("tbody tr").on("click", function(e) {
+  //
+  //   // Deselect the previous row and select the new one
+  //   form.rows.deselect($(this));
+  //   form.rows.select($(this));
+  //
+  //   // Show the party-details section and scroll to it
+  //   if (noOfReveals === 0) {
+  //     $("#party-details").addClass("show");
+  //     $.scrollTo("#party-details", {
+  //       duration: 500,
+  //       offset: -80
+  //     });
+  //
+  //     noOfReveals++;
+  //   }
+  // });
 
   var profileSlider = {
 

@@ -1,7 +1,7 @@
 <%= form_for(@nightclub) do |f| %>
   <% if @nightclub.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@nightclub.errors.count, "error") %> prohibited this nightclub from being saved:</h2>
+    <div id="errors" class="message error">
+      <%= pluralize(@nightclub.errors.count, "error") %> prohibited this nightclub from being saved:
 
       <ul>
       <% @nightclub.errors.full_messages.each do |msg| %>
