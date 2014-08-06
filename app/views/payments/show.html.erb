@@ -1,3 +1,77 @@
+<div class="container">
+  <div class="group two-three">
+    <div class="card club">
+      <div class="card-inner">
+        <h1>Payment Confirmed</h1>
+
+        <% Nightclub.connection %>
+
+        <p class="message success">Your card was successfully charged and your Reservation is booked. Have fun!</p>
+
+        <div class="mobile-details">
+
+          <div class="titleset">
+            <i class="icon cocktail black"></i>
+            <h2>Reservation Details</h2>
+          </div>
+
+          <h3>Name</h3>
+          <p><%= current_user.name%></p>
+
+          <h3>Nightclub</h3>
+          <p><%=Nightclub.find(@payment.nightclub_id).name%></p>
+
+          <h3>Date</h3>
+          <p><%= @payment.reservation_date.strftime("%a %d %b") %></p>
+
+          <h3>Amount</h3>
+          <p>$<%= @payment.amount - @payment.hookup %>0</p>
+
+          <h3>Males</h3>
+          <p><%= @payment.males %></p>
+
+          <h3>Chicks</h3>
+          <p><%= @payment.females %></p>
+        </div>
+
+        <p class="align-center"><%= link_to 'Home', root_path, class: "forward highlight" %></p>
+
+        <div class="button-and-hint">
+          <a class="button facebook" href="https://www.facebook.com/sharer/sharer.php?u=<url>" title="Title of button">Share on Facebook</a>
+          <p class="hint">Let your friends know your party is booked!</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="infobar box">
+      <div class="box-inner">
+        <div class="headerset">
+          <h2>Reservation Details</h2>
+        </div>
+
+        <h3>Name</h3>
+        <p><%= current_user.name%></p>
+
+        <h3>Nightclub</h3>
+        <p><%=Nightclub.find(@payment.nightclub_id).name%></p>
+
+        <h3>Date</h3>
+        <p><%= @payment.reservation_date.strftime("%a %d %b") %></p>
+
+        <h3>Amount</h3>
+        <p>$<%= @payment.amount - @payment.hookup %>0</p>
+
+        <h3>Males</h3>
+        <p><%= @payment.males %></p>
+
+        <h3>Chicks</h3>
+        <p><%= @payment.females %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3"></div>
@@ -8,6 +82,12 @@
           </div>
           <% Nightclub.connection %>
          <div class="panel-body">
+
+          <div class="button-and-hint">
+            <a class="button facebook" href="https://www.facebook.com/sharer/sharer.php?u=<url>" title="Title of button">Share on Facebook</a>
+            <p class="hint">Let your friends know your party is booked!</p>
+          </div>
+
           <p>
             <strong>Name:</strong>
             <%= current_user.name%>
@@ -35,7 +115,7 @@
            <strong>Chicks:</strong>
             <%= @payment.females %>
           </p>
-         
+
         </div>
 
         <div class="panel-footer">

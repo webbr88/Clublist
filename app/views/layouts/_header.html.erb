@@ -15,7 +15,7 @@ when nil, ""
       section = "front"
     end
 
-  when "nightclubs"
+  when "nightclubs", "tables", "payments"
     section = "club"
 
   when "reservations"
@@ -31,14 +31,14 @@ end
 ## Add a class of "interior" when viewing pages that can only be accessed when signed in
 case section
 
-when "club", "reservations"
+when "club", "reservations", "tables", "payments"
     section += " interior"
 end
 
 %>
 
 <body class="<% concat section %>">
-  <% if section == "club interior" %>
+  <% if section == "club interior" or section == "reservations interior" %>
   <div class="overlay"></div>
   <% end %>
 

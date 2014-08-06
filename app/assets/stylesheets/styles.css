@@ -3210,17 +3210,16 @@ form input:focus {
   box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.05), 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
+.field_with_errors {
+  display: inline;
+}
+
 form .icon {
   margin: 0 6px 0 0;
 }
 
 form span {
   font-size: .875em;
-}
-
-form .table-choice tbody tr:hover {
-  background: #D6D6D6;
-  cursor: pointer;
 }
 
 form .table-choice button {

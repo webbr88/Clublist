@@ -1,30 +1,39 @@
 <%= form_for(reservation) do |f| %>
   <% if reservation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
-
-      <ul>
-      <% reservation.errors.full_messages.each do |msg| %>
+    <div id="errors" class="message error">
+      <%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:
+      <% @reservation.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
-      </ul>
     </div>
   <% end %>
 
 <form role="form">
 
-  <div class="form-group">
-    <%= f.label :reservation_date , "When are you looking to party:" %><br>
-    <%= f.date_field :reservation_date, class: "form-control" %>
-  </div>
- <div class="form-group">
-    <%= f.label :males , "How many guys will be in your party:" %><br>
-    <%= f.number_field :males, class: "form-control"  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :females , "How many girls will be in your party:" %><br>
-    <%= f.number_field :females,  class: "form-control" %>
-  </div>
+  <fieldset class="suffixed-labels">
+    <%= f.label :reservation_date , "When are you looking to party:" %>
+
+    <div class="inputset">
+      <%= f.date_field :reservation_date, class: "form-control" %>
+      <button id="datepicker-button" class="date-picker">Choose date</button>
+    </div>
+  </fieldset>
+
+  <fieldset class="suffixed-labels" name="no-of-people" data-error-msg="At least one person must be going to your party">
+
+    <%= f.label :females , "How many people will be going to your party:" %>
+    <div class="inputset">
+      <%= f.number_field :females,  class: "form-control" %>
+      <span class="suffix"><i class="icon girl black"></i><span>Girls</span></span>
+    </div>
+
+    <div class="inputset">
+      <%= f.number_field :males, class: "form-control"  %>
+      <span class="suffix"><i class="icon boy black" ></i><span>Boys</span></span>
+    </div>
+
+  </fieldset>
+
    <div class="field">
      <%= f.hidden_field :amount %>
   </div>

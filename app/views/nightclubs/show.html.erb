@@ -29,62 +29,7 @@
 					<%= render :partial=>'show_tables', :locals=> {:tables => Table.find_all_by_nightclub_id(@nightclub.id)} %>
 					</fieldset>
 
-					<div id="party-details" class="reveal">
-
-						<fieldset class="suffixed-labels">
-							<label>When are you looking to party?</label>
-
-							<div class="inputset">
-
-								<select name="hours" class="custom-selector" required>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
-									<option value="11">11</option>
-								</select>
-
-								<span>:</span>
-
-								<select name="mins" class="custom-selector" required>
-									<option value="00">00</option>
-									<option value="15">15</option>
-									<option value="30">30</option>
-									<option value="45">45</option>
-								</select>
-
-								<span class="suffix">pm</span>
-							</div>
-
-							<div class="inputset">
-								<input id="datepicker" class="third" type="text" name="date" placeholder="07/24/2014" required data-error-msg="Please enter a valid date" />
-								<button id="datepicker-button" class="date-picker">Choose date</button>
-							</div>
-						</fieldset>
-
-						<fieldset class="suffixed-labels" name="no-of-people" data-error-msg="At least one person must be going to your party">
-							<label>How many are going to your party?</label>
-							<div class="inputset"><input class="third" type="number" min="0" max="999" maxlength="3" name="girls" placeholder="0" /><span class="suffix"><i class="icon girl black"></i><span>Girls</span></span></div>
-							<div class="inputset"><input class="third" type="number" min="0" max="999" maxlength="3" name="boys" placeholder="0" /><span class="suffix"><i class="icon boy black" ></i><span>Boys</span></span></div>
-						</fieldset>
-
-						<div id="errors" class="errors message warning">
-							The following errors occured:
-							<ul>
-							</ul>
-						</div>
-
-						<fieldset class="submit">
-							<button id="club-submit" class="button blue" type="submit">Proceed to Payment<i class="icon next"><span></span></i></button>
-						</fieldset>
-					</div>
-
 				</form>
-
-				<div class="button-and-hint">
-					<a class="button facebook" href="https://www.facebook.com/sharer/sharer.php?u=<url>" title="Title of button">Share on Facebook</a>
-					<p class="hint">Let your friends know your party is booked!</p>
-				</div>
 			</div>
 		</div>
 
