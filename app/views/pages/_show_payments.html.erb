@@ -18,7 +18,7 @@
   <% r=payment.table_id %>
   <% n=Table.find(r).nightclub_id %>
   <li>
-    <a class="share" href="https://www.facebook.com/share.php?u=<url>" title="Share your reservation on Facebook"><i class="icon facebook"><span>Share</span></i></a>
+    <a class="share" href="https://www.facebook.com/share.php?u=socialaxisapp.com" title="Share your reservation on Facebook"><i class="icon facebook"><span>Share</span></i></a>
     <h3><%= Nightclub.find(n).name %> (<%= link_to 'Edit', edit_payment_path(payment) %>)</h3>
     <p><%= payment.reservation_date.strftime("%a %d %b")   %></p>
   </li>
