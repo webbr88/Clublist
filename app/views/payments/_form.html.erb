@@ -30,23 +30,29 @@
 
     <form role="form">
 
-      <div class="form-group">
-        <%= f.label :reservation_date, "Need to move your Reservation Date:" %><br>
-        <%= f.date_field :reservation_date, class: "form-control" %>
-      </div>
+      <fieldset class="suffixed-labels">
+        <%= f.label :reservation_date, "Need to move your Reservation Date:" %>
+        <div class="inputset">
+          <%= f.date_field :reservation_date, class: "form-control" %>
+          <button id="datepicker-button" class="date-picker">Choose date</button>
+        </div>
+      </fieldset>
 
-      <div class="field">
-        <%= f.label :males, "Bringing more dudes:" %><br>
-        <%= f.number_field :males, class: "form-control" %>
-      </div>
+      <fieldset class="suffixed-labels" name="no-of-people">
+        <%= f.label :females, "Bringing more females:" %>
+        <div class="inputset">
+          <%= f.number_field :females,  class: "form-control" %>
+          <span class="suffix"><i class="icon girl black"></i><span>Girls</span></span>
+        </div>
+      </fieldset>
 
-      <div class="field">
-        <%= f.label :females, "Bringing more females:" %><br>
-        <%= f.number_field :females, class: "form-control" %>
-      </div>
-
-
-
+      <fieldset class="suffixed-labels" name="no-of-people">
+        <%= f.label :males, "Bringing more dudes:" %>
+        <div class="inputset">
+          <%= f.number_field :males, class: "form-control"  %>
+          <span class="suffix"><i class="icon boy black" ></i><span>Boys</span></span>
+        </div>
+      </fieldset>
     </form>
 </br>
 </br>
