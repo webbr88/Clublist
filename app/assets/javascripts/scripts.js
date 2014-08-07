@@ -199,9 +199,12 @@ $(document).ready(function() {
   });
 
   // Datepicker
-  $datePicker = $("#reservation_reservation_date");
+  $datePicker = $("#reservation_reservation_date, #payment_reservation_date");
   $datePickerButton = $("#datepicker-button");
-  $datePicker.datepicker();
+  $datePicker.datepicker({
+        // Consistent format with the HTML5 picker
+        dateFormat: 'yy-mm-dd'
+    });
 
   $("#datepicker-button").on("click", function(e) {
     e.preventDefault();

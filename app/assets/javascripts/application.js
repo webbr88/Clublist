@@ -11,8 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require third-party/modernizr.min
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require turbolinks
-//= require masonry/jquery.masonry
+//= payments
+//= require third-party.min
+//= require scripts
+
 //= require_tree .

@@ -450,6 +450,10 @@ body {
   color: white;
 }
 
+::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
 /**
  * Useful functions
  */
@@ -2071,14 +2075,14 @@ table {
   font-size: .8888889em;
 }
 
-table thead,
-table th {
+table thead {
   font-weight: 500;
   border-bottom: solid 2px #D6D6D6;
 }
 
 table th {
   text-align: left;
+  border-bottom: solid 2px #D6D6D6;
 }
 
 table tr:nth-child(even) {
@@ -3421,6 +3425,11 @@ form .suffixed-labels .suffix span {
 
 .ui-datepicker {
   font-size: 14px !important;
+  z-index: 110 !important;
+}
+
+.ui-datepicker tr {
+    background: white !important;
 }
 
 /*! jQuery UI - v1.11.0 - 2014-07-26
@@ -3597,8 +3606,8 @@ form .suffixed-labels .suffix span {
 .ui-datepicker th {
   padding: .7em .3em;
   text-align: center;
-  font-weight: bold;
   border: 0;
+  font-weight: 500;
 }
 
 .ui-datepicker td {
@@ -3879,13 +3888,6 @@ form .suffixed-labels .suffix span {
 
 /* Interaction states
 ----------------------------------*/
-
-.ui-state-default,
-.ui-widget-content .ui-state-default,
-.ui-widget-header .ui-state-default {
-  background: #d6d6d6;
-}
-
 .ui-state-default a,
 .ui-state-default a:link,
 .ui-state-default a:visited {
@@ -3893,15 +3895,7 @@ form .suffixed-labels .suffix span {
   text-decoration: none;
 }
 
-.ui-state-hover,
-.ui-widget-content .ui-state-hover,
-.ui-widget-header .ui-state-hover,
-.ui-state-focus,
-.ui-widget-content .ui-state-focus,
-.ui-widget-header .ui-state-focus {
-  background: #dadada;
-  color: #212121;
-}
+
 
 .ui-state-hover a,
 .ui-state-hover a:hover,
@@ -3913,6 +3907,10 @@ form .suffixed-labels .suffix span {
 .ui-state-focus a:visited {
   color: #212121;
   text-decoration: none;
+}
+
+td .ui-state-hover {
+    background: #d6d6d6;
 }
 
 .ui-state-active,
