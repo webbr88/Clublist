@@ -3,7 +3,7 @@
       <% Koala.config.api_version = "v2.1" %>
       <% @graph = Koala::Facebook::API.new(current_user.oauth_token) %>
       <% @a = @graph.get_object("me") %>
-      <% @friends = @graph.get_connections("me","friends") %>
+      <% friends =  @graph.api("me/friends") %>
       <% permissions = @graph.get_connections('me','permissions') %>
 
       <div class="overlay"></div>
@@ -24,12 +24,7 @@
                     <dl class="group">
                       <dt>Name:</dt>
                       <dd><%= @a["name"] %></dd>
-
-                      <% b = 0 %>
-                      <%# @friends.each do |f| %>
-                       <% b = b+1 %>
-                      <%# end %>
-
+                      <dd><%= friends["summary"]["total_count"] %></dd>  
                       <dt>City:</dt>
                       <% if @a["location"] %>
                         <dd><%= @a["location"]["name"] %></dd>
@@ -38,15 +33,19 @@
                       <%end%>
                       <dt class="status-info">Status:</dt>
 
-                      <%# if @friends.size > 800 and @friends.size <= 1200 %>
+                      <% if friends["summary"]["total_count"] > 800 and @friends.size <= 1000 %>
                         <dd class="status-info"><button id="show-status" class="status">Turned Up</button></dd>
-                      <%# elsif @friends.size >1200 and @friends.size <=2000 %>
-                        <!-- <dd class="status-info"><button id="show-status" class="status">VIP</button></dd> -->
-                      <%# elsif @friends.size >2000 %>
-                        <!-- <dd class="status-info"><button id="show-status" class="status">Socialite</button></dd> -->
-                      <%#else%>
-                        <!-- <dd class="status-info"><button id="show-status" class="status">Party Animal</button></dd> -->
-                      <%#end%>
+                      
+                      <% elsif friends["summary"]["total_count"] >1000 and friends["summary"]["total_count"] <=2000 %>
+                        <dd class="status-info"><button id="show-status" class="status">VIP</button></dd>
+                      
+                      <% elsif friends["summary"]["total_count"] >2000 %>
+                        <dd class="status-info"><button id="show-status" class="status">Socialite</button></dd>
+                      
+                      <%else%>
+                        <dd class="status-info"><button id="show-status" class="status">Party Animal</button></dd>
+                      
+                      <%end%>
                     </dl>
                   </div>
 
@@ -116,27 +115,12 @@
 
           <div>
             <div class="inner">
-              <img src="/assets/content/luxy.jpg" alt="Girl in club having a good time" width="320" height="320" />
-            </div>
-          </div>
-          <div>
-            <div class="inner">
-              <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time"/>
-            </div>
-          </div>
-          <div>
-            <div class="inner">
-              <img src="/assets/content/Renaldo.jpg" alt="Girl in club having a good time" width="320" height="320" />
-            </div>
-          </div>
-          <div>
-            <div class="inner">
-              <img src="/assets/content/champagne.jpg" alt="Girl in club having a good time" width="320" height="320" />
-            </div>
-          </div>
-          <div>
-            <div class="inner">
               <img src="/assets/content/lady.jpg" alt="Girl in club having a good time" width="320" height="320" />
+            </div>
+          </div>
+          <div>
+            <div class="inner">
+              <img src="/assets/content/DJ.jpg" alt="Girl in club having a good time"/>
             </div>
           </div>
           <div>
@@ -146,12 +130,27 @@
           </div>
           <div>
             <div class="inner">
-              <img src="/assets/content/clubbing.jpg" alt="Girl in club having a good time" width="320" height="320" />
+              <img src="/assets/content/champagne.jpg" alt="Girl in club having a good time" width="320" height="320" />
             </div>
           </div>
           <div>
             <div class="inner">
-              <img src="/assets/content/clubbing 2.jpg" alt="Girl in club having a good time" width="320" height="320" />
+              <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+            </div>
+          </div>
+          <div>
+            <div class="inner">
+              <img src="/assets/content/crowd.jpg" alt="Girl in club having a good time" width="320" height="320" />
+            </div>
+          </div>
+          <div>
+            <div class="inner">
+              <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
+            </div>
+          </div>
+          <div>
+            <div class="inner">
+              <img src="/assets/content/temp1.jpg" alt="Girl in club having a good time" width="320" height="320" />
             </div>
           </div>
         </div>
