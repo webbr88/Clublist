@@ -24,16 +24,15 @@
                     <dl class="group">
                       <dt>Name:</dt>
                       <dd><%= @a["name"] %></dd>
-                      <dd><%= friends["summary"]["total_count"] %></dd>  
                       <dt>City:</dt>
                       <% if @a["location"] %>
                         <dd><%= @a["location"]["name"] %></dd>
                       <%else%>
-                        <dd>New York, NY</dd>
+                        <dd>Missing your city</dd>
                       <%end%>
                       <dt class="status-info">Status:</dt>
 
-                      <% if friends["summary"]["total_count"] > 800 and @friends.size <= 1000 %>
+                      <% if friends["summary"]["total_count"] > 800 and friends["summary"]["total_count"] <= 1000 %>
                         <dd class="status-info"><button id="show-status" class="status">Turned Up</button></dd>
                       
                       <% elsif friends["summary"]["total_count"] >1000 and friends["summary"]["total_count"] <=2000 %>
@@ -51,38 +50,37 @@
 
                   <div class="status-details">
                     <button id="close-status" type="button"><i class="icon back"><span></span>Back</i></button>
-                      <%# if @friends.size > 800 and @friends.size <= 1200 %>
+                       <% if friends["summary"]["total_count"] > 800 and friends["summary"]["total_count"] <= 1000 %>
+                        <div class="titleset all">
+                          <i class="icon party"></i>
+                          <h3>Turned Up</h3>
+                        </div>
+                        <p>Turned up description</p>
 
-                      <div class="titleset all">
-                        <i class="icon party"></i>
-                        <h3>Turned Up</h3>
-                      </div>
-                      <p>Turned up description</p>
+                      <% elsif friends["summary"]["total_count"] >1000 and friends["summary"]["total_count"] <=2000 %>
 
-                      <%# elsif @friends.size >1200 and @friends.size <=2000 %>
+                        <div class="titleset all">
+                          <i class="icon party"></i>
+                          <h3>VIP</h3>
+                        </div>
+                        <p>VIP description</p>
 
-                      <!-- <div class="titleset all">
-                        <i class="icon party"></i>
-                        <h3>VIP</h3>
-                      </div>
-                      <p>VIP description</p> -->
+                       <% elsif friends["summary"]["total_count"] >2000 %>
 
-                      <%# elsif @friends.size >2000 %>
+                        <div class="titleset all">
+                          <i class="icon party"></i>
+                          <h3>Socialite</h3>
+                        </div>
+                        <p>Socialite description</p>
 
-                      <!-- <div class="titleset all">
-                        <i class="icon party"></i>
-                        <h3>Socialite</h3>
-                      </div>
-                      <p>Socialite description</p> -->
+                      <%else%>
 
-                      <%#else%>
-
-                    <!-- <div class="titleset all">
-                      <i class="icon party"></i>
-                      <h3>Party Animal</h3>
-                    </div>
-                    <p>Party animal description</p> -->
-                    <%#end%>
+                        <div class="titleset all">
+                          <i class="icon party"></i>
+                          <h3>Party Animal</h3>
+                        </div>
+                        <p>Party animal description</p>
+                    <%end%>
                   </div>
                 </div>
               </div>
@@ -95,9 +93,18 @@
             </div>
           </div>
 
-          <div>
-            <%= render :partial=>'show_nightclubs', :locals=> {:nightclub => Nightclub.find(:all)} %>
-          </div>
+          <% if @a["location"]["name"] == "ABC" %>
+            <div>
+              <%= render :partial=>'show_nightclubs', :locals=> {:nightclub => Nightclub.find(:all)} %>
+            </div>
+          <%else%>
+        
+                  <div>
+                    <p class="warning">Sorry! Social Axis isn't currently in your city. We’re currently piloting in NYC, but if you're interested in Social Axis coming to your city, <%= link_to "Contact Us", new_contact_path %> - it could be the start of a great friendship. However, feel free to check out our NYC clubs below: </p>
+                    <%= render :partial=>'show_nightclubs', :locals=> {:nightclub => Nightclub.find(:all)} %>
+                  </div>
+            <%end%>
+
         </div>
       </div>
 
@@ -160,8 +167,8 @@
 
           <div>
             <img src="/assets/icons/social.png" alt="A loop with circles around it, making up a network" width="126" height="140" />
-            <h3>Hookup</h3>
-            <p>Social Axis leverages your social network to get exclusive hookups from your favorite clubs.</p>
+            <h3>Access</h3>
+            <p>Social Axis leverages your social network to get exclusive access to your favorite nightlife.</p>
             <a class="forward" href="/about/" title="Learn more about Hookups">Learn more</a>
           </div>
 
@@ -174,8 +181,8 @@
 
           <div>
             <img src="/assets/icons/tickets.png" alt="A pair of tickets" width="142" height="140" />
-            <h3>Get Rewarded</h3>
-            <p>Every picture, follower, or check-in gives nightclubs exposure and Social Axis rewards you for that.</p>
+            <h3>Get Comped</h3>
+            <p>Every picture, follower, or check-in gives nightclubs exposure and Social Axis comps you for that.</p>
             <a class="forward" href="/about/" title="Learn more about Rewards">Learn more</a>
           </div>
         </div>
