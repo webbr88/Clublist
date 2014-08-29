@@ -48,7 +48,7 @@
 
         <li class="l720"><%= link_to "Profile", root_path %></li>
         <li><%= link_to "Book a table", root_path %></li>
-        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Log out", destroy_user_session_path %></li>
       <% else %>
         <li><%= link_to "Sign in", user_omniauth_authorize_path(:facebook) %></li>
       <% end %>
