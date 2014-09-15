@@ -45,6 +45,17 @@
                         <dd class="status-info"><button id="show-status" class="status">Party Animal</button></dd>
                       
                       <%end%>
+                       <dt>Past Reservations:</dt>
+                       <%Payment.connection%>
+                       <% paymentSummary = Payment.find_all_by_user_id(current_user.id) %>
+                       <dd><%= paymentSummary.size %></dd>
+                       <dt>Dollars Spent:</dt>
+                       <%Payment.connection%>
+                       <% totalPaymentValue = 0 %>
+                       <% paymentSummary.each do |payment| %>
+                       <% totalPaymentValue = paymentSummary.amount-paymentSummary.hookup %>
+                       <%end%>
+                       <dd>$<%=totalPaymentValue%></dd>
                     </dl>
                   </div>
 
@@ -55,7 +66,7 @@
                           <i class="icon party"></i>
                           <h3>Turned Up</h3>
                         </div>
-                        <p>Turned up description</p>
+                        <p>Your response to 'Turn Down for What' is popping another champagne bottle. You may need advil and sunglasses regularily during brunch on the weekends, but you always have a good story. Hopefully the Social Axis hookups are giving you reasons to Turn Up more often as well. </p>
 
                       <% elsif friends["summary"]["total_count"] >1000 and friends["summary"]["total_count"] <=2000 %>
 
@@ -63,7 +74,7 @@
                           <i class="icon party"></i>
                           <h3>VIP</h3>
                         </div>
-                        <p>VIP description</p>
+                        <p>People are really starting to know your name around the city, and your friends are starting to look at you as the token 'Wild Friend'. It doesn't matter though, I bet they all ask you to book the tables. We'll keep your nice Social Axis hookups between us though. </p>
 
                        <% elsif friends["summary"]["total_count"] >2000 %>
 
@@ -71,7 +82,7 @@
                           <i class="icon party"></i>
                           <h3>Socialite</h3>
                         </div>
-                        <p>Socialite description</p>
+                        <p>Everyone in the venue can instantly see that you run this place. You feel at home out and underneath the flashing lights. In fact, we'd go as far to say you make partying look easy. Hopefully your Social Axis hookups make it easier on your bank account as well.</p>
 
                       <%else%>
 
@@ -79,7 +90,7 @@
                           <i class="icon party"></i>
                           <h3>Party Animal</h3>
                         </div>
-                        <p>Party animal description</p>
+                        <p>You definitely know how to go out and have a fun time. Now all you need to do is channel your inner spirit animal and book some tables. Not only will your friends be happy you're treating them to a good time, but you just might see some extra Social Axis hookups. </p>
                     <%end%>
                   </div>
                 </div>

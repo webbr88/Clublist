@@ -14,7 +14,7 @@
 <ul>
   <% payment.each do |payment| %>
   <% if payment.user_id == current_user.id %>
-  <% if payment.reservation_date >= Date.today.to_s %>
+  <%if payment.reservation_date >= Date.today.to_s %>
   <% r=payment.table_id %>
   <% n=Table.find(r).nightclub_id %>
   <li>
