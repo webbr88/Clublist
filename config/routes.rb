@@ -10,7 +10,7 @@ Clublist::Application.routes.draw do
   
   root "pages#home"
   get "about" => "pages#about"
-    get "privacy" => "pages#privacy"
+  get "privacy" => "pages#privacy"
   #get "contact" => "pages#contact"
   resources :charges
 
